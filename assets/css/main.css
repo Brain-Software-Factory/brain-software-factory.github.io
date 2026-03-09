@@ -1,5 +1,5 @@
 /**
-* Template Name: Strategy
+* Template Name: Brain
 * Template URL: https://bootstrapmade.com/strategy-bootstrap-agency-template/
 * Updated: Jun 06 2025 with Bootstrap v5.3.6
 * Author: BootstrapMade.com
@@ -2705,6 +2705,38 @@ section,
   height: 180px;
   resize: none;
   padding-top: 15px;
+}
+
+/* Form-floating (Bootstrap 5) - tema oscuro */
+.contact .contact-form-wrapper .form-floating .form-control {
+  background-color: color-mix(in srgb, var(--surface-color), black 20%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  color: var(--default-color);
+}
+
+.contact .contact-form-wrapper .form-floating .form-control:focus {
+  background-color: color-mix(in srgb, var(--surface-color), black 20%);
+  border-color: var(--accent-color);
+  color: var(--default-color);
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.contact .contact-form-wrapper .form-floating .form-control::placeholder {
+  color: transparent;
+}
+
+.contact .contact-form-wrapper .form-floating label {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.contact .contact-form-wrapper .form-floating .form-control:focus ~ label,
+.contact .contact-form-wrapper .form-floating .form-control:not(:placeholder-shown) ~ label {
+  color: var(--accent-color);
+}
+
+.contact .contact-form-wrapper .form-floating textarea.form-control {
+  height: 150px;
+  resize: none;
 }
 
 .contact .contact-form-wrapper .btn-submit {
