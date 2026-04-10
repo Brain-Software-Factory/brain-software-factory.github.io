@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Problema/Solución + Services — Brain</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0f; font-family: 'Inter', system-ui, sans-serif; color: #fff; }
+
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: #818cf8; margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 40px; font-weight: 900; letter-spacing: -1.5px;
+    color: #f9fafb; line-height: 1.1; margin-bottom: 14px;
+  }
+  .section-title .accent {
+    background: linear-gradient(135deg, #6366f1, #a78bfa);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .section-sub { font-size: 16px; color: #6b7280; line-height: 1.6; max-width: 520px; }
+
+  /* ── PROBLEMA / SOLUCIÓN ── */
+  .pain-section {
+    padding: 100px 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .pain-header { text-align: center; margin-bottom: 64px; }
+
+  .pain-grid {
+    display: grid; grid-template-columns: 1fr 64px 1fr;
+    max-width: 960px; margin: 0 auto; align-items: stretch;
+  }
+  .pain-col { display: flex; flex-direction: column; gap: 16px; }
+
+  .col-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 16px; border-radius: 10px; margin-bottom: 4px;
+    font-size: 13px; font-weight: 700;
+  }
+  .col-header-pain  { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.15); color: #f87171; }
+  .col-header-brain { background: rgba(99,102,241,0.10); border: 1px solid rgba(99,102,241,0.20); color: #a5b4fc; }
+
+  .pain-item, .solution-item {
+    border-radius: 12px; padding: 20px 22px;
+  }
+  .pain-item     { background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.10); }
+  .solution-item { background: rgba(99,102,241,0.05); border: 1px solid rgba(99,102,241,0.14); }
+
+  .item-icon {
+    width: 36px; height: 36px; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; margin-bottom: 12px; flex-shrink: 0;
+  }
+  .icon-pain     { background: rgba(239,68,68,0.12); color: #f87171; }
+  .icon-solution { background: rgba(99,102,241,0.14); color: #a5b4fc; }
+
+  .item-title { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+  .pain-item     .item-title { color: #fca5a5; }
+  .solution-item .item-title { color: #c4b5fd; }
+  .item-desc  { font-size: 12px; color: #6b7280; line-height: 1.55; }
+
+  .divider-col {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0; padding-top: 52px;
+  }
+  .arrow-line { flex: 1; width: 1px; background: linear-gradient(to bottom, transparent, rgba(99,102,241,0.25), transparent); }
+  .arrow-node {
+    width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: #fff;
+    box-shadow: 0 0 16px rgba(99,102,241,0.4);
+  }
+
+  /* ── SERVICES ── */
+  .services-section {
+    padding: 100px 48px;
+    background: linear-gradient(180deg, #0a0a0f 0%, #0d0d18 100%);
+  }
+  .services-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 48px; max-width: 1100px; margin-left: auto; margin-right: auto;
+    margin-bottom: 48px;
+  }
+  .services-header-left { max-width: 480px; }
+  .services-header-link {
+    display: flex; align-items: center; gap: 6px;
+    color: #818cf8; font-size: 13px; font-weight: 600; text-decoration: none;
+    border-bottom: 1px solid rgba(129,140,248,0.3); padding-bottom: 2px;
+    white-space: nowrap;
+  }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  .service-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px; padding: 28px;
+    position: relative; overflow: hidden;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.5), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .service-card:hover { border-color: rgba(99,102,241,0.25); background: rgba(99,102,241,0.04); }
+  .service-card:hover::before { opacity: 1; }
+
+  .service-card-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; margin-bottom: 16px;
+  }
+  .service-card-tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: #374151; margin-bottom: 7px;
+  }
+  .service-card-title {
+    font-size: 17px; font-weight: 800; color: #f9fafb;
+    letter-spacing: -0.3px; margin-bottom: 10px; line-height: 1.2;
+  }
+  .service-card-desc { font-size: 13px; color: #6b7280; line-height: 1.6; margin-bottom: 20px; }
+  .service-card-footer { display: flex; align-items: center; justify-content: space-between; }
+  .service-card-tool {
+    font-size: 11px; font-weight: 600; color: #4b5563;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px; padding: 3px 9px;
+  }
+  .service-card-arrow {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: #818cf8;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .service-card:hover .service-card-arrow { background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.4); }
+
+  /* annotation */
+  .annotation-box {
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 12px;
+    padding: 20px 24px; margin: 40px auto 0; max-width: 960px;
+    font-size: 13px; color: #94a3b8;
+  }
+  .annotation-box h4 { color: #f1f5f9; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .annotation-box ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .annotation-box li::before { content: "→ "; color: #6366f1; }
+
+  .approval { display: flex; gap: 12px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+  .option {
+    border-radius: 10px; padding: 12px 24px; cursor: pointer; font-size: 13px;
+    transition: outline 0.15s;
+  }
+  .option-ok     { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); color: #4ade80; font-weight: 700; }
+  .option-change { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #9ca3af; }
+</style>
+</head>
+<body>
+
+<div style="background: #1e1b4b; text-align: center; padding: 8px; font-size: 12px; color: #818cf8; font-weight: 600; letter-spacing: 1px;">
+  MOCKUP v2 — SECCIÓN 2: PROBLEMA → SOLUCIÓN &nbsp;|&nbsp; SECCIÓN 3: SERVICIOS &nbsp;(Bootstrap Icons)
+</div>
+
+<!-- ══ PAIN / SOLUTION ══ -->
+<section class="pain-section">
+  <div class="pain-header">
+    <div class="section-label">El problema real</div>
+    <h2 class="section-title">¿Cuánto le cuesta a tu negocio<br><span class="accent">no automatizar?</span></h2>
+    <p class="section-sub" style="margin: 0 auto; text-align: center;">Cada tarea manual es tiempo perdido. Cada dato disperso, una decisión mal tomada.</p>
+  </div>
+
+  <div class="pain-grid">
+
+    <!-- PAIN -->
+    <div class="pain-col">
+      <div class="col-header col-header-pain">
+        <i class="bi bi-x-circle"></i> Sin Brain
+      </div>
+
+      <div class="pain-item">
+        <div class="item-icon icon-pain"><i class="bi bi-clock-history"></i></div>
+        <div class="item-title">Tareas repetitivas que consumen horas</div>
+        <div class="item-desc">Tu equipo copia datos entre sistemas, manda emails manualmente y genera reportes desde cero cada semana.</div>
+      </div>
+
+      <div class="pain-item">
+        <div class="item-icon icon-pain"><i class="bi bi-layout-split"></i></div>
+        <div class="item-title">Datos dispersos, decisiones a ciegas</div>
+        <div class="item-desc">La información vive en hojas de cálculo, emails y herramientas separadas. Nadie tiene el panorama completo.</div>
+      </div>
+
+      <div class="pain-item">
+        <div class="item-icon icon-pain"><i class="bi bi-chat-square-dots"></i></div>
+        <div class="item-title">Atención al cliente lenta y despareja</div>
+        <div class="item-desc">Los mensajes se pierden, las respuestas tardan horas y la experiencia depende de quién esté disponible.</div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider-col">
+      <div class="arrow-line"></div>
+      <div class="arrow-node"><i class="bi bi-arrow-right"></i></div>
+      <div class="arrow-line"></div>
+      <div class="arrow-node"><i class="bi bi-arrow-right"></i></div>
+      <div class="arrow-line"></div>
+      <div class="arrow-node"><i class="bi bi-arrow-right"></i></div>
+      <div class="arrow-line"></div>
+    </div>
+
+    <!-- SOLUTION -->
+    <div class="pain-col">
+      <div class="col-header col-header-brain">
+        <i class="bi bi-check-circle"></i> Con Brain
+      </div>
+
+      <div class="solution-item">
+        <div class="item-icon icon-solution"><i class="bi bi-diagram-3"></i></div>
+        <div class="item-title">Flujos automáticos que trabajan solos</div>
+        <div class="item-desc">Diseñamos flujos en n8n que conectan tus herramientas y ejecutan tareas sin intervención humana, 24/7.</div>
+      </div>
+
+      <div class="solution-item">
+        <div class="item-icon icon-solution"><i class="bi bi-bar-chart-line"></i></div>
+        <div class="item-title">Dashboard unificado en tiempo real</div>
+        <div class="item-desc">Centralizamos tus datos en Metabase y NocoDB para que cada área tenga visibilidad total al instante.</div>
+      </div>
+
+      <div class="solution-item">
+        <div class="item-icon icon-solution"><i class="bi bi-robot"></i></div>
+        <div class="item-title">Agente de IA que responde por vos</div>
+        <div class="item-desc">Desplegamos agentes inteligentes que atienden consultas, derivan casos complejos y aprenden con cada interacción.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section class="services-section">
+  <div class="services-header">
+    <div class="services-header-left">
+      <div class="section-label">Servicios</div>
+      <h2 class="section-title">Soluciones que<br><span class="accent">ya funcionan</span></h2>
+      <p class="section-sub">Tecnología open source, configurada por expertos, lista para escalar con tu negocio.</p>
+    </div>
+    <a href="#" class="services-header-link">Ver todos los servicios <i class="bi bi-arrow-right"></i></a>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-card-icon" style="background: rgba(99,102,241,0.12); color: #818cf8;">
+        <i class="bi bi-diagram-3"></i>
+      </div>
+      <div class="service-card-tag">Automatización</div>
+      <div class="service-card-title">Flujos automatizados</div>
+      <div class="service-card-desc">Conectamos tus apps y automatizamos tareas repetitivas. Desde emails hasta sincronización de datos entre sistemas.</div>
+      <div class="service-card-footer">
+        <span class="service-card-tool">n8n</span>
+        <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-icon" style="background: rgba(6,182,212,0.12); color: #22d3ee;">
+        <i class="bi bi-bar-chart-line"></i>
+      </div>
+      <div class="service-card-tag">Business Intelligence</div>
+      <div class="service-card-title">Dashboards interactivos</div>
+      <div class="service-card-desc">KPIs y métricas en tiempo real. Reportes automáticos para que cada área tome decisiones con datos confiables.</div>
+      <div class="service-card-footer">
+        <span class="service-card-tool">Metabase</span>
+        <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-icon" style="background: rgba(139,92,246,0.12); color: #a78bfa;">
+        <i class="bi bi-table"></i>
+      </div>
+      <div class="service-card-tag">Datos</div>
+      <div class="service-card-title">Gestión visual de datos</div>
+      <div class="service-card-desc">Administrá bases de datos como hojas de cálculo. Sin SQL, sin fricción, con toda la potencia de una base relacional.</div>
+      <div class="service-card-footer">
+        <span class="service-card-tool">NocoDB</span>
+        <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-icon" style="background: rgba(245,158,11,0.12); color: #fbbf24;">
+        <i class="bi bi-plug"></i>
+      </div>
+      <div class="service-card-tag">Integración</div>
+      <div class="service-card-title">Integraciones personalizadas</div>
+      <div class="service-card-desc">Conectamos tus sistemas actuales con APIs, bases de datos y herramientas externas. Todo funciona junto.</div>
+      <div class="service-card-footer">
+        <span class="service-card-tool">API / Webhooks</span>
+        <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-icon" style="background: rgba(16,185,129,0.12); color: #34d399;">
+        <i class="bi bi-robot"></i>
+      </div>
+      <div class="service-card-tag">Inteligencia Artificial</div>
+      <div class="service-card-title">Agentes inteligentes</div>
+      <div class="service-card-desc">IA que atiende, deriva y aprende. Disponible 24/7 en WhatsApp, email o tu plataforma. Sin código de tu parte.</div>
+      <div class="service-card-footer">
+        <span class="service-card-tool">LLM + n8n</span>
+        <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card-icon" style="background: rgba(239,68,68,0.12); color: #f87171;">
+        <i class="bi bi-file-earmark-bar-graph"></i>
+      </div>
+      <div class="service-card-tag">Reporting</div>
+      <div class="service-card-title">Reportes automáticos</div>
+      <div class="service-card-desc">Generá informes diarios, semanales o a demanda. Tus métricas llegan solas, al equipo correcto, en el momento justo.</div>
+      <div class="service-card-footer">
+        <span class="service-card-tool">Metabase + n8n</span>
+        <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Annotations -->
+<div style="padding: 0 48px 48px;">
+  <div class="annotation-box">
+    <h4>Cambios respecto a v1</h4>
+    <ul>
+      <li>Todos los iconos reemplazados por Bootstrap Icons (bi bi-*) — consistente con el resto del sitio</li>
+      <li>Iconos con fondo coloreado por categoría dentro de cada card de servicio</li>
+      <li>Flechas del divider central usan bi-arrow-right en lugar de caracteres Unicode</li>
+    </ul>
+  </div>
+
+  <div class="approval">
+    <div class="option option-ok" data-choice="ps-v2-ok" onclick="toggleSelect(this)">
+      <i class="bi bi-check-lg"></i> Aprobado — seguir con Steps + Social Proof
+    </div>
+    <div class="option option-change" data-choice="ps-v2-change" onclick="toggleSelect(this)">
+      <i class="bi bi-pencil"></i> Ajustar algo más
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleSelect(el) {
+  document.querySelectorAll('.option').forEach(o => o.style.outline = '');
+  el.style.outline = '2px solid #6366f1';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Mockup — Brain</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #fff; }
+
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #818cf8;
+    background: rgba(99,102,241,0.12);
+    border: 1px solid rgba(99,102,241,0.25);
+    padding: 4px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(10,10,15,0.7);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo-icon {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900; color: #fff;
+  }
+  .nav-logo span { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { color: #9ca3af; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff; border: none; border-radius: 8px;
+    padding: 9px 20px; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: opacity 0.2s;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: #0a0a0f;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+
+  /* Mesh gradient blobs */
+  .blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.15; pointer-events: none;
+  }
+  .blob-1 {
+    width: 600px; height: 600px;
+    background: #6366f1;
+    top: -200px; right: -100px;
+  }
+  .blob-2 {
+    width: 400px; height: 400px;
+    background: #8b5cf6;
+    bottom: -100px; left: 200px;
+  }
+  .blob-3 {
+    width: 300px; height: 300px;
+    background: #06b6d4;
+    top: 200px; right: 300px;
+    opacity: 0.08;
+  }
+
+  /* Grid lines */
+  .grid-overlay {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+
+  .hero-left {}
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25);
+    border-radius: 20px; padding: 5px 14px 5px 8px;
+    margin-bottom: 28px;
+  }
+  .hero-badge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #6366f1;
+    box-shadow: 0 0 8px #6366f1;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .hero-badge span { font-size: 12px; font-weight: 600; color: #a5b4fc; letter-spacing: 0.5px; }
+
+  .hero-title {
+    font-size: 58px; font-weight: 900;
+    line-height: 1.05; letter-spacing: -2px;
+    color: #fff; margin-bottom: 20px;
+  }
+  .hero-title .accent {
+    background: linear-gradient(135deg, #6366f1, #a78bfa, #06b6d4);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 17px; color: #9ca3af; line-height: 1.6;
+    margin-bottom: 36px; max-width: 460px;
+  }
+
+  .hero-ctas { display: flex; gap: 12px; margin-bottom: 48px; }
+  .btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff; border: none; border-radius: 10px;
+    padding: 13px 26px; font-size: 15px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 0 30px rgba(99,102,241,0.35);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { box-shadow: 0 0 50px rgba(99,102,241,0.5); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; border: 1px solid rgba(255,255,255,0.12);
+    color: #d1d5db; border-radius: 10px;
+    padding: 13px 26px; font-size: 15px; font-weight: 600;
+    cursor: pointer; display: flex; align-items: center; gap: 8px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+
+  /* Stats row */
+  .hero-stats {
+    display: flex; gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .stat-item {}
+  .stat-value { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -1px; }
+  .stat-value span { color: #818cf8; }
+  .stat-label { font-size: 12px; color: #6b7280; margin-top: 2px; font-weight: 500; }
+
+  /* Hero right: visual */
+  .hero-right {
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+  }
+
+  .hero-card-main {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    width: 100%; max-width: 380px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+  }
+  .card-header-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .card-title { font-size: 13px; font-weight: 600; color: #f9fafb; }
+  .status-badge {
+    display: flex; align-items: center; gap: 5px;
+    background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2);
+    border-radius: 20px; padding: 3px 10px;
+    font-size: 11px; font-weight: 600; color: #4ade80;
+  }
+  .status-dot { width: 5px; height: 5px; border-radius: 50%; background: #4ade80; }
+
+  .flow-items { display: flex; flex-direction: column; gap: 8px; }
+  .flow-item {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 10px 14px;
+  }
+  .flow-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+  .flow-text { flex: 1; }
+  .flow-name { font-size: 12px; font-weight: 600; color: #f3f4f6; }
+  .flow-desc { font-size: 10px; color: #6b7280; margin-top: 1px; }
+  .flow-status {
+    font-size: 10px; font-weight: 600; padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .s-active { background: rgba(34,197,94,0.1); color: #4ade80; }
+  .s-running { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .s-done { background: rgba(156,163,175,0.1); color: #9ca3af; }
+
+  .card-footer-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 16px; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .metric-pill {
+    display: flex; flex-direction: column;
+    background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15);
+    border-radius: 10px; padding: 8px 14px; text-align: center;
+  }
+  .metric-number { font-size: 18px; font-weight: 800; color: #a5b4fc; }
+  .metric-label { font-size: 10px; color: #6b7280; }
+
+  /* floating mini cards */
+  .float-card {
+    position: absolute;
+    background: rgba(17,24,39,0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 10px 14px;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    font-size: 12px;
+  }
+  .float-top {
+    top: -20px; right: -30px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .float-bottom {
+    bottom: -20px; left: -30px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .float-icon { font-size: 18px; }
+  .float-text-main { font-weight: 700; color: #f9fafb; font-size: 13px; }
+  .float-text-sub { color: #6b7280; font-size: 10px; }
+
+  /* annotations */
+  .annotations {
+    margin-top: 32px;
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 20px;
+    font-size: 13px; color: #94a3b8;
+  }
+  .annotations h4 { color: #f1f5f9; font-size: 13px; font-weight: 700; margin-bottom: 12px; }
+  .annotations ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .annotations li::before { content: "→ "; color: #6366f1; }
+
+  /* approval */
+  .approval {
+    display: flex; gap: 12px; margin-top: 24px; justify-content: center;
+  }
+  .btn-approve {
+    background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+    color: #4ade80; border-radius: 8px; padding: 10px 24px;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-change {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    color: #9ca3af; border-radius: 8px; padding: 10px 24px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<!-- Mockup label -->
+<div style="background: #1e1b4b; text-align: center; padding: 8px; font-size: 12px; color: #818cf8; font-weight: 600; letter-spacing: 1px;">
+  MOCKUP — SECCIÓN 1: HERO · http://localhost:54353
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">B</div>
+    <span>Brain</span>
+  </div>
+  <div class="nav-links">
+    <a href="#">Inicio</a>
+    <a href="#">Servicios</a>
+    <a href="#">Cómo funciona</a>
+    <a href="#">Planes</a>
+    <a href="#">Contacto</a>
+  </div>
+  <button class="nav-cta">Iniciar sesión →</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Startup argentina · n8n · NocoDB · Metabase</span>
+      </div>
+
+      <h1 class="hero-title">
+        Automatizá lo<br>
+        repetitivo.<br>
+        <span class="accent">Escalá lo importante.</span>
+      </h1>
+
+      <p class="hero-sub">
+        Brain conecta tus herramientas, automatiza tus flujos y pone tus datos en tiempo real. Sin código. Sin fricciones. Con resultados desde la primera semana.
+      </p>
+
+      <div class="hero-ctas">
+        <button class="btn-primary">
+          Solicitar demo gratuita
+          <span>→</span>
+        </button>
+        <button class="btn-secondary">
+          Ver cómo funciona
+          <span>↓</span>
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">3<span>x</span></div>
+          <div class="stat-label">Más velocidad operativa</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">-<span>70</span>%</div>
+          <div class="stat-label">Tareas manuales</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">48<span>hs</span></div>
+          <div class="stat-label">Primer flujo live</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+
+      <!-- Floating card top -->
+      <div class="float-card float-top">
+        <div class="float-icon">⚡</div>
+        <div>
+          <div class="float-text-main">Flujo activado</div>
+          <div class="float-text-sub">CRM → Email → Slack · hace 2s</div>
+        </div>
+      </div>
+
+      <!-- Main dashboard card -->
+      <div class="hero-card-main">
+        <div class="card-header-row">
+          <div class="card-title">Automatizaciones activas</div>
+          <div class="status-badge">
+            <div class="status-dot"></div>
+            Live
+          </div>
+        </div>
+
+        <div class="flow-items">
+          <div class="flow-item">
+            <div class="flow-icon" style="background: rgba(99,102,241,0.15);">🔄</div>
+            <div class="flow-text">
+              <div class="flow-name">Sync CRM → NocoDB</div>
+              <div class="flow-desc">Cada 15 min · 1.240 registros</div>
+            </div>
+            <div class="flow-status s-active">Activo</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-icon" style="background: rgba(139,92,246,0.15);">🤖</div>
+            <div class="flow-text">
+              <div class="flow-name">Agente de atención</div>
+              <div class="flow-desc">WhatsApp + IA · 24/7</div>
+            </div>
+            <div class="flow-status s-running">Ejecutando</div>
+          </div>
+          <div class="flow-item">
+            <div class="flow-icon" style="background: rgba(6,182,212,0.15);">📊</div>
+            <div class="flow-text">
+              <div class="flow-name">Reporte semanal</div>
+              <div class="flow-desc">Metabase → Email equipo</div>
+            </div>
+            <div class="flow-status s-done">Completado</div>
+          </div>
+        </div>
+
+        <div class="card-footer-row">
+          <div class="metric-pill">
+            <div class="metric-number">247</div>
+            <div class="metric-label">Ejecuciones hoy</div>
+          </div>
+          <div class="metric-pill">
+            <div class="metric-number">0</div>
+            <div class="metric-label">Errores</div>
+          </div>
+          <div class="metric-pill">
+            <div class="metric-number">99.8%</div>
+            <div class="metric-label">Uptime</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating card bottom -->
+      <div class="float-card float-bottom">
+        <div class="float-icon">📈</div>
+        <div>
+          <div class="float-text-main">+340 tareas automáticas</div>
+          <div class="float-text-sub">Esta semana · sin intervención manual</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Annotations -->
+<div style="padding: 32px 48px; background: #050508;">
+  <div class="annotations">
+    <h4>Cambios clave vs el Hero actual</h4>
+    <ul>
+      <li>Nav con glassmorphism (blur + borde sutil) — reemplaza el header Bootstrap genérico</li>
+      <li>Fondo oscuro con mesh gradient (blobs animados) + grid overlay — elimina la imagen abstracta que no comunica nada</li>
+      <li>Título reformulado: "Automatizá lo repetitivo. Escalá lo importante." — más directo que "AUTOMATIZACIÓN INTELIGENTE"</li>
+      <li>Stats concretos (3x velocidad, -70% tareas, 48hs primer flujo) — reemplazan el CTA genérico</li>
+      <li>Card derecha: mockup de dashboard real con flujos activos — muestra el producto en acción, no una ilustración abstracta</li>
+      <li>Micro-tarjetas flotantes (toast notifications) — dan sensación de producto vivo</li>
+      <li>Dos CTAs claros: demo gratuita (principal) + ver cómo funciona (secundario)</li>
+    </ul>
+  </div>
+
+  <div class="approval" style="margin-top: 20px;">
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+      <div class="option" data-choice="hero-ok" onclick="toggleSelect(this)" style="background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); border-radius: 10px; padding: 12px 24px; cursor: pointer; color: #4ade80; font-weight: 700; font-size: 13px;">
+        ✓ Hero aprobado — seguir con Problema/Solución
+      </div>
+      <div class="option" data-choice="hero-cambios" onclick="toggleSelect(this)" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 24px; cursor: pointer; color: #9ca3af; font-size: 13px;">
+        ✎ Quiero ajustar algo del Hero
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleSelect(el) {
+  el.style.outline = '2px solid #6366f1';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #070c14; color: #f9fafb; font-family: 'Inter', system-ui, sans-serif; padding: 40px 24px; -webkit-font-smoothing: antialiased; }
+
+  .page-title { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #4b5563; margin-bottom: 8px; }
+  .page-heading { font-size: 22px; font-weight: 900; letter-spacing: -.5px; color: #f9fafb; margin-bottom: 4px; }
+  .page-sub { font-size: 13px; color: #6b7280; margin-bottom: 32px; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 960px; }
+
+  /* Service card */
+  .svc { background: #0f1929; border: 1px solid rgba(255,255,255,0.07); border-radius: 18px; padding: 22px; transition: border-color .2s, transform .2s; overflow: hidden; }
+  .svc:hover { border-color: rgba(37,99,235,0.4); transform: translateY(-2px); }
+  .svc-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 14px; }
+  .svc-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #4b5563; margin-bottom: 4px; }
+  .svc-title { font-size: 15px; font-weight: 900; color: #f9fafb; margin-bottom: 6px; letter-spacing: -.3px; }
+  .svc-desc { font-size: 12px; color: #6b7280; line-height: 1.6; margin-bottom: 14px; }
+  .svc-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); }
+  .svc-tool { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 6px; }
+  .svc-arrow { width: 28px; height: 28px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; font-size: 13px; color: #4b5563; }
+
+  /* ── PERSPECTIVE MOCKUP ── */
+  .tilt-wrap { perspective: 700px; margin: 14px 0; height: 88px; }
+  .tilt-screen {
+    width: 100%; height: 88px;
+    background: #070c14;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    transform: rotateX(14deg) rotateY(-5deg) scale(0.97);
+    transform-origin: bottom center;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(37,99,235,0.08);
+    position: relative;
+  }
+  .tilt-bar {
+    background: #111827; height: 18px;
+    display: flex; align-items: center; padding: 0 8px; gap: 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    flex-shrink: 0;
+  }
+  .tilt-dot { width: 5px; height: 5px; border-radius: 50%; }
+  .tilt-title { font-size: 8px; color: #374151; font-weight: 500; flex: 1; text-align: center; letter-spacing: .5px; }
+  .tilt-body { padding: 8px 10px; height: calc(88px - 18px); overflow: hidden; }
+  .tilt-glow { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(37,99,235,0.04), transparent 60%); pointer-events: none; }
+
+  /* n8n canvas */
+  .nodes-row { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
+  .node { font-size: 8px; font-weight: 700; padding: 4px 7px; border-radius: 5px; white-space: nowrap; flex-shrink: 0; }
+  .edge { flex: 1; height: 1px; background: rgba(255,255,255,0.08); position: relative; min-width: 8px; }
+  .edge::after { content: '▶'; position: absolute; right: -3px; top: -6px; font-size: 7px; color: rgba(255,255,255,0.15); }
+  .mini-bars { display: flex; align-items: flex-end; gap: 2px; height: 24px; }
+  .mini-bar { flex: 1; border-radius: 2px 2px 0 0; }
+
+  /* Metabase */
+  .dash-kpis { display: flex; gap: 6px; margin-bottom: 6px; }
+  .dash-kpi { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 5px; padding: 4px 6px; }
+  .dash-kpi-num { font-size: 11px; font-weight: 900; color: #f9fafb; line-height: 1; }
+  .dash-kpi-lbl { font-size: 7px; color: #4b5563; margin-top: 1px; }
+  .dash-chart { height: 24px; position: relative; overflow: hidden; }
+  .dash-chart svg { width: 100%; height: 100%; }
+
+  /* NocoDB table */
+  .table-head { display: flex; gap: 4px; margin-bottom: 3px; }
+  .th { flex: 1; font-size: 7px; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: .5px; padding: 2px 4px; background: rgba(255,255,255,0.03); border-radius: 3px; }
+  .table-row { display: flex; gap: 4px; margin-bottom: 2px; }
+  .td { flex: 1; font-size: 7px; color: #9ca3af; padding: 2px 4px; border-bottom: 1px solid rgba(255,255,255,0.03); white-space: nowrap; overflow: hidden; }
+  .td-tag { display: inline-block; font-size: 6px; font-weight: 700; padding: 1px 4px; border-radius: 3px; }
+
+  /* API/Webhooks - code terminal */
+  .term-line { font-family: 'Courier New', monospace; font-size: 8px; margin-bottom: 3px; line-height: 1.4; }
+  .term-green { color: #4ade80; }
+  .term-blue { color: #60a5fa; }
+  .term-gray { color: #4b5563; }
+  .term-white { color: #d1d5db; }
+  .term-amber { color: #fbbf24; }
+
+  /* AI Agent / Chat */
+  .chat-msg { display: flex; gap: 5px; margin-bottom: 5px; align-items: flex-end; }
+  .chat-msg.user { flex-direction: row-reverse; }
+  .chat-avatar { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 7px; }
+  .chat-bubble { max-width: 80%; padding: 4px 7px; border-radius: 8px; font-size: 8px; line-height: 1.4; }
+  .bot-bubble { background: rgba(37,99,235,0.15); color: #93c5fd; border-radius: 8px 8px 8px 2px; }
+  .user-bubble { background: rgba(37,99,235,0.3); color: #e0f2fe; border-radius: 8px 8px 2px 8px; }
+
+  /* Reports */
+  .report-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .report-title { font-size: 8px; font-weight: 700; color: #d1d5db; }
+  .report-badge { font-size: 7px; background: rgba(74,222,128,0.15); color: #4ade80; padding: 2px 5px; border-radius: 4px; font-weight: 700; }
+  .report-row { display: flex; align-items: center; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .report-label { font-size: 7px; color: #6b7280; }
+  .report-val { font-size: 8px; font-weight: 700; color: #f9fafb; }
+  .report-bar-wrap { flex: 1; margin: 0 8px; height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; }
+  .report-bar-fill { height: 100%; border-radius: 2px; }
+
+  .section-note { font-size: 11px; color: #4b5563; text-align: center; margin-top: 24px; padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; }
+</style>
+</head>
+<body>
+
+<div class="page-title">Preview — Service Cards</div>
+<div class="page-heading">Así quedarían los 6 cards con perspectiva 3D</div>
+<div class="page-sub">Cada card muestra el tool real en acción. Scroll para ver todos.</div>
+
+<div class="grid">
+
+  <!-- 1. n8n -->
+  <div class="svc">
+    <div class="svc-icon" style="background:rgba(37,99,235,.12);color:#60a5fa;">⚙</div>
+    <div class="svc-tag">Automatización</div>
+    <div class="svc-title">Flujos automatizados</div>
+    <div class="tilt-wrap">
+      <div class="tilt-screen">
+        <div class="tilt-bar">
+          <div class="tilt-dot" style="background:#ef4444"></div>
+          <div class="tilt-dot" style="background:#f59e0b"></div>
+          <div class="tilt-dot" style="background:#22c55e"></div>
+          <div class="tilt-title">n8n · workflow activo</div>
+        </div>
+        <div class="tilt-body">
+          <div class="nodes-row">
+            <div class="node" style="background:rgba(37,99,235,.15);color:#60a5fa;border:1px solid rgba(37,99,235,.25);">Webhook</div>
+            <div class="edge"></div>
+            <div class="node" style="background:rgba(16,185,129,.12);color:#34d399;border:1px solid rgba(16,185,129,.2);">CRM</div>
+            <div class="edge"></div>
+            <div class="node" style="background:rgba(6,182,212,.12);color:#22d3ee;border:1px solid rgba(6,182,212,.2);">NocoDB</div>
+            <div class="edge"></div>
+            <div class="node" style="background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.2);">Email</div>
+          </div>
+          <div class="mini-bars">
+            <div class="mini-bar" style="background:rgba(37,99,235,.35);height:35%"></div>
+            <div class="mini-bar" style="background:rgba(37,99,235,.6);height:60%"></div>
+            <div class="mini-bar" style="background:rgba(37,99,235,.35);height:40%"></div>
+            <div class="mini-bar" style="background:rgba(37,99,235,.8);height:80%"></div>
+            <div class="mini-bar" style="background:rgba(37,99,235,.5);height:50%"></div>
+            <div class="mini-bar" style="background:rgba(37,99,235,.9);height:100%"></div>
+            <div class="mini-bar" style="background:rgba(37,99,235,.6);height:65%"></div>
+            <div class="mini-bar" style="background:rgba(37,99,235,.35);height:45%"></div>
+          </div>
+        </div>
+        <div class="tilt-glow"></div>
+      </div>
+    </div>
+    <div class="svc-desc">Conectamos tus apps y automatizamos tareas repetitivas. Desde emails hasta sincronización de datos entre sistemas.</div>
+    <div class="svc-footer">
+      <span class="svc-tool" style="background:rgba(37,99,235,.1);color:#60a5fa;border:1px solid rgba(37,99,235,.2);">n8n</span>
+      <div class="svc-arrow">↗</div>
+    </div>
+  </div>
+
+  <!-- 2. Metabase -->
+  <div class="svc">
+    <div class="svc-icon" style="background:rgba(6,182,212,.12);color:#22d3ee;">📊</div>
+    <div class="svc-tag">Business Intelligence</div>
+    <div class="svc-title">Dashboards interactivos</div>
+    <div class="tilt-wrap">
+      <div class="tilt-screen" style="border-color:rgba(6,182,212,.15);">
+        <div class="tilt-bar">
+          <div class="tilt-dot" style="background:#ef4444"></div>
+          <div class="tilt-dot" style="background:#f59e0b"></div>
+          <div class="tilt-dot" style="background:#22c55e"></div>
+          <div class="tilt-title">Metabase · KPIs live</div>
+        </div>
+        <div class="tilt-body">
+          <div class="dash-kpis">
+            <div class="dash-kpi"><div class="dash-kpi-num" style="color:#22d3ee;">247</div><div class="dash-kpi-lbl">Flujos hoy</div></div>
+            <div class="dash-kpi"><div class="dash-kpi-num" style="color:#4ade80;">99.8%</div><div class="dash-kpi-lbl">Uptime</div></div>
+            <div class="dash-kpi"><div class="dash-kpi-num" style="color:#f9fafb;">0</div><div class="dash-kpi-lbl">Errores</div></div>
+          </div>
+          <div class="dash-chart">
+            <svg viewBox="0 0 200 24" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0891b2" stop-opacity=".3"/>
+                  <stop offset="100%" stop-color="#0891b2" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polygon points="0,24 0,18 25,14 50,16 75,9 100,12 125,5 150,7 175,3 200,4 200,24" fill="url(#g1)"/>
+              <polyline points="0,18 25,14 50,16 75,9 100,12 125,5 150,7 175,3 200,4" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(6,182,212,.05),transparent 60%)"></div>
+      </div>
+    </div>
+    <div class="svc-desc">KPIs y métricas en tiempo real. Reportes automáticos para que cada área tome decisiones con datos confiables.</div>
+    <div class="svc-footer">
+      <span class="svc-tool" style="background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2);">Metabase</span>
+      <div class="svc-arrow">↗</div>
+    </div>
+  </div>
+
+  <!-- 3. NocoDB -->
+  <div class="svc">
+    <div class="svc-icon" style="background:rgba(139,92,246,.12);color:#a78bfa;">🗃</div>
+    <div class="svc-tag">Datos</div>
+    <div class="svc-title">Gestión visual de datos</div>
+    <div class="tilt-wrap">
+      <div class="tilt-screen" style="border-color:rgba(139,92,246,.15);">
+        <div class="tilt-bar">
+          <div class="tilt-dot" style="background:#ef4444"></div>
+          <div class="tilt-dot" style="background:#f59e0b"></div>
+          <div class="tilt-dot" style="background:#22c55e"></div>
+          <div class="tilt-title">NocoDB · tabla clientes</div>
+        </div>
+        <div class="tilt-body">
+          <div class="table-head">
+            <div class="th">Nombre</div>
+            <div class="th">Estado</div>
+            <div class="th">Valor</div>
+          </div>
+          <div class="table-row">
+            <div class="td">Empresa Alpha</div>
+            <div class="td"><span class="td-tag" style="background:rgba(74,222,128,.1);color:#4ade80;">Activo</span></div>
+            <div class="td" style="color:#a78bfa;">$4.200</div>
+          </div>
+          <div class="table-row">
+            <div class="td">Beta Corp</div>
+            <div class="td"><span class="td-tag" style="background:rgba(37,99,235,.1);color:#60a5fa;">Trial</span></div>
+            <div class="td" style="color:#a78bfa;">$1.800</div>
+          </div>
+          <div class="table-row">
+            <div class="td">Gamma SA</div>
+            <div class="td"><span class="td-tag" style="background:rgba(74,222,128,.1);color:#4ade80;">Activo</span></div>
+            <div class="td" style="color:#a78bfa;">$6.500</div>
+          </div>
+        </div>
+        <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(139,92,246,.05),transparent 60%)"></div>
+      </div>
+    </div>
+    <div class="svc-desc">Administrá bases de datos como hojas de cálculo. Sin SQL, sin fricción, con toda la potencia de una base relacional.</div>
+    <div class="svc-footer">
+      <span class="svc-tool" style="background:rgba(139,92,246,.1);color:#a78bfa;border:1px solid rgba(139,92,246,.2);">NocoDB</span>
+      <div class="svc-arrow">↗</div>
+    </div>
+  </div>
+
+  <!-- 4. API/Webhooks -->
+  <div class="svc">
+    <div class="svc-icon" style="background:rgba(245,158,11,.12);color:#fbbf24;">🔌</div>
+    <div class="svc-tag">Integración</div>
+    <div class="svc-title">Integraciones personalizadas</div>
+    <div class="tilt-wrap">
+      <div class="tilt-screen" style="border-color:rgba(245,158,11,.15);">
+        <div class="tilt-bar">
+          <div class="tilt-dot" style="background:#ef4444"></div>
+          <div class="tilt-dot" style="background:#f59e0b"></div>
+          <div class="tilt-dot" style="background:#22c55e"></div>
+          <div class="tilt-title">API · webhook listener</div>
+        </div>
+        <div class="tilt-body">
+          <div class="term-line"><span class="term-green">POST</span> <span class="term-blue">/webhook/crm</span></div>
+          <div class="term-line"><span class="term-gray">▶</span> <span class="term-white">payload:</span> <span class="term-amber">{ "event": "lead.created" }</span></div>
+          <div class="term-line"><span class="term-green">✓</span> <span class="term-white">200 OK</span> <span class="term-gray">· 43ms</span></div>
+          <div class="term-line"><span class="term-gray">→</span> <span class="term-blue">trigger: sync_nocoDb</span></div>
+        </div>
+        <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(245,158,11,.04),transparent 60%)"></div>
+      </div>
+    </div>
+    <div class="svc-desc">Conectamos tus sistemas actuales con APIs, bases de datos y herramientas externas. Todo funciona junto.</div>
+    <div class="svc-footer">
+      <span class="svc-tool" style="background:rgba(245,158,11,.1);color:#fbbf24;border:1px solid rgba(245,158,11,.2);">API / Webhooks</span>
+      <div class="svc-arrow">↗</div>
+    </div>
+  </div>
+
+  <!-- 5. AI Agents -->
+  <div class="svc">
+    <div class="svc-icon" style="background:rgba(16,185,129,.12);color:#34d399;">🤖</div>
+    <div class="svc-tag">Inteligencia Artificial</div>
+    <div class="svc-title">Agentes inteligentes</div>
+    <div class="tilt-wrap">
+      <div class="tilt-screen" style="border-color:rgba(16,185,129,.15);">
+        <div class="tilt-bar">
+          <div class="tilt-dot" style="background:#ef4444"></div>
+          <div class="tilt-dot" style="background:#f59e0b"></div>
+          <div class="tilt-dot" style="background:#22c55e"></div>
+          <div class="tilt-title">Chatwoot · agente IA · online</div>
+        </div>
+        <div class="tilt-body" style="padding:6px 8px;">
+          <div class="chat-msg">
+            <div class="chat-avatar" style="background:rgba(16,185,129,.2);color:#34d399;">🤖</div>
+            <div class="chat-bubble bot-bubble">¡Hola! ¿En qué puedo ayudarte?</div>
+          </div>
+          <div class="chat-msg user">
+            <div class="chat-bubble user-bubble">Quiero saber el estado de mi pedido</div>
+          </div>
+          <div class="chat-msg">
+            <div class="chat-avatar" style="background:rgba(16,185,129,.2);color:#34d399;">🤖</div>
+            <div class="chat-bubble bot-bubble">Pedido #4821 en camino · llega mañana</div>
+          </div>
+        </div>
+        <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(16,185,129,.04),transparent 60%)"></div>
+      </div>
+    </div>
+    <div class="svc-desc">IA que atiende, deriva y aprende en WhatsApp con Chatwoot. Disponible 24/7. Sin código de tu parte.</div>
+    <div class="svc-footer">
+      <span class="svc-tool" style="background:rgba(16,185,129,.1);color:#34d399;border:1px solid rgba(16,185,129,.2);">LLM + n8n</span>
+      <div class="svc-arrow">↗</div>
+    </div>
+  </div>
+
+  <!-- 6. Reportes -->
+  <div class="svc">
+    <div class="svc-icon" style="background:rgba(239,68,68,.12);color:#f87171;">📋</div>
+    <div class="svc-tag">Reporting</div>
+    <div class="svc-title">Reportes automáticos</div>
+    <div class="tilt-wrap">
+      <div class="tilt-screen" style="border-color:rgba(239,68,68,.15);">
+        <div class="tilt-bar">
+          <div class="tilt-dot" style="background:#ef4444"></div>
+          <div class="tilt-dot" style="background:#f59e0b"></div>
+          <div class="tilt-dot" style="background:#22c55e"></div>
+          <div class="tilt-title">Reporte semanal · enviado</div>
+        </div>
+        <div class="tilt-body">
+          <div class="report-header">
+            <div class="report-title">Métricas · semana 15</div>
+            <div class="report-badge">✓ Enviado</div>
+          </div>
+          <div class="report-row">
+            <div class="report-label">Ventas</div>
+            <div class="report-bar-wrap"><div class="report-bar-fill" style="width:78%;background:rgba(239,68,68,.6);"></div></div>
+            <div class="report-val">$48.2k</div>
+          </div>
+          <div class="report-row">
+            <div class="report-label">Leads</div>
+            <div class="report-bar-wrap"><div class="report-bar-fill" style="width:55%;background:rgba(239,68,68,.4);"></div></div>
+            <div class="report-val">124</div>
+          </div>
+          <div class="report-row">
+            <div class="report-label">NPS</div>
+            <div class="report-bar-wrap"><div class="report-bar-fill" style="width:90%;background:rgba(239,68,68,.7);"></div></div>
+            <div class="report-val">9.1</div>
+          </div>
+        </div>
+        <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(239,68,68,.04),transparent 60%)"></div>
+      </div>
+    </div>
+    <div class="svc-desc">Generá informes diarios, semanales o a demanda. Tus métricas llegan solas, al equipo correcto, en el momento justo.</div>
+    <div class="svc-footer">
+      <span class="svc-tool" style="background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.2);">Metabase + n8n</span>
+      <div class="svc-arrow">↗</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section-note">
+  👆 Cada mockup muestra el tool real en acción: n8n canvas con nodos, Metabase con KPIs, NocoDB con tabla, API terminal, chat con IA, reporte semanal.
+</div>
+
+</body>
+</html>

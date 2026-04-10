@@ -1,0 +1,87 @@
+<style>
+  .audit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+  .audit-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 20px; }
+  .audit-box.danger { border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
+  .audit-box.warning { border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.05); }
+  .audit-box.success { border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.05); }
+  .audit-box.accent { border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.07); }
+  .audit-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .audit-label.red { color: #f87171; }
+  .audit-label.yellow { color: #fbbf24; }
+  .audit-label.green { color: #4ade80; }
+  .audit-label.blue { color: #60a5fa; }
+  .audit-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 13px; color: rgba(255,255,255,0.7); }
+  .audit-item:last-child { margin-bottom: 0; }
+  .audit-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .audit-dot.red { background: #f87171; }
+  .audit-dot.yellow { background: #fbbf24; }
+  .audit-dot.green { background: #4ade80; }
+  .audit-dot.blue { background: #60a5fa; }
+  .audit-item strong { color: rgba(255,255,255,0.95); }
+  .mockup-zones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .zone-card { background: rgba(37,99,235,0.07); border: 1px dashed rgba(37,99,235,0.35); border-radius: 14px; padding: 18px; text-align: center; }
+  .zone-icon { font-size: 28px; margin-bottom: 10px; }
+  .zone-name { font-size: 13px; font-weight: 700; color: #f9fafb; margin-bottom: 6px; }
+  .zone-desc { font-size: 11px; color: #6b7280; line-height: 1.5; }
+  .zone-tag { display: inline-block; margin-top: 8px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #3B82F6; background: rgba(37,99,235,0.15); padding: 3px 8px; border-radius: 6px; }
+</style>
+
+<h2>Auditoría completa del sitio</h2>
+<p class="subtitle">Lo que encontré y lo que propongo hacer</p>
+
+<div class="audit-grid">
+  <div class="audit-box danger">
+    <div class="audit-label red">🗑 Eliminar — páginas obsoletas</div>
+    <div class="audit-item"><span class="audit-dot red"></span><div><strong>portfolio-details.html</strong> — usa diseño viejo (Roboto/Raleway/Nunito, favicon.png, nav con "Nosotros" y "Portfolio"). No está linkeado desde index.</div></div>
+    <div class="audit-item"><span class="audit-dot red"></span><div><strong>starter-page.html</strong> — plantilla de ejemplo sin contenido real, no linkeada.</div></div>
+  </div>
+
+  <div class="audit-box warning">
+    <div class="audit-label yellow">📦 Vendors sin uso en páginas principales</div>
+    <div class="audit-item"><span class="audit-dot yellow"></span><div><strong>glightbox</strong> — solo usado en portfolio-details (a eliminar)</div></div>
+    <div class="audit-item"><span class="audit-dot yellow"></span><div><strong>swiper</strong> — solo usado en portfolio-details (a eliminar)</div></div>
+    <div class="audit-item"><span class="audit-dot yellow"></span><div><strong>isotope + imagesloaded</strong> — solo en portfolio-details (a eliminar)</div></div>
+  </div>
+
+  <div class="audit-box warning">
+    <div class="audit-label yellow">🖼 Imágenes no referenciadas</div>
+    <div class="audit-item"><span class="audit-dot yellow"></span><div><strong>assets/img/services/</strong> — 4 imágenes (services-2, 4, 7, 10.webp)</div></div>
+    <div class="audit-item"><span class="audit-dot yellow"></span><div><strong>assets/img/misc/</strong> — cloud-infra.png, misc-1.webp</div></div>
+    <div class="audit-item"><span class="audit-dot yellow"></span><div><strong>assets/img/about/</strong> — about-portrait-1.webp, programador.jpg</div></div>
+    <div class="audit-item"><span class="audit-dot yellow"></span><div><strong>assets/img/person/</strong> — carpeta entera</div></div>
+    <div class="audit-item"><span class="audit-dot yellow"></span><div><strong>assets/img/testimonials/</strong> — carpeta entera</div></div>
+    <div class="audit-item"><span class="audit-dot yellow"></span><div><strong>assets/img/logo.webp</strong> — comentado en HTML, sin uso</div></div>
+  </div>
+
+  <div class="audit-box success">
+    <div class="audit-label green">✅ Estructura actual — bien hecha</div>
+    <div class="audit-item"><span class="audit-dot green"></span><div><strong>index.html</strong> — Hero, Pain/Sol, Services, Steps, Testimonials, Pricing (ya con mockups), FAQ, Contact</div></div>
+    <div class="audit-item"><span class="audit-dot green"></span><div><strong>service-details.html</strong> — diseño dark tech correcto</div></div>
+    <div class="audit-item"><span class="audit-dot green"></span><div><strong>main.css</strong> — design system sólido</div></div>
+    <div class="audit-item"><span class="audit-dot green"></span><div>Los mockups en las pricing cards ya están muy bien logrados</div></div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px;">
+  <div class="label">📍 Zonas propuestas para agregar mockups</div>
+  <div class="mockup-zones" style="margin-top: 16px;">
+    <div class="zone-card">
+      <div class="zone-icon">⚙️</div>
+      <div class="zone-name">Service Cards (index)</div>
+      <div class="zone-desc">Cada card de servicio muestra un mini-mockup del tool: n8n canvas, Metabase chart, NocoDB table, etc.</div>
+      <div class="zone-tag">6 cards</div>
+    </div>
+    <div class="zone-card">
+      <div class="zone-icon">📋</div>
+      <div class="zone-name">Steps Section</div>
+      <div class="zone-desc">Cada paso del proceso tiene una ilustración visual mostrando qué sucede en ese momento.</div>
+      <div class="zone-tag">4 pasos</div>
+    </div>
+    <div class="zone-card">
+      <div class="zone-icon">🔧</div>
+      <div class="zone-name">Service Details Cards</div>
+      <div class="zone-desc">Cada servicio en service-details.html tiene un mockup inline del tool en acción antes de los features.</div>
+      <div class="zone-tag">6 servicios</div>
+    </div>
+  </div>
+</div>
