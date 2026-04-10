@@ -18,642 +18,579 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:            #070c14;
-      --bg-elevated:   #0b1221;
-      --surface:       #0f1929;
-      --accent:        #2563EB;
-      --accent-light:  #3B82F6;
-      --accent-glow:   rgba(37,99,235,0.35);
-      --accent-border: rgba(37,99,235,0.25);
-      --border:        rgba(255,255,255,0.06);
-      --heading:       #f9fafb;
-      --text:          rgba(255,255,255,0.75);
-      --muted:         #6b7280;
+      --bg:          #070c14;
+      --bg-up:       #0b1221;
+      --surface:     #0f1929;
+      --accent:      #2563EB;
+      --accent-lt:   #3B82F6;
+      --border:      rgba(255,255,255,0.06);
+      --heading:     #f9fafb;
+      --text:        rgba(255,255,255,0.72);
+      --muted:       #6b7280;
     }
 
-    html, body {
-      height: 100%;
-      font-family: "Inter", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
+    html, body { height: 100%; font-family: "Inter", system-ui, sans-serif; background: var(--bg); color: var(--text); }
 
-    /* ══════════════════════════════════════════
-       LAYOUT — split screen
-    ══════════════════════════════════════════ */
-    .login-page {
-      display: grid;
-      grid-template-columns: 1fr 480px;
-      min-height: 100vh;
-    }
+    /* ─── Split layout ─── */
+    .page { display: grid; grid-template-columns: 1fr 460px; min-height: 100vh; }
 
-    /* ══════════════════════════════════════════
+    /* ════════════════════════════════════════
        LEFT PANEL
-    ══════════════════════════════════════════ */
-    .left-panel {
-      background: var(--bg);
+    ════════════════════════════════════════ */
+    .left {
       position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 44px 56px;
-      overflow: hidden;
+      padding: 40px 48px 36px;
     }
 
-    /* Grid */
-    .left-panel::before {
+    /* Grid dots */
+    .left::before {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
+        linear-gradient(rgba(37,99,235,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.055) 1px, transparent 1px);
+      background-size: 56px 56px;
+      pointer-events: none; z-index: 0;
     }
 
-    /* Right edge fade */
-    .left-panel::after {
+    /* Fade-out toward right panel */
+    .left::after {
       content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0;
-      width: 120px;
-      background: linear-gradient(to right, transparent, rgba(11,18,33,0.9));
-      pointer-events: none;
-      z-index: 2;
+      position: absolute; top: 0; right: 0; bottom: 0; width: 140px;
+      background: linear-gradient(to right, transparent, #0b1221);
+      pointer-events: none; z-index: 3;
     }
 
     /* Blobs */
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(110px);
-      pointer-events: none;
-    }
-    .blob-1 {
-      width: 560px; height: 560px;
-      background: radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%);
-      top: -180px; left: -160px;
-      animation: blobMove 14s ease-in-out infinite alternate;
-    }
-    .blob-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(99,102,241,0.14) 0%, transparent 70%);
-      bottom: -100px; left: 30%;
-      animation: blobMove 18s ease-in-out infinite alternate-reverse;
-    }
-    @keyframes blobMove {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(24px, 18px) scale(1.06); }
-    }
+    .blob { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; }
+    .b1 { width: 620px; height: 620px; top: -220px; left: -180px;
+          background: radial-gradient(circle, rgba(37,99,235,0.26) 0%, transparent 65%);
+          animation: bfloat 14s ease-in-out infinite alternate; }
+    .b2 { width: 380px; height: 380px; bottom: -80px; left: 35%;
+          background: radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 65%);
+          animation: bfloat 19s ease-in-out infinite alternate-reverse; }
+    @keyframes bfloat { from { transform: translate(0,0) scale(1); } to { transform: translate(20px,16px) scale(1.07); } }
 
-    /* Top nav */
-    .left-top {
-      position: relative;
-      z-index: 3;
+    /* Logo top-left */
+    .left-logo { position: relative; z-index: 4; display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .left-logo img  { width: 28px; height: 28px; }
+    .left-logo span { font-size: 16px; font-weight: 900; color: var(--heading); letter-spacing: -.3px; }
+
+    /* Headline block — centered vertically above mockup */
+    .left-copy {
+      position: relative; z-index: 4;
+      margin-bottom: 36px;
     }
-    .left-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .left-logo img { width: 30px; height: 30px; }
-    .left-logo-name {
-      font-size: 17px;
+    .left-copy h2 {
+      font-size: clamp(28px, 3.2vw, 44px);
       font-weight: 900;
       color: var(--heading);
-      letter-spacing: -0.3px;
-    }
-
-    /* Center content */
-    .left-center {
-      position: relative;
-      z-index: 3;
-      max-width: 520px;
-    }
-
-    .left-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--accent-light);
-      background: rgba(37,99,235,0.1);
-      border: 1px solid rgba(37,99,235,0.2);
-      border-radius: 20px;
-      padding: 5px 14px;
-      margin-bottom: 24px;
-    }
-    .left-badge-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--accent-light);
-      animation: pulse 2s infinite;
-    }
-
-    .left-headline {
-      font-size: clamp(32px, 4vw, 50px);
-      font-weight: 900;
-      color: var(--heading);
-      letter-spacing: -1.5px;
+      letter-spacing: -1.4px;
       line-height: 1.1;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
-    .left-headline span {
-      background: linear-gradient(135deg, #3B82F6, #818cf8);
+    .left-copy h2 em {
+      font-style: normal;
+      background: linear-gradient(120deg, #3B82F6 0%, #818cf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
-    .left-sub {
-      font-size: 16px;
+    .left-copy p {
+      font-size: 15px;
       color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 40px;
-      max-width: 420px;
+      line-height: 1.65;
+      max-width: 400px;
     }
 
-    /* Feature pills */
-    .left-features {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .feature-item {
+    /* ─── THE BIG MOCKUP ─── */
+    .mock-stage {
+      position: relative; z-index: 4;
+      perspective: 1100px;
+      flex: 1;
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      color: rgba(255,255,255,0.65);
     }
-    .feature-icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      background: rgba(37,99,235,0.1);
-      border: 1px solid rgba(37,99,235,0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-light);
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-
-    /* Floating 3D mockup */
-    .float-screen {
-      position: absolute;
-      right: 80px;
-      top: 50%;
-      transform: translateY(-50%) perspective(1000px) rotateY(-12deg) rotateX(3deg);
-      width: 340px;
-      z-index: 1;
-      animation: floatY 6s ease-in-out infinite alternate;
-    }
-    @keyframes floatY {
-      from { transform: translateY(-50%) perspective(1000px) rotateY(-12deg) rotateX(3deg) translateZ(0); }
-      to   { transform: translateY(calc(-50% - 12px)) perspective(1000px) rotateY(-12deg) rotateX(3deg) translateZ(0); }
-    }
-    .float-screen-inner {
-      background: #080f1e;
-      border: 1px solid rgba(37,99,235,0.25);
+    .mock-window {
+      width: 100%;
+      max-width: 680px;
+      background: #080e1c;
+      border: 1px solid rgba(37,99,235,0.22);
       border-radius: 14px;
       overflow: hidden;
       box-shadow:
-        0 40px 100px rgba(0,0,0,0.8),
-        0 0 0 1px rgba(37,99,235,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.04);
+        0 0 0 1px rgba(37,99,235,0.07),
+        0 40px 100px rgba(0,0,0,0.75),
+        0 0 80px rgba(37,99,235,0.08);
+      transform: rotateX(8deg) rotateY(-14deg) scale(0.96);
+      transform-origin: center center;
+      animation: mockFloat 7s ease-in-out infinite alternate;
     }
-    .fs-bar {
-      background: #111827;
-      height: 28px;
+    @keyframes mockFloat {
+      from { transform: rotateX(8deg) rotateY(-14deg) scale(0.96) translateY(0); }
+      to   { transform: rotateX(6deg) rotateY(-14deg) scale(0.96) translateY(-14px); }
+    }
+
+    /* Titlebar */
+    .mock-bar {
+      background: #0d1526;
+      height: 34px;
       display: flex;
       align-items: center;
-      padding: 0 12px;
-      gap: 5px;
+      padding: 0 14px;
+      gap: 6px;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    .fs-dot { width: 7px; height: 7px; border-radius: 50%; }
-    .fs-title {
-      font-size: 9px;
-      color: #374151;
-      font-weight: 500;
-      flex: 1;
-      text-align: center;
-      letter-spacing: 0.3px;
+    .mdot { width: 8px; height: 8px; border-radius: 50%; }
+    .mock-bar-title {
+      flex: 1; text-align: center;
+      font-size: 10px; color: #374151; font-weight: 500; letter-spacing: .4px;
     }
-    .fs-body { padding: 16px; }
+    .mock-bar-badge {
+      font-size: 9px; font-weight: 700;
+      color: #4ade80;
+      background: rgba(74,222,128,0.1);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 10px;
+      padding: 2px 8px;
+    }
 
-    /* KPIs row */
-    .fs-kpis { display: flex; gap: 8px; margin-bottom: 14px; }
-    .fs-kpi {
+    /* App layout */
+    .mock-layout { display: flex; height: 320px; }
+
+    /* Sidebar */
+    .mock-sidebar {
+      width: 52px;
+      background: rgba(255,255,255,0.02);
+      border-right: 1px solid rgba(255,255,255,0.04);
+      display: flex; flex-direction: column; align-items: center;
+      padding: 14px 0; gap: 14px;
+    }
+    .mock-sidebar-logo {
+      width: 26px; height: 26px;
+      background: rgba(37,99,235,0.2);
+      border: 1px solid rgba(37,99,235,0.3);
+      border-radius: 7px;
+      margin-bottom: 6px;
+    }
+    .mock-nav-item {
+      width: 28px; height: 28px;
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mock-nav-item.active {
+      background: rgba(37,99,235,0.2);
+      border: 1px solid rgba(37,99,235,0.3);
+    }
+    .mock-nav-dot { width: 12px; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.12); }
+    .mock-nav-item.active .mock-nav-dot { background: rgba(37,99,235,0.7); }
+
+    /* Main content */
+    .mock-main { flex: 1; padding: 14px 16px; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+
+    /* Page header */
+    .mock-page-header { display: flex; align-items: center; justify-content: space-between; }
+    .mock-page-title { width: 90px; height: 9px; background: rgba(255,255,255,0.12); border-radius: 4px; }
+    .mock-page-actions { display: flex; gap: 6px; }
+    .mock-btn-sm { height: 18px; border-radius: 5px; }
+    .mock-btn-sm.ghost { width: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); }
+    .mock-btn-sm.primary { width: 36px; background: rgba(37,99,235,0.4); border: 1px solid rgba(37,99,235,0.3); }
+
+    /* KPI row */
+    .mock-kpis { display: flex; gap: 8px; }
+    .mock-kpi {
       flex: 1;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.025);
       border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 8px;
-      padding: 8px 10px;
+      border-radius: 9px;
+      padding: 9px 11px;
+      position: relative; overflow: hidden;
     }
-    .fs-kpi-num { font-size: 14px; font-weight: 900; margin-bottom: 3px; }
-    .fs-kpi-lbl { font-size: 8px; color: #4b5563; }
+    .mock-kpi::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 1.5px;
+      border-radius: 9px 9px 0 0;
+    }
+    .mk1::before { background: linear-gradient(90deg, transparent, rgba(34,211,238,0.6), transparent); }
+    .mk2::before { background: linear-gradient(90deg, transparent, rgba(74,222,128,0.6), transparent); }
+    .mk3::before { background: linear-gradient(90deg, transparent, rgba(37,99,235,0.6), transparent); }
+    .mk4::before { background: linear-gradient(90deg, transparent, rgba(251,191,36,0.6), transparent); }
+    .mock-kpi-num { font-size: 16px; font-weight: 900; margin-bottom: 3px; line-height: 1; }
+    .mock-kpi-lbl { font-size: 8px; color: #4b5563; }
+    .mock-kpi-delta { font-size: 8px; font-weight: 700; margin-top: 4px; }
+    .delta-up { color: #4ade80; }
+    .delta-dn { color: #f87171; }
 
-    /* Chart */
-    .fs-chart { height: 60px; position: relative; }
-    .fs-chart svg { width: 100%; height: 100%; display: block; }
+    /* Two-column section */
+    .mock-cols { display: flex; gap: 10px; flex: 1; min-height: 0; }
 
-    /* Nodes row */
-    .fs-nodes { display: flex; align-items: center; gap: 6px; margin-top: 14px; }
-    .fs-node {
-      font-size: 8px; font-weight: 700;
-      padding: 5px 9px; border-radius: 6px;
-      white-space: nowrap;
+    /* Chart panel */
+    .mock-chart-panel {
+      flex: 1.4;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 9px;
+      padding: 10px 12px;
+      display: flex; flex-direction: column; gap: 8px;
+      overflow: hidden;
     }
-    .fs-edge {
-      flex: 1; height: 1px;
-      background: rgba(255,255,255,0.08);
-      position: relative; min-width: 8px;
+    .mock-panel-header { display: flex; align-items: center; justify-content: space-between; }
+    .mock-panel-title { width: 70px; height: 7px; background: rgba(255,255,255,0.1); border-radius: 3px; }
+    .mock-panel-tag { width: 36px; height: 12px; background: rgba(37,99,235,0.15); border-radius: 4px; }
+    .mock-chart { flex: 1; position: relative; overflow: hidden; }
+    .mock-chart svg { width: 100%; height: 100%; display: block; }
+
+    /* Workflow panel */
+    .mock-flow-panel {
+      flex: 1;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 9px;
+      padding: 10px 12px;
+      display: flex; flex-direction: column; gap: 8px;
+      overflow: hidden;
     }
-    .fs-edge::after {
-      content: '▶'; position: absolute;
-      right: -3px; top: -6px;
-      font-size: 7px; color: rgba(255,255,255,0.15);
+    .mock-flow-rows { display: flex; flex-direction: column; gap: 6px; }
+    .mock-flow-row {
+      display: flex; align-items: center; gap: 6px;
+      padding: 5px 7px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 6px;
+    }
+    .mfr-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .mfr-name { flex: 1; height: 6px; background: rgba(255,255,255,0.09); border-radius: 3px; }
+    .mfr-badge { height: 12px; border-radius: 4px; width: 28px; }
+    .mfr-badge.ok  { background: rgba(74,222,128,0.15); }
+    .mfr-badge.run { background: rgba(37,99,235,0.2); }
+
+    /* Glow overlay on window */
+    .mock-glow {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(37,99,235,0.04), transparent 55%);
+      pointer-events: none; border-radius: 14px;
     }
 
-    /* Bottom */
-    .left-bottom {
-      position: relative;
-      z-index: 3;
-      font-size: 12px;
-      color: #374151;
-    }
+    /* Footer */
+    .left-foot { position: relative; z-index: 4; font-size: 11px; color: #1f2937; }
 
-    /* ══════════════════════════════════════════
-       RIGHT PANEL
-    ══════════════════════════════════════════ */
-    .right-panel {
-      background: var(--bg-elevated);
+    /* ════════════════════════════════════════
+       RIGHT PANEL — form
+    ════════════════════════════════════════ */
+    .right {
+      background: var(--bg-up);
       border-left: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 48px 40px;
+      padding: 48px 44px;
       position: relative;
     }
-
-    /* Subtle top accent line */
-    .right-panel::before {
+    .right::before {
       content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0.5;
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(37,99,235,0.5), transparent);
     }
 
-    .login-box {
-      width: 100%;
-      max-width: 360px;
-    }
+    .form-box { width: 100%; max-width: 340px; }
 
-    /* Form header */
-    .form-header { margin-bottom: 32px; }
-    .form-header-tag {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent-light);
-      margin-bottom: 10px;
+    .form-status {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 700; letter-spacing: .5px;
+      color: #4ade80;
+      background: rgba(74,222,128,0.07);
+      border: 1px solid rgba(74,222,128,0.18);
+      border-radius: 20px; padding: 4px 11px;
+      margin-bottom: 28px;
     }
-    .form-heading {
-      font-size: 26px;
-      font-weight: 900;
-      color: var(--heading);
-      letter-spacing: -0.6px;
-      margin-bottom: 6px;
-    }
-    .form-sub {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
+    .status-dot { width: 5px; height: 5px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
 
-    /* Fields */
-    .field-group { margin-bottom: 18px; }
-    .field-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      color: #9ca3af;
-      margin-bottom: 7px;
-      letter-spacing: 0.2px;
+    .form-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-lt); margin-bottom: 8px; }
+    .form-h1  { font-size: 26px; font-weight: 900; color: var(--heading); letter-spacing: -.6px; margin-bottom: 5px; }
+    .form-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; line-height: 1.5; }
+
+    .fgroup { margin-bottom: 16px; }
+    .flabel {
+      display: block; font-size: 12px; font-weight: 600;
+      color: #9ca3af; margin-bottom: 7px; letter-spacing: .2px;
     }
-    .field-wrap { position: relative; }
-    .field-icon {
-      position: absolute;
-      left: 13px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #374151;
-      font-size: 15px;
-      pointer-events: none;
-      transition: color 0.2s;
+    .frow { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
+    .forgot { font-size: 11px; color: var(--accent-lt); text-decoration: none; opacity: .75; transition: opacity .2s; }
+    .forgot:hover { opacity: 1; }
+
+    .finput-wrap { position: relative; }
+    .finput-icon {
+      position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+      color: #1f2937; font-size: 14px; pointer-events: none; transition: color .2s;
     }
-    .field-input {
+    .finput {
       width: 100%;
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 11px;
       color: var(--heading);
-      font-family: "Inter", sans-serif;
-      font-size: 14px;
+      font-family: "Inter", sans-serif; font-size: 14px;
       padding: 12px 14px 12px 40px;
       outline: none;
-      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      transition: border-color .2s, background .2s, box-shadow .2s;
     }
-    .field-input::placeholder { color: #1f2937; }
-    .field-input:focus {
-      border-color: rgba(37,99,235,0.45);
-      background: rgba(37,99,235,0.05);
-      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    .finput::placeholder { color: #1f2937; }
+    .finput:focus {
+      border-color: rgba(37,99,235,.45);
+      background: rgba(37,99,235,.05);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.1);
     }
-    .field-input:focus + .field-icon,
-    .field-wrap:focus-within .field-icon { color: var(--accent-light); }
+    .finput:focus ~ .finput-icon { color: var(--accent-lt); }
 
-    /* Row between password label and forgot */
-    .field-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 7px;
+    .btn-login {
+      width: 100%; background: var(--accent); color: #fff; border: none;
+      border-radius: 11px; font-family: "Inter", sans-serif;
+      font-size: 14px; font-weight: 700; padding: 13px;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: background .2s, box-shadow .2s, transform .15s;
+      margin-top: 8px; letter-spacing: .2px;
     }
-    .forgot-link {
-      font-size: 11px;
-      color: var(--accent-light);
-      text-decoration: none;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-    .forgot-link:hover { opacity: 1; }
-
-    /* Submit */
-    .btn-submit {
-      width: 100%;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 11px;
-      font-family: "Inter", sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 13px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
-      letter-spacing: 0.2px;
-      margin-top: 8px;
-    }
-    .btn-submit::after {
-      content: '';
-      position: absolute;
-      inset: 0;
+    .btn-login::after {
+      content: ''; position: absolute; inset: 0;
       background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent 60%);
       pointer-events: none;
     }
-    .btn-submit:hover {
-      background: #1D4ED8;
-      box-shadow: 0 8px 30px rgba(37,99,235,0.45);
-      transform: translateY(-1px);
-    }
-    .btn-submit:active { transform: translateY(0); }
+    .btn-login:hover { background: #1D4ED8; box-shadow: 0 8px 30px rgba(37,99,235,.45); transform: translateY(-1px); }
+    .btn-login:active { transform: translateY(0); }
 
-    /* Divider */
     .divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 22px 0;
+      display: flex; align-items: center; gap: 12px; margin: 22px 0;
     }
-    .divider::before, .divider::after {
-      content: ''; flex: 1;
-      height: 1px; background: var(--border);
-    }
+    .divider::before,.divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .divider span { font-size: 11px; color: var(--muted); }
 
-    /* Back */
-    .back-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
+    .back {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s;
     }
-    .back-link:hover { color: var(--accent-light); }
+    .back:hover { color: var(--accent-lt); }
 
-    /* Status */
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: #4ade80;
-      background: rgba(74,222,128,0.08);
-      border: 1px solid rgba(74,222,128,0.18);
-      border-radius: 20px;
-      padding: 4px 10px;
-      margin-bottom: 32px;
-    }
-    .status-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: #4ade80;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.35; }
-    }
-
-    /* ── Mobile ── */
-    @media (max-width: 900px) {
-      .login-page { grid-template-columns: 1fr; }
-      .left-panel { display: none; }
-      .right-panel {
-        min-height: 100vh;
-        border-left: none;
-        background: var(--bg);
-      }
-      .right-panel::before { display: none; }
+    /* ─── Mobile ─── */
+    @media (max-width: 860px) {
+      .page { grid-template-columns: 1fr; }
+      .left { display: none; }
+      .right { min-height: 100vh; border-left: none; background: var(--bg); }
+      .right::before { display: none; }
     }
   </style>
 </head>
-
 <body>
-<div class="login-page">
+<div class="page">
 
-  <!-- ═══════════ LEFT PANEL ═══════════ -->
-  <div class="left-panel">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
+  <!-- ══════════ LEFT ══════════ -->
+  <div class="left">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
 
-    <!-- Top: logo -->
-    <div class="left-top">
-      <a href="index.html" class="left-logo">
-        <img src="assets/img/brain.ico" alt="Brain">
-        <span class="left-logo-name">Brain</span>
-      </a>
-    </div>
+    <a href="index.html" class="left-logo">
+      <img src="assets/img/brain.ico" alt="Brain">
+      <span>Brain</span>
+    </a>
 
-    <!-- Center: headline + features -->
-    <div class="left-center">
-      <div class="left-badge">
-        <div class="left-badge-dot"></div>
-        Plataforma activa
+    <div>
+      <div class="left-copy">
+        <h2>Tu operación,<br><em>en tiempo real.</em></h2>
+        <p>Flujos, datos y agentes de IA unificados en un solo panel.</p>
       </div>
 
-      <h1 class="left-headline">
-        Tu operación,<br>
-        <span>automatizada.</span>
-      </h1>
+      <div class="mock-stage">
+        <div class="mock-window">
+          <!-- Titlebar -->
+          <div class="mock-bar">
+            <div class="mdot" style="background:#ef4444;"></div>
+            <div class="mdot" style="background:#f59e0b;"></div>
+            <div class="mdot" style="background:#22c55e;"></div>
+            <div class="mock-bar-title">Brain · Panel de automatización</div>
+            <div class="mock-bar-badge">● live</div>
+          </div>
 
-      <p class="left-sub">
-        Gestioná tus flujos, dashboards y agentes desde un solo lugar. Todo en tiempo real, todo conectado.
-      </p>
+          <!-- App body -->
+          <div class="mock-layout">
 
-      <div class="left-features">
-        <div class="feature-item">
-          <div class="feature-icon"><i class="bi bi-lightning-charge-fill"></i></div>
-          Flujos n8n ejecutándose en tiempo real
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="bi bi-bar-chart-line-fill"></i></div>
-          KPIs y dashboards actualizados al instante
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="bi bi-robot"></i></div>
-          Agentes IA disponibles las 24 horas
+            <!-- Sidebar -->
+            <div class="mock-sidebar">
+              <div class="mock-sidebar-logo"></div>
+              <div class="mock-nav-item active"><div class="mock-nav-dot"></div></div>
+              <div class="mock-nav-item"><div class="mock-nav-dot"></div></div>
+              <div class="mock-nav-item"><div class="mock-nav-dot"></div></div>
+              <div class="mock-nav-item"><div class="mock-nav-dot"></div></div>
+            </div>
+
+            <!-- Main -->
+            <div class="mock-main">
+
+              <!-- Page header -->
+              <div class="mock-page-header">
+                <div class="mock-page-title"></div>
+                <div class="mock-page-actions">
+                  <div class="mock-btn-sm ghost"></div>
+                  <div class="mock-btn-sm primary"></div>
+                </div>
+              </div>
+
+              <!-- KPIs -->
+              <div class="mock-kpis">
+                <div class="mock-kpi mk1">
+                  <div class="mock-kpi-num" style="color:#22d3ee;">247</div>
+                  <div class="mock-kpi-lbl">Flujos activos</div>
+                  <div class="mock-kpi-delta delta-up">↑ 12%</div>
+                </div>
+                <div class="mock-kpi mk2">
+                  <div class="mock-kpi-num" style="color:#4ade80;">99.8%</div>
+                  <div class="mock-kpi-lbl">Uptime</div>
+                  <div class="mock-kpi-delta delta-up">↑ 0.3%</div>
+                </div>
+                <div class="mock-kpi mk3">
+                  <div class="mock-kpi-num" style="color:#60a5fa;">$48k</div>
+                  <div class="mock-kpi-lbl">Ventas mes</div>
+                  <div class="mock-kpi-delta delta-up">↑ 23%</div>
+                </div>
+                <div class="mock-kpi mk4">
+                  <div class="mock-kpi-num" style="color:#fbbf24;">0</div>
+                  <div class="mock-kpi-lbl">Errores hoy</div>
+                  <div class="mock-kpi-delta" style="color:#4b5563;">— estable</div>
+                </div>
+              </div>
+
+              <!-- Chart + workflow -->
+              <div class="mock-cols">
+
+                <div class="mock-chart-panel">
+                  <div class="mock-panel-header">
+                    <div class="mock-panel-title"></div>
+                    <div class="mock-panel-tag"></div>
+                  </div>
+                  <div class="mock-chart">
+                    <svg viewBox="0 0 280 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#0891b2" stop-opacity=".4"/>
+                          <stop offset="100%" stop-color="#0891b2" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="cg2" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#22c55e" stop-opacity=".25"/>
+                          <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <!-- Grid lines -->
+                      <line x1="0" y1="22" x2="280" y2="22" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                      <line x1="0" y1="45" x2="280" y2="45" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                      <line x1="0" y1="68" x2="280" y2="68" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                      <!-- Area 1 (blue) -->
+                      <polygon points="0,90 0,68 35,54 70,60 105,38 140,46 175,24 210,30 245,14 280,16 280,90" fill="url(#cg)"/>
+                      <polyline points="0,68 35,54 70,60 105,38 140,46 175,24 210,30 245,14 280,16" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-linejoin="round"/>
+                      <!-- Area 2 (green) -->
+                      <polygon points="0,90 0,78 35,72 70,76 105,65 140,70 175,58 210,63 245,52 280,55 280,90" fill="url(#cg2)"/>
+                      <polyline points="0,78 35,72 70,76 105,65 140,70 175,58 210,63 245,52 280,55" fill="none" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 2" stroke-linejoin="round"/>
+                      <!-- Dots on main line -->
+                      <circle cx="105" cy="38" r="3" fill="#22d3ee" opacity=".8"/>
+                      <circle cx="175" cy="24" r="3" fill="#22d3ee" opacity=".8"/>
+                      <circle cx="245" cy="14" r="3.5" fill="#22d3ee"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="mock-flow-panel">
+                  <div class="mock-panel-header">
+                    <div class="mock-panel-title"></div>
+                  </div>
+                  <div class="mock-flow-rows">
+                    <div class="mock-flow-row">
+                      <div class="mfr-dot" style="background:#4ade80;"></div>
+                      <div class="mfr-name" style="width:55%;"></div>
+                      <div class="mfr-badge ok"></div>
+                    </div>
+                    <div class="mock-flow-row">
+                      <div class="mfr-dot" style="background:#60a5fa;"></div>
+                      <div class="mfr-name" style="width:70%;"></div>
+                      <div class="mfr-badge run"></div>
+                    </div>
+                    <div class="mock-flow-row">
+                      <div class="mfr-dot" style="background:#4ade80;"></div>
+                      <div class="mfr-name" style="width:45%;"></div>
+                      <div class="mfr-badge ok"></div>
+                    </div>
+                    <div class="mock-flow-row">
+                      <div class="mfr-dot" style="background:#60a5fa;"></div>
+                      <div class="mfr-name" style="width:65%;"></div>
+                      <div class="mfr-badge run"></div>
+                    </div>
+                    <div class="mock-flow-row">
+                      <div class="mfr-dot" style="background:#4ade80;"></div>
+                      <div class="mfr-name" style="width:50%;"></div>
+                      <div class="mfr-badge ok"></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="mock-glow"></div>
         </div>
       </div>
     </div>
 
-    <!-- Floating 3D mockup -->
-    <div class="float-screen">
-      <div class="float-screen-inner">
-        <div class="fs-bar">
-          <div class="fs-dot" style="background:#ef4444;"></div>
-          <div class="fs-dot" style="background:#f59e0b;"></div>
-          <div class="fs-dot" style="background:#22c55e;"></div>
-          <div class="fs-title">Brain · panel de control</div>
-        </div>
-        <div class="fs-body">
-          <div class="fs-kpis">
-            <div class="fs-kpi">
-              <div class="fs-kpi-num" style="color:#22d3ee;">247</div>
-              <div class="fs-kpi-lbl">Flujos activos</div>
-            </div>
-            <div class="fs-kpi">
-              <div class="fs-kpi-num" style="color:#4ade80;">99.8%</div>
-              <div class="fs-kpi-lbl">Uptime</div>
-            </div>
-            <div class="fs-kpi">
-              <div class="fs-kpi-num" style="color:#f9fafb;">0</div>
-              <div class="fs-kpi-lbl">Errores</div>
-            </div>
-          </div>
-          <div class="fs-chart">
-            <svg viewBox="0 0 300 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#0891b2" stop-opacity=".35"/>
-                  <stop offset="100%" stop-color="#0891b2" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <polygon points="0,60 0,44 40,36 80,40 120,22 160,30 200,12 240,18 280,6 300,8 300,60" fill="url(#lg1)"/>
-              <polyline points="0,44 40,36 80,40 120,22 160,30 200,12 240,18 280,6 300,8" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="fs-nodes">
-            <div class="fs-node" style="background:rgba(37,99,235,.15);color:#60a5fa;border:1px solid rgba(37,99,235,.25);">Webhook</div>
-            <div class="fs-edge"></div>
-            <div class="fs-node" style="background:rgba(16,185,129,.12);color:#34d399;border:1px solid rgba(16,185,129,.2);">CRM</div>
-            <div class="fs-edge"></div>
-            <div class="fs-node" style="background:rgba(6,182,212,.12);color:#22d3ee;border:1px solid rgba(6,182,212,.2);">NocoDB</div>
-            <div class="fs-edge"></div>
-            <div class="fs-node" style="background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.2);">Email</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom -->
-    <div class="left-bottom">
-      © 2025 Brain Software Factory
-    </div>
+    <div class="left-foot">© 2025 Brain Software Factory</div>
   </div>
 
-  <!-- ═══════════ RIGHT PANEL ═══════════ -->
-  <div class="right-panel">
-    <div class="login-box">
+  <!-- ══════════ RIGHT ══════════ -->
+  <div class="right">
+    <div class="form-box">
 
-      <div class="status-badge">
+      <div class="form-status">
         <div class="status-dot"></div>
         Sistemas operativos
       </div>
 
-      <div class="form-header">
-        <div class="form-header-tag">Acceso seguro</div>
-        <div class="form-heading">Bienvenido de vuelta</div>
-        <div class="form-sub">Ingresá tus credenciales para acceder a tu panel</div>
-      </div>
+      <div class="form-tag">Acceso seguro</div>
+      <div class="form-h1">Bienvenido de vuelta</div>
+      <div class="form-sub">Ingresá tus credenciales para acceder a tu panel</div>
 
       <form onsubmit="return false;">
 
-        <div class="field-group">
-          <label class="field-label">Email</label>
-          <div class="field-wrap">
-            <input type="email" class="field-input" placeholder="tu@empresa.com" autocomplete="email">
-            <i class="bi bi-envelope field-icon"></i>
+        <div class="fgroup">
+          <label class="flabel">Email</label>
+          <div class="finput-wrap">
+            <input type="email" class="finput" placeholder="tu@empresa.com" autocomplete="email">
+            <i class="bi bi-envelope finput-icon"></i>
           </div>
         </div>
 
-        <div class="field-group">
-          <div class="field-row">
-            <label class="field-label" style="margin-bottom:0;">Contraseña</label>
-            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+        <div class="fgroup">
+          <div class="frow">
+            <label class="flabel" style="margin-bottom:0;">Contraseña</label>
+            <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
           </div>
-          <div class="field-wrap" style="margin-top:7px;">
-            <input type="password" class="field-input" placeholder="••••••••" autocomplete="current-password">
-            <i class="bi bi-lock field-icon"></i>
+          <div class="finput-wrap">
+            <input type="password" class="finput" placeholder="••••••••" autocomplete="current-password">
+            <i class="bi bi-lock finput-icon"></i>
           </div>
         </div>
 
-        <button type="submit" class="btn-submit">
+        <button type="submit" class="btn-login">
           Iniciar sesión &nbsp;<i class="bi bi-arrow-right"></i>
         </button>
 
       </form>
 
       <div class="divider"><span>o volvé al sitio</span></div>
-
-      <a href="index.html" class="back-link">
-        <i class="bi bi-arrow-left"></i> Volver al inicio
-      </a>
+      <a href="index.html" class="back"><i class="bi bi-arrow-left"></i> Volver al inicio</a>
 
     </div>
   </div>
 
 </div>
-
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
