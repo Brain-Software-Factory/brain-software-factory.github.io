@@ -1,1062 +1,962 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Brain - Automatización Inteligente</title>
+  <title>Brain — Automatización Inteligente</title>
   <meta name="description" content="Brain - Startup argentina de automatización inteligente. Soluciones con IA, n8n, NocoDB y Metabase para automatizar flujos, dashboards y gestión de datos.">
-  <meta name="keywords" content="automatización, inteligencia artificial, n8n, NocoDB, Metabase, dashboards, Argentina, startup">
+  <meta name="keywords" content="automatización, inteligencia artificial, n8n, NocoDB, Metabase, dashboards, Argentina, startup, WhatsApp bot, Chatwoot">
 
-  <!-- Favicons -->
   <link href="assets/img/brain.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
+  <link href="assets/css/chat-widget.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
 
+  <!-- ═══════════════════ HEADER ═══════════════════ -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <img src="assets/img/brain.ico" alt="Brain Logo" class="me-2" style="width: 50px; height: 44px;">
+        <img src="assets/img/logo.webp" alt="Brain Logo" class="me-2">
         <h1 class="sitename">Brain</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Inicio</a></li>
-          <li><a href="#about">Nosotros</a></li>
           <li><a href="#services">Servicios</a></li>
+          <li><a href="#steps">Cómo funciona</a></li>
+          <li><a href="#pricing">Planes</a></li>
           <li><a href="#contact">Contacto</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="https://support.brain.com.ar">iniciar sesión</a>
+      <a class="btn-getstarted" href="https://support.brain.com.ar">Iniciar sesión</a>
 
     </div>
   </header>
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section id="hero" class="hero">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-blob hero-blob-3"></div>
+      <div class="hero-grid-overlay"></div>
+
       <div class="container">
-        <div class="row">
-          <div class="col-lg-7 content-col" data-aos="fade-up">
-            <div class="content">
-              <div class="agency-name">
-                <h5>NUESTRA STARTUP</h5>
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-7" data-aos="fade-up">
+            <div class="hero-badge">
+              <div class="hero-badge-dot"></div>
+              <span>Startup argentina · n8n · NocoDB · Metabase</span>
+            </div>
+
+            <h1 class="hero-title">
+              Automatizá lo<br>
+              repetitivo.<br>
+              <span class="accent">Escalá lo importante.</span>
+            </h1>
+
+            <p class="hero-sub">
+              Brain conecta tus herramientas, automatiza tus flujos y pone tus datos en tiempo real. Sin código. Sin fricciones. Con resultados desde la primera semana.
+            </p>
+
+            <div class="hero-ctas">
+              <a href="#contact" class="btn-hero-primary">
+                Solicitar demo gratuita <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="#steps" class="btn-hero-secondary">
+                Ver cómo funciona <i class="bi bi-arrow-down"></i>
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <div class="hero-stat-value">3<span>x</span></div>
+                <div class="hero-stat-label">Velocidad operativa</div>
               </div>
-
-              <div class="main-heading">
-                <h1>AUTOMATIZACIÓN <br>INTELIGENTE</h1>
+              <div>
+                <div class="hero-stat-value">-<span>70</span>%</div>
+                <div class="hero-stat-label">Tareas manuales</div>
               </div>
-
-              <div class="divider"></div>
-
-              <div class="description">
-                <p>Descubrí cómo Brain transforma la atención al cliente con agentes de IA personalizados. Automatizamos flujos de conversación y análisis de datos en tiempo real usando tecnologías como n8n, NocoDB y Metabase. Nuestro equipo crea soluciones ágiles, escalables y eficientes para que tu negocio crezca sin límites.</p>
-              </div>
-
-              <div class="cta-button">
-                <a href="#services" class="btn">
-                  <span>DESCUBRIR SOLUCIONES</span>
-                  <i class="bi bi-arrow-right"></i>
-                </a>
+              <div>
+                <div class="hero-stat-value">48<span>hs</span></div>
+                <div class="hero-stat-label">Primer flujo live</div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-5" data-aos="zoom-out">
-            <div class="visual-content">
-              <div class="fluid-shape">
-                <img src="assets/img/abstract/hero.png" alt="Abstract Fluid Shape" class="fluid-img">
+          <div class="col-lg-5" data-aos="zoom-out" data-aos-delay="200">
+            <div class="hero-card" style="position: relative;">
+
+              <div class="hero-toast hero-toast-top">
+                <i class="bi bi-lightning-charge hero-toast-icon"></i>
+                <div>
+                  <div class="hero-toast-main">Flujo activado</div>
+                  <div class="hero-toast-sub">CRM → Email → Slack · hace 2s</div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <span class="hero-card-title">Automatizaciones activas</span>
+                <span class="hero-status-badge">
+                  <span class="hero-status-dot"></span> Live
+                </span>
+              </div>
+
+              <div class="hero-flow-item">
+                <div class="hero-flow-icon" style="background: rgba(37,99,235,.15); color: #60a5fa;">
+                  <i class="bi bi-arrow-repeat"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="hero-flow-name">Sync CRM → NocoDB</div>
+                  <div class="hero-flow-desc">Cada 15 min · 1.240 registros</div>
+                </div>
+                <span class="hero-flow-status s-active">Activo</span>
+              </div>
+
+              <div class="hero-flow-item">
+                <div class="hero-flow-icon" style="background: rgba(16,185,129,.15); color: #34d399;">
+                  <i class="bi bi-robot"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="hero-flow-name">Agente WhatsApp</div>
+                  <div class="hero-flow-desc">IA + Chatwoot · 24/7</div>
+                </div>
+                <span class="hero-flow-status s-running">Ejecutando</span>
+              </div>
+
+              <div class="hero-flow-item">
+                <div class="hero-flow-icon" style="background: rgba(6,182,212,.15); color: #22d3ee;">
+                  <i class="bi bi-bar-chart-line"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="hero-flow-name">Reporte semanal</div>
+                  <div class="hero-flow-desc">Metabase → Email equipo</div>
+                </div>
+                <span class="hero-flow-status s-done">Completado</span>
+              </div>
+
+              <div class="hero-metrics">
+                <div class="hero-metric">
+                  <div class="hero-metric-num">247</div>
+                  <div class="hero-metric-lbl">Ejecuciones hoy</div>
+                </div>
+                <div class="hero-metric">
+                  <div class="hero-metric-num">0</div>
+                  <div class="hero-metric-lbl">Errores</div>
+                </div>
+                <div class="hero-metric">
+                  <div class="hero-metric-num">99.8%</div>
+                  <div class="hero-metric-lbl">Uptime</div>
+                </div>
+              </div>
+
+              <div class="hero-toast hero-toast-bottom">
+                <i class="bi bi-graph-up-arrow hero-toast-icon"></i>
+                <div>
+                  <div class="hero-toast-main">+340 tareas automáticas</div>
+                  <div class="hero-toast-sub">Esta semana · sin intervención manual</div>
+                </div>
               </div>
 
             </div>
           </div>
+
         </div>
       </div>
-    </section><!-- /Hero Section -->
+    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>SOBRE NOSOTROS</h2>
-        <div><span>CONOCÉ MÁS SOBRE</span> <span class="description-title">BRAIN</span></div>
-      </div><!-- End Section Title -->
-
+    <!-- ═══════════════════ PROBLEMA / SOLUCIÓN ═══════════════════ -->
+    <section id="pain" class="pain-section section">
       <div class="container">
 
-        <div class="row gx-5 align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-            <div class="about-image position-relative">
-              <img src="assets/img/about/programador.jpg" class="img-fluid rounded-4 shadow-sm" alt="About Image" loading="lazy">
-
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="300">
-            <div class="about-content">
-              <h2>Potenciamos tu negocio con IA y automatización</h2>
-              <p class="lead">Nos especializamos en desarrollar soluciones inteligentes que transforman la atención al cliente y el análisis de datos. Combinamos automatización, agentes de IA y herramientas open source para lograr resultados medibles y escalables.</p>
-              <p>Con flujos eficientes, análisis en tiempo real y personalización total, ayudamos a empresas a optimizar sus procesos y ofrecer experiencias superiores a sus clientes.</p>
-
-              <div class="row g-4 mt-3">
-                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="feature-item">
-                    <i class="bi bi-check-circle-fill"></i>
-                    <h5>Soporte humano + IA</h5>
-                    <p>Nuestro equipo combina experiencia técnica con agentes inteligentes para brindar asistencia personalizada y eficaz en cada interacción.</p>
-                  </div>
-                </div>
-                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="450">
-                  <div class="feature-item">
-                    <i class="bi bi-lightbulb-fill"></i>
-                    <h5>Innovación continua</h5>
-                    <p>Adoptamos herramientas de código abierto como n8n, NocoDB y Metabase para crear soluciones flexibles, seguras y adaptables a cualquier negocio.</p>
-                  </div>
-                </div>
-              </div>
-
-              <a href="#" class="btn btn-primary mt-4">Conocé nuestros servicios</a>
-            </div>
-          </div>
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-label">El problema real</span>
+          <h2 class="section-title">¿Cuánto le cuesta a tu negocio<br><span class="accent">no automatizar?</span></h2>
+          <p class="section-sub mx-auto" style="max-width:520px;">Cada tarea manual es tiempo perdido. Cada dato disperso, una decisión mal tomada.</p>
         </div>
 
-        <div class="testimonial-section mt-5 pt-5" data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-            <div class="col-lg-4" data-aos="fade-right" data-aos-delay="200">
-              <div class="testimonial-intro">
-                <h3>Lo que resolvemos</h3>
-                <p>Automatizaciones reales para problemas reales</p>
-                <div class="swiper-nav-buttons mt-4">
-                  <button class="slider-prev"><i class="bi bi-arrow-left"></i></button>
-                  <button class="slider-next"><i class="bi bi-arrow-right"></i></button>
-                </div>
-              </div>
+        <div class="pain-grid" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="pain-col">
+            <div class="pain-col-header pain">
+              <i class="bi bi-x-circle"></i> Sin Brain
             </div>
-        
-            <div class="col-lg-8" data-aos="fade-left" data-aos-delay="300">
-              <div class="testimonial-slider swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                  {
-                    "loop": true,
-                    "speed": 800,
-                    "autoplay": {
-                      "delay": 5000
-                    },
-                    "slidesPerView": 1,
-                    "spaceBetween": 30,
-                    "navigation": {
-                      "nextEl": ".slider-next",
-                      "prevEl": ".slider-prev"
-                    },
-                    "breakpoints": {
-                      "768": {
-                        "slidesPerView": 2
-                      }
-                    }
-                  }
-                </script>
-                <div class="swiper-wrapper">
-        
-                  <div class="swiper-slide">
-                    <div class="testimonial-item">
-                      <p>"Ahora los correos y mensajes se enrutan automáticamente a cada agente. Nuestro tiempo de respuesta mejoró notablemente."</p>
-                      <div class="client-info d-flex align-items-center mt-4">
-                        <i class="bi bi-envelope-check fs-3 me-3"></i>
-                        <div>
-                          <h6 class="mb-0">Automatización de Mensajes</h6>
-                          <span>Soporte al cliente</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <div class="swiper-slide">
-                    <div class="testimonial-item">
-                      <p>"Creamos dashboards sin depender de desarrolladores. Ahora tenemos reportes automáticos todos los días."</p>
-                      <div class="client-info d-flex align-items-center mt-4">
-                        <i class="bi bi-bar-chart-line fs-3 me-3"></i>
-                        <div>
-                          <h6 class="mb-0">Visualización de Datos</h6>
-                          <span>Reportes con Metabase</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <div class="swiper-slide">
-                    <div class="testimonial-item">
-                      <p>"Implementamos flujos con IA sin escribir una sola línea de código. Todo conectado con nuestras herramientas."</p>
-                      <div class="client-info d-flex align-items-center mt-4">
-                        <i class="bi bi-cpu fs-3 me-3"></i>
-                        <div>
-                          <h6 class="mb-0">Flujos con IA</h6>
-                          <span>Integraciones con n8n</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <div class="swiper-slide">
-                    <div class="testimonial-item">
-                      <p>"Concentramos la información de varios sistemas en un solo panel. Ahora todo el equipo accede a los datos que necesita."</p>
-                      <div class="client-info d-flex align-items-center mt-4">
-                        <i class="bi bi-grid-1x2 fs-3 me-3"></i>
-                        <div>
-                          <h6 class="mb-0">Centralización de sistemas</h6>
-                          <span>Plataforma unificada</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        
-                </div>
-              </div>
+            <div class="pain-item">
+              <div class="pain-item-icon"><i class="bi bi-clock-history"></i></div>
+              <div class="pain-item-title">Tareas repetitivas que consumen horas</div>
+              <div class="pain-item-desc">Tu equipo copia datos entre sistemas, manda emails manualmente y genera reportes desde cero cada semana.</div>
+            </div>
+            <div class="pain-item">
+              <div class="pain-item-icon"><i class="bi bi-layout-split"></i></div>
+              <div class="pain-item-title">Datos dispersos, decisiones a ciegas</div>
+              <div class="pain-item-desc">La información vive en hojas de cálculo, emails y herramientas separadas. Nadie tiene el panorama completo.</div>
+            </div>
+            <div class="pain-item">
+              <div class="pain-item-icon"><i class="bi bi-chat-square-dots"></i></div>
+              <div class="pain-item-title">Atención al cliente lenta y despareja</div>
+              <div class="pain-item-desc">Los mensajes se pierden, las respuestas tardan horas y la experiencia depende de quién esté disponible.</div>
             </div>
           </div>
+
+          <div class="pain-divider">
+            <div class="pain-divider-line"></div>
+            <div class="pain-divider-node"><i class="bi bi-arrow-right"></i></div>
+            <div class="pain-divider-line"></div>
+            <div class="pain-divider-node"><i class="bi bi-arrow-right"></i></div>
+            <div class="pain-divider-line"></div>
+            <div class="pain-divider-node"><i class="bi bi-arrow-right"></i></div>
+            <div class="pain-divider-line"></div>
+          </div>
+
+          <div class="pain-col">
+            <div class="pain-col-header brain">
+              <i class="bi bi-check-circle"></i> Con Brain
+            </div>
+            <div class="solution-item">
+              <div class="solution-item-icon"><i class="bi bi-diagram-3"></i></div>
+              <div class="solution-item-title">Flujos automáticos que trabajan solos</div>
+              <div class="solution-item-desc">Diseñamos flujos en n8n que conectan tus herramientas y ejecutan tareas sin intervención humana, 24/7.</div>
+            </div>
+            <div class="solution-item">
+              <div class="solution-item-icon"><i class="bi bi-bar-chart-line"></i></div>
+              <div class="solution-item-title">Dashboard unificado en tiempo real</div>
+              <div class="solution-item-desc">Centralizamos tus datos en Metabase y NocoDB para que cada área tenga visibilidad total al instante.</div>
+            </div>
+            <div class="solution-item">
+              <div class="solution-item-icon"><i class="bi bi-robot"></i></div>
+              <div class="solution-item-title">Agente de IA que responde por vos</div>
+              <div class="solution-item-desc">Desplegamos agentes inteligentes en WhatsApp con Chatwoot que atienden, derivan y aprenden 24/7.</div>
+            </div>
+          </div>
+
         </div>
-        
+      </div>
+    </section>
 
-    </section><!-- /About Section -->
-
-    <!-- Services Section -->
+    <!-- ═══════════════════ SERVICES ═══════════════════ -->
     <section id="services" class="services section">
+      <div class="container">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Servicios</h2>
-        <div><span>Automatización</span> <span class="description-title">+ Inteligencia para tu negocio</span></div>
-      </div><!-- End Section Title -->
-    
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
-        <div class="service-header">
-          <div class="row align-items-center">
-            <div class="col-lg-8 col-md-12">
-              <div class="service-intro">
-                <h2 class="service-heading">
-                  <div>Soluciones eficientes</div>
-                  <div><span>con tecnología open source</span></div>
-                </h2>
-              </div>
+        <div class="services-header" data-aos="fade-up">
+          <div>
+            <span class="section-label">Servicios</span>
+            <h2 class="section-title">Soluciones que<br><span class="accent">ya funcionan</span></h2>
+            <p class="section-sub">Tecnología open source, configurada por expertos, lista para escalar.</p>
+          </div>
+          <a href="service-details.html" class="services-link">
+            Ver todos los servicios <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card-icon" style="background: rgba(37,99,235,.12); color: #60a5fa;">
+              <i class="bi bi-diagram-3"></i>
             </div>
-            <div class="col-lg-4 col-md-12">
-              <div class="service-summary">
-                <p>
-                  Integramos herramientas como n8n, Metabase y NocoDB para automatizar tus flujos, visualizar datos y escalar tu negocio con inteligencia.
-                </p>
-                <a href="service-details.html" class="service-btn">
-                  Ver todos los servicios
-                  <i class="bi bi-arrow-right"></i>
-                </a>
+            <div class="service-card-tag">Automatización</div>
+            <div class="service-card-title">Flujos automatizados</div>
+            <div class="service-card-desc">Conectamos tus apps y automatizamos tareas repetitivas. Desde emails hasta sincronización de datos entre sistemas.</div>
+            <div class="service-card-footer">
+              <span class="service-card-tool">n8n</span>
+              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="service-card-icon" style="background: rgba(6,182,212,.12); color: #22d3ee;">
+              <i class="bi bi-bar-chart-line"></i>
+            </div>
+            <div class="service-card-tag">Business Intelligence</div>
+            <div class="service-card-title">Dashboards interactivos</div>
+            <div class="service-card-desc">KPIs y métricas en tiempo real. Reportes automáticos para que cada área tome decisiones con datos confiables.</div>
+            <div class="service-card-footer">
+              <span class="service-card-tool">Metabase</span>
+              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card-icon" style="background: rgba(139,92,246,.12); color: #a78bfa;">
+              <i class="bi bi-table"></i>
+            </div>
+            <div class="service-card-tag">Datos</div>
+            <div class="service-card-title">Gestión visual de datos</div>
+            <div class="service-card-desc">Administrá bases de datos como hojas de cálculo. Sin SQL, sin fricción, con toda la potencia de una base relacional.</div>
+            <div class="service-card-footer">
+              <span class="service-card-tool">NocoDB</span>
+              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card-icon" style="background: rgba(245,158,11,.12); color: #fbbf24;">
+              <i class="bi bi-plug"></i>
+            </div>
+            <div class="service-card-tag">Integración</div>
+            <div class="service-card-title">Integraciones personalizadas</div>
+            <div class="service-card-desc">Conectamos tus sistemas actuales con APIs, bases de datos y herramientas externas. Todo funciona junto.</div>
+            <div class="service-card-footer">
+              <span class="service-card-tool">API / Webhooks</span>
+              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="service-card-icon" style="background: rgba(16,185,129,.12); color: #34d399;">
+              <i class="bi bi-robot"></i>
+            </div>
+            <div class="service-card-tag">Inteligencia Artificial</div>
+            <div class="service-card-title">Agentes inteligentes</div>
+            <div class="service-card-desc">IA que atiende, deriva y aprende en WhatsApp con Chatwoot. Disponible 24/7. Sin código de tu parte.</div>
+            <div class="service-card-footer">
+              <span class="service-card-tool">LLM + n8n</span>
+              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card-icon" style="background: rgba(239,68,68,.12); color: #f87171;">
+              <i class="bi bi-file-earmark-bar-graph"></i>
+            </div>
+            <div class="service-card-tag">Reporting</div>
+            <div class="service-card-title">Reportes automáticos</div>
+            <div class="service-card-desc">Generá informes diarios, semanales o a demanda. Tus métricas llegan solas, al equipo correcto, en el momento justo.</div>
+            <div class="service-card-footer">
+              <span class="service-card-tool">Metabase + n8n</span>
+              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ STEPS ═══════════════════ -->
+    <section id="steps" class="steps section">
+      <div class="container">
+
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-label">Proceso</span>
+          <h2 class="section-title">De cero a automatizado<br><span class="accent">en 4 pasos</span></h2>
+          <p class="section-sub mx-auto" style="max-width:480px;">Sin reuniones interminables. Sin implementaciones que duran meses.</p>
+        </div>
+
+        <div class="steps-track" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="step-row">
+            <div class="step-node"><i class="bi bi-lightbulb"></i></div>
+            <div class="step-body">
+              <div class="step-num-tag">Paso 01</div>
+              <div class="step-title">Diagnóstico inicial</div>
+              <div class="step-desc">Escuchamos tu operación, mapeamos los procesos que más tiempo consumen e identificamos dónde la automatización genera mayor impacto. Sin compromiso.</div>
+              <div class="step-chips">
+                <span class="step-chip"><i class="bi bi-calendar-check"></i> 1 reunión</span>
+                <span class="step-chip"><i class="bi bi-clock"></i> 45 min</span>
+                <span class="step-chip"><i class="bi bi-gift"></i> Gratis</span>
               </div>
             </div>
           </div>
+
+          <div class="step-row">
+            <div class="step-node"><i class="bi bi-gear"></i></div>
+            <div class="step-body">
+              <div class="step-num-tag">Paso 02</div>
+              <div class="step-title">Diseño del flujo</div>
+              <div class="step-desc">Modelamos los procesos con las herramientas adecuadas: n8n para automatizaciones, NocoDB para datos, Metabase para dashboards. Todo enfocado en resultados medibles.</div>
+              <div class="step-chips">
+                <span class="step-chip"><i class="bi bi-diagram-3"></i> n8n</span>
+                <span class="step-chip"><i class="bi bi-table"></i> NocoDB</span>
+                <span class="step-chip"><i class="bi bi-bar-chart-line"></i> Metabase</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-row">
+            <div class="step-node"><i class="bi bi-rocket-takeoff"></i></div>
+            <div class="step-body">
+              <div class="step-num-tag">Paso 03</div>
+              <div class="step-title">Implementación</div>
+              <div class="step-desc">Desplegamos la solución, conectamos tus sistemas y activamos los flujos. El primer resultado live puede estar en menos de 48 horas.</div>
+              <div class="step-chips">
+                <span class="step-chip"><i class="bi bi-lightning-charge"></i> 48hs primer flujo</span>
+                <span class="step-chip"><i class="bi bi-shield-check"></i> Zero downtime</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-row">
+            <div class="step-node"><i class="bi bi-graph-up-arrow"></i></div>
+            <div class="step-body">
+              <div class="step-num-tag">Paso 04</div>
+              <div class="step-title">Soporte y mejora continua</div>
+              <div class="step-desc">Monitoreamos el funcionamiento, analizamos métricas y ajustamos los flujos para que tu operación siga evolucionando con el negocio.</div>
+              <div class="step-chips">
+                <span class="step-chip"><i class="bi bi-headset"></i> Soporte incluido</span>
+                <span class="step-chip"><i class="bi bi-arrow-repeat"></i> Mejoras iterativas</span>
+              </div>
+            </div>
+          </div>
+
         </div>
-    
-        <div class="row justify-content-center">
-    
-          <!-- Servicio 1 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
+      </div>
+    </section>
+
+    <!-- ═══════════════════ SOCIAL PROOF ═══════════════════ -->
+    <section id="testimonials" class="social-proof section">
+      <div class="container">
+
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-label">Resultados reales</span>
+          <h2 class="section-title">Lo que dicen<br><span class="accent">quienes confiaron</span></h2>
+          <p class="section-sub mx-auto" style="max-width:480px;">Empresas que automatizaron con Brain y midieron el impacto.</p>
+        </div>
+
+        <div class="stats-strip" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-cell">
+            <div class="stat-value">+50</div>
+            <div class="stat-label">Empresas automatizadas</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">3x</div>
+            <div class="stat-label">Velocidad operativa promedio</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">-70%</div>
+            <div class="stat-label">Tareas manuales eliminadas</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-value">48hs</div>
+            <div class="stat-label">Primer resultado live</div>
+          </div>
+        </div>
+
+        <div class="testimonials-grid" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="testimonial-card featured">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="testimonial-text">"Con Brain conectamos todas nuestras herramientas internas sin escribir una sola línea de código. Los flujos quedaron orquestados desde una interfaz visual y los resultados se notaron en menos de una semana. Automatizamos procesos críticos que antes hacíamos a mano todos los días."</p>
+            <div class="testimonial-meta">
+              <div class="testimonial-avatar">MG</div>
+              <div>
+                <div class="testimonial-name">Martín González</div>
+                <div class="testimonial-role">COO · Empresa de logística</div>
+              </div>
+              <span class="testimonial-tag"><i class="bi bi-diagram-3"></i> n8n</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="testimonial-text">"Antes dependíamos de reportes manuales. Ahora cada área tiene visibilidad total con dashboards automáticos en Metabase."</p>
+            <div class="testimonial-meta">
+              <div class="testimonial-avatar">LC</div>
+              <div>
+                <div class="testimonial-name">Laura Castillo</div>
+                <div class="testimonial-role">Gerente de datos · Retail</div>
+              </div>
+              <span class="testimonial-tag"><i class="bi bi-bar-chart-line"></i> Metabase</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="testimonial-text">"El equipo técnico entendió lo que necesitábamos desde el primer momento. Implementaron módulos que se adaptaron perfecto a nuestra infraestructura."</p>
+            <div class="testimonial-meta">
+              <div class="testimonial-avatar">PR</div>
+              <div>
+                <div class="testimonial-name">Pablo Rivas</div>
+                <div class="testimonial-role">CTO · Startup fintech</div>
+              </div>
+              <span class="testimonial-tag"><i class="bi bi-plug"></i> API</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="testimonial-text">"Concentramos la información de cuatro sistemas en un solo panel. Ahora todo el equipo accede a los datos que necesita, cuando los necesita."</p>
+            <div class="testimonial-meta">
+              <div class="testimonial-avatar">AF</div>
+              <div>
+                <div class="testimonial-name">Ana Fernández</div>
+                <div class="testimonial-role">Directora · Consultora B2B</div>
+              </div>
+              <span class="testimonial-tag"><i class="bi bi-table"></i> NocoDB</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ PRICING ═══════════════════ -->
+    <section id="pricing" class="pricing section">
+      <div class="container">
+
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-label">Planes</span>
+          <h2 class="section-title">Elegí el plan que<br><span class="accent">escala con tu negocio</span></h2>
+          <p class="section-sub mx-auto" style="max-width:520px;">Todos los planes incluyen onboarding, configuración inicial y soporte técnico. Sin costos ocultos.</p>
+          <div class="billing-toggle">
+            <span class="active">Mensual</span>
+            <div class="toggle-pill"></div>
+            <span>Anual <span style="color:#4ade80;font-size:11px;font-weight:700;">−20%</span></span>
+          </div>
+        </div>
+
+        <div class="pricing-grid" data-aos="fade-up" data-aos-delay="100">
+
+          <!-- Starter -->
+          <div class="pricing-card">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <div class="plan-icon" style="background: rgba(37,99,235,.10); color: var(--accent-light);">
+                <i class="bi bi-whatsapp" style="color:#4ade80;"></i>
+              </div>
+              <span class="plan-tier">Starter</span>
+            </div>
+            <div class="plan-name">Bot Essential</div>
+            <div class="plan-tagline">Para negocios que quieren automatizar su atención al cliente en WhatsApp desde el día uno.</div>
+
+            <div class="plan-price-block">
+              <div class="plan-price">
+                <span class="price-usd">USD</span>
+                <span class="price-num">100</span>
+                <span class="price-per">/mes</span>
+              </div>
+              <div class="price-note">Facturación mensual · Cancelación en cualquier momento</div>
+            </div>
+
+            <div class="plan-section-label">Stack incluido</div>
+            <div class="stack-chips">
+              <span class="chip chip-wa"><i class="bi bi-whatsapp"></i> WhatsApp</span>
+              <span class="chip chip-ct"><i class="bi bi-headset"></i> Chatwoot</span>
+              <span class="chip chip-llm"><i class="bi bi-robot"></i> LLM</span>
+            </div>
+
+            <div class="plan-section-label">Funcionalidades</div>
+            <ul class="plan-features">
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">1 bot de WhatsApp</span> con IA conversacional</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Agendamiento de turnos automático</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Chatwoot</span> — bandeja unificada de conversaciones</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Panel de administración completo</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Transferencia a agente humano</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Historial y etiquetado de conversaciones</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Soporte técnico por email</span></li>
+              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Dashboards Metabase</li>
+              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Flujos n8n personalizados</li>
+              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Múltiples bots</li>
+            </ul>
+
+            <a href="#contact" class="plan-cta cta-ghost">Empezar con Starter</a>
+          </div>
+
+          <!-- Business -->
+          <div class="pricing-card popular">
+            <div class="popular-badge">Más popular</div>
+            <div class="d-flex align-items-center justify-content-between mb-4 mt-3">
+              <div class="plan-icon" style="background: rgba(37,99,235,.15); color: var(--accent-light);">
                 <i class="bi bi-diagram-3"></i>
               </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Flujos <span>automatizados</span>
-                </a>
-              </h3>
-              <p>
-                Automatizá tareas repetitivas y conectá tus herramientas con n8n. Diseñamos procesos eficientes que ahorran tiempo y reducen errores.
-              </p>
+              <span class="plan-tier">Business</span>
             </div>
+            <div class="plan-name">Automation Suite</div>
+            <div class="plan-tagline">Para equipos que necesitan múltiples bots, datos centralizados y automatizaciones que conectan todo.</div>
+
+            <div class="plan-price-block">
+              <div class="plan-price">
+                <span class="price-usd">USD</span>
+                <span class="price-num">300</span>
+                <span class="price-per">/mes</span>
+              </div>
+              <div class="price-note">Todo lo de Starter · Escala sin límites</div>
+            </div>
+
+            <div class="plan-section-label">Stack incluido</div>
+            <div class="stack-chips">
+              <span class="chip chip-wa"><i class="bi bi-whatsapp"></i> WhatsApp</span>
+              <span class="chip chip-ct"><i class="bi bi-headset"></i> Chatwoot</span>
+              <span class="chip chip-llm"><i class="bi bi-robot"></i> LLM</span>
+              <span class="chip chip-mb"><i class="bi bi-bar-chart-line"></i> Metabase</span>
+              <span class="chip chip-n8n"><i class="bi bi-diagram-3"></i> n8n</span>
+              <span class="chip chip-noco"><i class="bi bi-table"></i> NocoDB</span>
+            </div>
+
+            <div class="plan-section-label">Funcionalidades</div>
+            <ul class="plan-features">
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Hasta 3 bots de WhatsApp</span> con IA</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Agendamiento + CRM integrado</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Chatwoot multi-bandeja para todo el equipo</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Dashboards Metabase</span> — KPIs y reportes automáticos</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Flujos n8n</span> ilimitados</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">NocoDB</span> — gestión visual de datos sin SQL</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Integraciones personalizadas</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Soporte prioritario · respuesta en 4 hs</span></li>
+              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Bots ilimitados</li>
+              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Soporte dedicado 24/7</li>
+            </ul>
+
+            <a href="#contact" class="plan-cta cta-primary">Empezar con Business</a>
           </div>
-    
-          <!-- Servicio 2 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-bar-chart-line"></i>
+
+          <!-- Scale -->
+          <div class="pricing-card">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <div class="plan-icon" style="background: rgba(139,92,246,.12); color: #a78bfa;">
+                <i class="bi bi-building"></i>
               </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Dashboards <span>interactivos</span>
-                </a>
-              </h3>
-              <p>
-                Centralizá tus datos y visualizá indicadores clave con Metabase. Reportes automáticos y en tiempo real para decisiones más ágiles.
-              </p>
+              <span class="plan-tier">Scale</span>
             </div>
+            <div class="plan-name">Full Stack</div>
+            <div class="plan-tagline">Para organizaciones que necesitan automatización completa, múltiples canales y soporte enterprise.</div>
+
+            <div class="plan-price-block">
+              <div class="plan-price">
+                <span class="price-usd">USD</span>
+                <span class="price-num">500</span>
+                <span class="price-per">/mes</span>
+              </div>
+              <div class="price-note">Todo lo de Business · SLA garantizado</div>
+            </div>
+
+            <div class="plan-section-label">Stack incluido</div>
+            <div class="stack-chips">
+              <span class="chip chip-wa"><i class="bi bi-whatsapp"></i> WhatsApp</span>
+              <span class="chip chip-ct"><i class="bi bi-headset"></i> Chatwoot</span>
+              <span class="chip chip-llm"><i class="bi bi-robot"></i> LLM</span>
+              <span class="chip chip-mb"><i class="bi bi-bar-chart-line"></i> Metabase</span>
+              <span class="chip chip-n8n"><i class="bi bi-diagram-3"></i> n8n</span>
+              <span class="chip chip-noco"><i class="bi bi-table"></i> NocoDB</span>
+            </div>
+
+            <div class="plan-section-label">Funcionalidades</div>
+            <ul class="plan-features">
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Bots ilimitados</span> — WhatsApp, email, web</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Agentes de IA por departamento</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Chatwoot enterprise — equipos ilimitados</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Dashboards multi-área en Metabase</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Automatizaciones n8n con flujos críticos</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Integraciones con ERP, CRM y sistemas legacy</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Soporte dedicado 24/7</span></span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>SLA de respuesta garantizado</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Capacitación del equipo incluida</span></li>
+              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Onboarding con PM dedicado</span></li>
+            </ul>
+
+            <a href="#contact" class="plan-cta cta-ghost">Contactar ventas</a>
           </div>
-    
-          <!-- Servicio 3 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-table"></i>
-              </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Gestión <span>de datos visual</span>
-                </a>
-              </h3>
-              <p>
-                Usá NocoDB para administrar tus datos como una hoja de cálculo. Cargá, conectá y modificá sin escribir una sola línea de SQL.
-              </p>
-            </div>
-          </div>
-    
-          <!-- Servicio 4 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-terminal"></i>
-              </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Integraciones <span>personalizadas</span>
-                </a>
-              </h3>
-              <p>
-                Conectamos tus sistemas actuales con APIs, bases de datos y herramientas de terceros para que todo funcione de forma integrada.
-              </p>
-            </div>
-          </div>
-    
-          <!-- Servicio 5 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-robot"></i>
-              </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Agentes <span>inteligentes</span>
-                </a>
-              </h3>
-              <p>
-                Incorporamos agentes de IA para responder consultas, enrutar interacciones y optimizar la atención al cliente automáticamente.
-              </p>
-            </div>
-          </div>
-    
-          <!-- Servicio 6 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-card position-relative z-1">
-              <div class="service-icon">
-                <i class="bi bi-pie-chart"></i>
-              </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Reportes <span>automáticos</span>
-                </a>
-              </h3>
-              <p>
-                Generá informes diarios, semanales o bajo demanda con datos confiables, sin esfuerzo manual. Tus métricas, siempre disponibles.
-              </p>
-            </div>
-          </div>
-    
-        </div>
-      </div>
 
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Steps Section -->
-    <section id="steps" class="steps section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Proceso</h2>
-        <div><span>Cómo</span> <span class="description-title">trabajamos</span></div>
-      </div><!-- End Section Title -->
-    
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
-        <div class="steps-wrapper">
-    
-          <!-- Paso 1 -->
-          <div class="step-item" data-aos="fade-right" data-aos-delay="200">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-lightbulb"></i>
-              </div>
-              <div class="step-info">
-                <span class="step-number">Paso 01</span>
-                <h3>Diagnóstico inicial</h3>
-                <p>Escuchamos tus necesidades, analizamos tu operación actual y detectamos oportunidades de mejora mediante automatización e inteligencia de datos.</p>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
-    
-          <!-- Paso 2 -->
-          <div class="step-item" data-aos="fade-left" data-aos-delay="300">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-gear"></i>
-              </div>
-              <div class="step-info">
-                <span class="step-number">Paso 02</span>
-                <h3>Diseño del flujo</h3>
-                <p>Modelamos procesos inteligentes usando herramientas como n8n, NocoDB y Metabase. Todo enfocado en maximizar eficiencia y visibilidad.</p>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
-    
-          <!-- Paso 3 -->
-          <div class="step-item" data-aos="fade-right" data-aos-delay="400">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-bar-chart-line"></i>
-              </div>
-              <div class="step-info">
-                <span class="step-number">Paso 03</span>
-                <h3>Implementación</h3>
-                <p>Desplegamos las soluciones diseñadas, conectamos tus sistemas y automatizamos tareas clave con mínimo impacto operativo.</p>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
-    
-          <!-- Paso 4 -->
-          <div class="step-item" data-aos="fade-left" data-aos-delay="500">
-            <div class="step-content">
-              <div class="step-icon">
-                <i class="bi bi-check2-circle"></i>
-              </div>
-              <div class="step-info">
-                <span class="step-number">Paso 04</span>
-                <h3>Soporte y mejora continua</h3>
-                <p>Supervisamos el funcionamiento, analizamos métricas y hacemos ajustes para que tus procesos sigan evolucionando con tu negocio.</p>
-              </div>
-            </div>
-          </div><!-- End Step Item -->
-    
-        </div>
-    
-      </div>
-
-    </section><!-- /Steps Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
-        <div class="advertise-1 d-flex flex-column flex-lg-row gap-4 align-items-center position-relative">
-    
-          <div class="content-left flex-grow-1" data-aos="fade-right" data-aos-delay="200">
-            <span class="badge text-uppercase mb-2">¡NO TE LO PIERDAS!</span>
-            <h2>Modernizá tu negocio con soluciones cloud</h2>
-            <p class="my-4">Con Brain, llevá tu infraestructura a la nube, automatizá tareas clave y obtené visibilidad total de tus datos. Escalá sin complicaciones, con seguridad y soporte experto.</p>
-    
-            <div class="features d-flex flex-wrap gap-3 mb-4">
-              <div class="feature-item">
-                <i class="bi bi-check-circle-fill"></i>
-                <span>Infraestructura en la nube</span>
-              </div>
-              <div class="feature-item">
-                <i class="bi bi-check-circle-fill"></i>
-                <span>Automatización de procesos</span>
-              </div>
-              <div class="feature-item">
-                <i class="bi bi-check-circle-fill"></i>
-                <span>Paneles de control en tiempo real</span>
-              </div>
-            </div>
-    
-            <div class="cta-buttons d-flex flex-wrap gap-3">
-              <a href="#" class="btn btn-primary">Solicitar demo</a>
-              <a href="#services" class="btn btn-outline">Ver servicios</a>
-            </div>
-          </div>
-    
-          <div class="content-right position-relative" data-aos="fade-left" data-aos-delay="300">
-            <img src="assets/img/misc/cloud-infra.png" alt="Infraestructura Cloud" class="img-fluid rounded-4">
-          </div>
-    
-          <div class="decoration">
-            <div class="circle-1"></div>
-            <div class="circle-2"></div>
-          </div>
-    
-        </div>
-    
-      </div>
-
-    </section><!-- /Call To Action Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonios</h2>
-        <div><span>Conocé la experiencia</span> <span class="description-title">de quienes confiaron en Brain</span></div>
-      </div><!-- End Section Title -->
-    
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
-        <div class="testimonials-slider swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "slidesPerView": 1,
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 6000
-              },
-              "navigation": {
-                "nextEl": ".swiper-button-next",
-                "prevEl": ".swiper-button-prev"
-              }
-            }
-          </script>
-    
-          <div class="swiper-wrapper">
-    
-            <!-- Testimonio 1 -->
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row">
-                  <div class="col-lg-8">
-                    <h2>Flujos automatizados sin esfuerzo</h2>
-                    <p>
-                      Con Brain conectamos nuestras herramientas internas sin tener que programar. Todo quedó orquestado desde una interfaz visual, y los resultados se notaron en menos de una semana.
-                    </p>
-                    <p>
-                      El soporte fue constante y el equipo técnico entendió lo que necesitábamos desde el primer momento. Automatizamos procesos críticos que antes hacíamos a mano.
-                    </p>
-                  </div>
-                  <div class="col-lg-4 d-none d-lg-block">
-                    <div class="featured-img-wrapper">
-                      <img src="assets/img/testimonials/dev-team-1.jpg" class="featured-img img-fluid rounded-4" alt="Equipo 1">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <!-- Testimonio 2 -->
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row">
-                  <div class="col-lg-8">
-                    <h2>Visualizamos métricas en tiempo real</h2>
-                    <p>
-                      Antes dependíamos de reportes manuales. Con los dashboards que nos armó Brain en Metabase, cada área tiene visibilidad total de su operación.
-                    </p>
-                    <p>
-                      El acceso a la información es inmediato y actual, lo que nos permitió tomar mejores decisiones sin perder tiempo ni depender del área técnica.
-                    </p>
-                  </div>
-                  <div class="col-lg-4 d-none d-lg-block">
-                    <div class="featured-img-wrapper">
-                      <img src="assets/img/testimonials/dev-team-2.jpg" class="featured-img img-fluid rounded-4" alt="Equipo 2">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <!-- Testimonio 3 -->
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row">
-                  <div class="col-lg-8">
-                    <h2>Desarrollos a medida que escalan</h2>
-                    <p>
-                      Teníamos necesidades muy específicas para integrar nuestras herramientas legacy. Brain desarrolló módulos personalizados que se adaptaron perfecto a nuestra infraestructura cloud.
-                    </p>
-                    <p>
-                      Destaco la claridad en la comunicación, los tiempos de entrega y la flexibilidad para iterar sobre cada etapa del proyecto.
-                    </p>
-                  </div>
-                  <div class="col-lg-4 d-none d-lg-block">
-                    <div class="featured-img-wrapper">
-                      <img src="assets/img/testimonials/dev-team-3.jpg" class="featured-img img-fluid rounded-4" alt="Equipo 3">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <!-- Testimonio 4 -->
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row">
-                  <div class="col-lg-8">
-                    <h2>Un equipo que entiende tecnología</h2>
-                    <p>
-                      Nos acompañaron desde la planificación hasta el soporte post-implementación. El equipo está conformado por programadores de verdad, no vendedores.
-                    </p>
-                    <p>
-                      Esa diferencia se nota en cada decisión técnica y en la tranquilidad que nos dio delegar el desarrollo completo de nuestra solución interna.
-                    </p>
-                  </div>
-                  <div class="col-lg-4 d-none d-lg-block">
-                    <div class="featured-img-wrapper">
-                      <img src="assets/img/testimonials/dev-team-4.jpg" class="featured-img img-fluid rounded-4" alt="Equipo 4">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-          </div>
-    
-          <div class="swiper-navigation w-100 d-flex align-items-center justify-content-center mt-3">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-    
-        </div>
-    
-      </div>
-    </section><!-- /Testimonials Section -->
-
-    <!-- Portfolio Section -->
-    
-
-
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Planes</h2>
-        <div><span>Conocé nuestros</span> <span class="description-title">planes</span></div>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-          <!-- Basic Plan -->
-          <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-card">
-              <div class="plan-header">
-                <div class="plan-icon">
-                  <i class="bi bi-box"></i>
-                </div>
-                <h3>Starter</h3>
-                <p>Para personas que recién empiezan</p>
-              </div>
-              <div class="plan-pricing">
-                <div class="price">
-                  <span class="currency">$</span>
-                  <span class="amount">12</span>
-                  <span class="period">/mes</span>
-                </div>
-              </div>
-              <div class="plan-features">
-                <ul>
-                  <li><i class="bi bi-check-circle-fill"></i> Soporte por email</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Dashboard básico</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Hasta 3 flujos automatizados</li>
-                  <li class="disabled"><i class="bi bi-x-circle-fill"></i> Integraciones personalizadas</li>
-                  <li class="disabled"><i class="bi bi-x-circle-fill"></i> Soporte prioritario</li>
-                </ul>
-              </div>
-              <div class="plan-cta">
-                <a href="#" class="btn-plan">Elegir plan</a>
-              </div>
-            </div>
-          </div><!-- End Basic Plan -->
-
-          <!-- Professional Plan -->
-          <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-card popular">
-              <div class="popular-tag">Más popular</div>
-              <div class="plan-header">
-                <div class="plan-icon">
-                  <i class="bi bi-briefcase"></i>
-                </div>
-                <h3>Professional</h3>
-                <p>Para equipos pequeños y negocios en crecimiento</p>
-              </div>
-              <div class="plan-pricing">
-                <div class="price">
-                  <span class="currency">$</span>
-                  <span class="amount">39</span>
-                  <span class="period">/mes</span>
-                </div>
-              </div>
-              <div class="plan-features">
-                <ul>
-                  <li><i class="bi bi-check-circle-fill"></i> Todo lo de Starter</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Flujos ilimitados</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Dashboards personalizados</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Integraciones a medida</li>
-                  <li class="disabled"><i class="bi bi-x-circle-fill"></i> Soporte dedicado 24/7</li>
-                </ul>
-              </div>
-              <div class="plan-cta">
-                <a href="#" class="btn-plan">Elegir plan</a>
-              </div>
-            </div>
-          </div><!-- End Professional Plan -->
-
-          <!-- Enterprise Plan -->
-          <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="pricing-card">
-              <div class="plan-header">
-                <div class="plan-icon">
-                  <i class="bi bi-building"></i>
-                </div>
-                <h3>Enterprise</h3>
-                <p>Para grandes organizaciones</p>
-              </div>
-              <div class="plan-pricing">
-                <div class="price">
-                  <span class="currency">$</span>
-                  <span class="amount">79</span>
-                  <span class="period">/mes</span>
-                </div>
-              </div>
-              <div class="plan-features">
-                <ul>
-                  <li><i class="bi bi-check-circle-fill"></i> Todo lo de Professional</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Agentes de IA personalizados</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Soporte dedicado 24/7</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Capacitación incluida</li>
-                  <li><i class="bi bi-check-circle-fill"></i> SLA garantizado</li>
-                </ul>
-              </div>
-              <div class="plan-cta">
-                <a href="#" class="btn-plan">Elegir plan</a>
-              </div>
-            </div>
-          </div><!-- End Enterprise Plan -->
         </div>
 
+        <p class="pricing-note" data-aos="fade-up">
+          <i class="bi bi-shield-check"></i>
+          Todos los planes incluyen configuración inicial, infraestructura en la nube y actualizaciones de seguridad sin costo adicional.
+        </p>
+
       </div>
+    </section>
 
-    </section><!-- /Pricing Section -->
-
-    <!-- Faq Section -->
-    <section class="faq-9 faq section" id="faq">
-
+    <!-- ═══════════════════ FAQ ═══════════════════ -->
+    <section id="faq" class="faq section">
       <div class="container">
-        <div class="row">
+        <div class="faq-layout">
 
-          <div class="col-lg-5" data-aos="fade-up">
-            <h2 class="faq-title">¿Tenés preguntas? Consultá las FAQ</h2>
-            <p class="faq-description">Encontrá respuestas a las consultas más frecuentes sobre nuestros servicios de automatización e inteligencia artificial.</p>
-            <div class="faq-arrow d-none d-lg-block" data-aos="fade-up" data-aos-delay="200">
-              <svg class="faq-arrow" width="200" height="211" viewBox="0 0 200 211" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M198.804 194.488C189.279 189.596 179.529 185.52 169.407 182.07L169.384 182.049C169.227 181.994 169.07 181.939 168.912 181.884C166.669 181.139 165.906 184.546 167.669 185.615C174.053 189.473 182.761 191.837 189.146 195.695C156.603 195.912 119.781 196.591 91.266 179.049C62.5221 161.368 48.1094 130.695 56.934 98.891C84.5539 98.7247 112.556 84.0176 129.508 62.667C136.396 53.9724 146.193 35.1448 129.773 30.2717C114.292 25.6624 93.7109 41.8875 83.1971 51.3147C70.1109 63.039 59.63 78.433 54.2039 95.0087C52.1221 94.9842 50.0776 94.8683 48.0703 94.6608C30.1803 92.8027 11.2197 83.6338 5.44902 65.1074C-1.88449 41.5699 14.4994 19.0183 27.9202 1.56641C28.6411 0.625793 27.2862 -0.561638 26.5419 0.358501C13.4588 16.4098 -0.221091 34.5242 0.896608 56.5659C1.8218 74.6941 14.221 87.9401 30.4121 94.2058C37.7076 97.0203 45.3454 98.5003 53.0334 98.8449C47.8679 117.532 49.2961 137.487 60.7729 155.283C87.7615 197.081 139.616 201.147 184.786 201.155L174.332 206.827C172.119 208.033 174.345 211.287 176.537 210.105C182.06 207.125 187.582 204.122 193.084 201.144C193.346 201.147 195.161 199.887 195.423 199.868C197.08 198.548 193.084 201.144 195.528 199.81C196.688 199.192 197.846 198.552 199.006 197.935C200.397 197.167 200.007 195.087 198.804 194.488ZM60.8213 88.0427C67.6894 72.648 78.8538 59.1566 92.1207 49.0388C98.8475 43.9065 106.334 39.2953 114.188 36.1439C117.295 34.8947 120.798 33.6609 124.168 33.635C134.365 33.5511 136.354 42.9911 132.638 51.031C120.47 77.4222 86.8639 93.9837 58.0983 94.9666C58.8971 92.6666 59.783 90.3603 60.8213 88.0427Z" fill="currentColor"></path>
-              </svg>
+          <div class="faq-left" data-aos="fade-right">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title">Preguntas<br><span class="accent">frecuentes</span></h2>
+            <p class="section-sub" style="font-size:14px;">¿No encontrás lo que buscás? Escribinos directamente.</p>
+            <div class="faq-cta-box">
+              <p>¿Tenés una pregunta más específica sobre tu caso de uso?</p>
+              <a href="#contact" class="faq-cta-btn">
+                <i class="bi bi-chat-dots"></i> Hablar con el equipo
+              </a>
             </div>
           </div>
 
-          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="300">
-            <div class="faq-container">
+          <div class="faq-list" data-aos="fade-left" data-aos-delay="100">
 
-              <div class="faq-item faq-active">
+            <div class="faq-item faq-active">
+              <div class="faq-question">
                 <h3>¿Qué es la automatización con n8n?</h3>
-                <div class="faq-content">
-                  <p>n8n es una herramienta de automatización de flujos de trabajo que permite conectar tus aplicaciones sin escribir código. Con Brain, diseñamos flujos personalizados que automatizan tareas repetitivas, ahorran tiempo y reducen errores en tu operación.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+              </div>
+              <div class="faq-content">
+                <p>n8n es una herramienta de automatización visual que conecta tus aplicaciones sin código. Con Brain diseñamos flujos personalizados que automatizan tareas repetitivas y reducen errores en tu operación.</p>
+              </div>
+            </div>
 
-              <div class="faq-item">
+            <div class="faq-item">
+              <div class="faq-question">
                 <h3>¿Qué herramientas utilizan?</h3>
-                <div class="faq-content">
-                  <p>Trabajamos con tecnologías open source: n8n para automatización, NocoDB para gestión de datos tipo hoja de cálculo, y Metabase para dashboards y visualización. Todas son flexibles, seguras y escalables.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+              </div>
+              <div class="faq-content">
+                <p>Trabajamos con tecnologías open source: n8n para automatización, NocoDB para gestión de datos, Metabase para dashboards y Chatwoot para gestión de conversaciones. Todas flexibles, seguras y escalables.</p>
+              </div>
+            </div>
 
-              <div class="faq-item">
+            <div class="faq-item">
+              <div class="faq-question">
                 <h3>¿Qué tipo de procesos puedo automatizar?</h3>
-                <div class="faq-content">
-                  <p>Desde envío de emails y reportes automáticos hasta integración de sistemas, atención al cliente con agentes de IA, y sincronización de datos entre bases. Todo depende de tu necesidad específica.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+              </div>
+              <div class="faq-content">
+                <p>Desde envío de emails y reportes automáticos hasta integración de sistemas, atención al cliente con IA en WhatsApp y sincronización de datos. Todo depende de tu necesidad específica.</p>
+              </div>
+            </div>
 
-              <div class="faq-item">
+            <div class="faq-item">
+              <div class="faq-question">
                 <h3>¿Cuánto tarda el proceso de implementación?</h3>
-                <div class="faq-content">
-                  <p>Varía según la complejidad: un flujo simple puede estar listo en días, mientras que un proyecto integral puede llevar semanas. Hacemos un diagnóstico inicial sin compromiso para darte un estimado preciso.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+              </div>
+              <div class="faq-content">
+                <p>Un flujo simple puede estar live en 48 horas. Un proyecto integral puede llevar semanas. Hacemos un diagnóstico sin compromiso para darte un estimado preciso.</p>
+              </div>
+            </div>
 
-              <div class="faq-item">
+            <div class="faq-item">
+              <div class="faq-question">
                 <h3>¿Ofrecen soporte post-implementación?</h3>
-                <div class="faq-content">
-                  <p>Sí. Supervisamos el funcionamiento, analizamos métricas y hacemos ajustes para que tus procesos sigan evolucionando con tu negocio. El soporte está incluido según el plan que elijas.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+              </div>
+              <div class="faq-content">
+                <p>Sí. Monitoreamos el funcionamiento, analizamos métricas y hacemos ajustes continuos. El soporte está incluido según el plan elegido.</p>
+              </div>
+            </div>
 
-              <div class="faq-item">
+            <div class="faq-item">
+              <div class="faq-question">
                 <h3>¿Trabajan con empresas argentinas?</h3>
-                <div class="faq-content">
-                  <p>Absolutamente. Somos una empresa argentina y trabajamos con clientes de todo el país. Conocemos el contexto local, las regulaciones y las necesidades de tu negocio.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
+              </div>
+              <div class="faq-content">
+                <p>Absolutamente. Somos una startup argentina y trabajamos con clientes de todo el país. Conocemos el contexto local, las regulaciones y las necesidades de tu negocio.</p>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
-    </section><!-- /Faq Section -->
+    </section>
 
-    <!-- Contact Section -->
+    <!-- ═══════════════════ CONTACT ═══════════════════ -->
     <section id="contact" class="contact section">
+      <div class="container">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contacto</h2>
-        <div><span>Conectémonos</span></div>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <!-- Contact Info Boxes -->
-        <div class="row gy-4 mb-5">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="contact-info-box">
-              <div class="icon-box">
-                <i class="bi bi-geo-alt"></i>
-              </div>
-              <div class="info-content">
-                <h4>Nuestra dirección</h4>
-                <p>Buenos Aires, Argentina</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="contact-info-box">
-              <div class="icon-box">
-                <i class="bi bi-envelope"></i>
-              </div>
-              <div class="info-content">
-                <h4>Email</h4>
-                <p>info@brain.com.ar</p>
-                <p>contacto@brain.com.ar</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="contact-info-box">
-              <div class="icon-box">
-                <i class="bi bi-headset"></i>
-              </div>
-              <div class="info-content">
-                <h4>Horarios de atención</h4>
-                <p>Lun-Vie: 9 a 18 hs</p>
-                <p>Sáb: 9 a 16 hs</p>
-              </div>
-            </div>
-          </div>
+        <div class="text-center mb-5" data-aos="fade-up">
+          <span class="section-label">Contacto</span>
+          <h2 class="section-title">Hablemos de<br><span class="accent">tu proyecto</span></h2>
+          <p class="section-sub mx-auto" style="max-width:480px;">Contanos qué necesitás y te respondemos en menos de 24 horas.</p>
         </div>
 
-      </div>
+        <div class="contact-layout" data-aos="fade-up" data-aos-delay="100">
 
-    
-      <!-- Google Maps (Full Width) -->
-      <div class="map-section" data-aos="fade-up" data-aos-delay="200">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13131.385135044777!2d-58.41730965!3d-34.603684599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb2eec33c63f%3A0xc35c24b80156f7f3!2sCiudad%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1691515799468!5m2!1ses-419!2sar" 
-          width="100%" 
-          height="500" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+          <div>
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
+                <div>
+                  <div class="contact-info-label">Ubicación</div>
+                  <div class="contact-info-value">Buenos Aires, Argentina</div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
+                <div>
+                  <div class="contact-info-label">Email</div>
+                  <div class="contact-info-value">
+                    <a href="mailto:info@brain.com.ar">info@brain.com.ar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="bi bi-clock"></i></div>
+                <div>
+                  <div class="contact-info-label">Horarios</div>
+                  <div class="contact-info-value">Lun–Vie: 9 a 18 hs · Sáb: 9 a 16 hs</div>
+                </div>
+              </div>
+            </div>
 
-      <!-- Formulario de contacto - Configurar action: Formspree, FormSubmit o webhook n8n -->
-      <div class="container">
-        <div class="form-container-overlap" data-aos="fade-up" data-aos-delay="300">
-          <div class="contact-form-wrapper">
-            <h2>Enviá tu mensaje</h2>
-            <p class="mb-4">Completá el formulario y te responderemos a la brevedad.</p>
+            <div class="contact-social mt-4">
+              <a href="#" class="social-icon-btn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="social-icon-btn"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-icon-btn"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-icon-btn"><i class="bi bi-whatsapp"></i></a>
+            </div>
+          </div>
 
-            <form id="contact-form" action="#" method="post" class="php-email-form">
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="nameInput" name="name" placeholder="Nombre completo" required>
-                <label for="nameInput">Nombre completo</label>
+          <div class="contact-form-card">
+            <h3>Enviá tu consulta</h3>
+            <p class="form-sub">Te respondemos en menos de 24 horas hábiles.</p>
+
+            <form id="contact-form" action="#" method="post">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="nameInput">Nombre</label>
+                  <input type="text" id="nameInput" name="name" placeholder="Tu nombre completo" required>
+                </div>
+                <div class="form-field">
+                  <label for="emailInput">Email</label>
+                  <input type="email" id="emailInput" name="email" placeholder="tu@empresa.com" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field full">
+                  <label for="subjectInput">Asunto</label>
+                  <input type="text" id="subjectInput" name="subject" placeholder="¿En qué podemos ayudarte?" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field full">
+                  <label for="messageInput">Mensaje</label>
+                  <textarea id="messageInput" name="message" placeholder="Contanos sobre tu proyecto o proceso..." required></textarea>
+                </div>
               </div>
 
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email" required>
-                <label for="emailInput">Email</label>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="subjectInput" name="subject" placeholder="Asunto" required>
-                <label for="subjectInput">Asunto</label>
-              </div>
-
-              <div class="form-floating mb-3">
-                <textarea class="form-control" id="messageInput" name="message" rows="5" placeholder="Tu mensaje" style="height: 150px" required></textarea>
-                <label for="messageInput">Tu mensaje</label>
-              </div>
-
-              <div class="my-3" id="form-status">
+              <div id="form-status">
                 <div class="loading">Enviando...</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Tu mensaje fue enviado. ¡Gracias!</div>
               </div>
 
-              <div class="d-grid">
-                <button type="submit" class="btn btn-submit">Enviar mensaje <i class="bi bi-send-fill ms-2"></i></button>
-              </div>
+              <button type="submit" class="btn-submit">
+                Enviar mensaje <i class="bi bi-send"></i>
+              </button>
             </form>
           </div>
+
         </div>
       </div>
+    </section>
+
   </main>
 
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer id="footer" class="footer">
+    <div class="container">
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/img/logo.webp" alt="Brain Logo">
             <span class="sitename">Brain</span>
-          </a>
-          <p>Brain es una startup argentina de automatización inteligente. Desarrollamos soluciones con IA, n8n, NocoDB y Metabase para que tu negocio crezca de forma ágil y escalable.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+          <p class="footer-tagline">Startup argentina de automatización inteligente. Desarrollamos soluciones con IA, n8n, NocoDB y Metabase para que tu negocio crezca de forma ágil y escalable.</p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-btn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="footer-social-btn"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="footer-social-btn"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="footer-social-btn"><i class="bi bi-github"></i></a>
           </div>
         </div>
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Enlaces útiles</h4>
-          <ul>
-            <li><a href="#hero">Inicio</a></li>
-            <li><a href="#about">Nosotros</a></li>
-            <li><a href="#services">Servicios</a></li>
-            <li><a href="#">Términos de servicio</a></li>
-            <li><a href="#">Política de privacidad</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Nuestros servicios</h4>
+        <div class="footer-col">
+          <h5>Producto</h5>
           <ul>
             <li><a href="service-details.html">Flujos automatizados</a></li>
-            <li><a href="service-details.html">Dashboards interactivos</a></li>
-            <li><a href="service-details.html">Gestión de datos visual</a></li>
+            <li><a href="service-details.html">Dashboards</a></li>
+            <li><a href="service-details.html">Gestión de datos</a></li>
             <li><a href="service-details.html">Agentes de IA</a></li>
+            <li><a href="service-details.html">Integraciones</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contacto</h4>
-          <p>Buenos Aires, Argentina</p>
-          <p class="mt-4"><strong>Teléfono:</strong> <span>+54 11 XXXX XXXX</span></p>
-          <p><strong>Email:</strong> <span>info@brain.com.ar</span></p>
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#pricing">Planes</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Términos de uso</a></li>
+            <li><a href="#">Privacidad</a></li>
+          </ul>
         </div>
 
+        <div class="footer-col">
+          <h5>Contacto</h5>
+          <div class="footer-contact-row"><i class="bi bi-geo-alt"></i><span>Buenos Aires, Argentina</span></div>
+          <div class="footer-contact-row"><i class="bi bi-envelope"></i><span>info@brain.com.ar</span></div>
+          <div class="footer-contact-row"><i class="bi bi-clock"></i><span>Lun–Vie: 9 a 18 hs</span></div>
+        </div>
       </div>
-    </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Brain</strong> <span>Todos los derechos reservados</span></p>
-      <div class="credits">
-        Designed by <a href="https://brain.com.ar/">Brain</a>
+      <div class="footer-bottom">
+        <span>© 2025 Brain. Todos los derechos reservados.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Términos de uso</a>
+          <a href="#">Política de privacidad</a>
+        </div>
       </div>
-    </div>
 
+    </div>
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- ═══════════════════ SCROLL TOP ═══════════════════ -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
-  <!-- Preloader -->
+  <!-- ═══════════════════ PRELOADER ═══════════════════ -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+  <!-- ═══════════════════ CHAT WIDGET ═══════════════════ -->
+  <button id="chat-widget-button" class="chat-widget-button" aria-label="Abrir chat">
+    <i class="bi bi-chat-dots-fill"></i>
+  </button>
+
+  <div id="chat-widget-container" class="chat-widget-container">
+    <div id="chat-widget-header" class="chat-widget-header">
+      <span><i class="bi bi-chat-dots me-2"></i>Chat Brain</span>
+      <button type="button" id="chat-widget-close" aria-label="Cerrar chat">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div id="chat-widget-body" class="chat-widget-body">
+      <p class="chat-widget-welcome">¡Hola! Soy el asistente de Brain. ¿En qué puedo ayudarte?</p>
+    </div>
+    <div class="chat-widget-footer">
+      <input
+        type="text"
+        id="chat-widget-input"
+        class="chat-widget-input"
+        placeholder="Escribí tu consulta..."
+        autocomplete="off"
+      >
+      <button id="chat-widget-send" class="chat-widget-send" aria-label="Enviar">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/contact-form.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <!-- Chat Widget -->
-  <button id="chat-widget-button" class="chat-widget-button" aria-label="Abrir chat">
-    <i class="bi bi-chat-dots-fill"></i>
-  </button>
-  <div id="chat-widget-container" class="chat-widget-container">
-    <div id="chat-widget-header" class="chat-widget-header">
-      <span><i class="bi bi-chat-dots me-2"></i>Chat Brain</span>
-      <button type="button" id="chat-widget-close" aria-label="Cerrar chat"><i class="bi bi-x-lg"></i></button>
-    </div>
-    <div id="chat-widget-body" class="chat-widget-body">
-      <p class="chat-widget-welcome"><strong>Hola 👋, ¿cómo podemos ayudarte?</strong></p>
-    </div>
-    <div id="chat-widget-footer" class="chat-widget-footer">
-      <input type="text" id="chat-widget-input" class="chat-widget-input" placeholder="Escribí tu mensaje..." autocomplete="off">
-      <button type="button" id="chat-widget-send" class="chat-widget-send"><i class="bi bi-send-fill"></i></button>
-    </div>
-  </div>
-  <link href="assets/css/chat-widget.css" rel="stylesheet">
+  <script src="assets/js/contact-form.js"></script>
   <script src="assets/js/chat-widget.js"></script>
 
 </body>
-
 </html>
