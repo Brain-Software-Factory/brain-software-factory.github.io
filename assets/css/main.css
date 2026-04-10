@@ -727,7 +727,7 @@ body:not(.mobile-nav-active) .mobile-nav-toggle .bi-x { display: none; }
 .pricing-card {
   background: rgba(255,255,255,.02); border: 1px solid var(--border-subtle);
   border-radius: 20px; padding: 32px 28px;
-  position: relative; overflow: hidden;
+  position: relative; overflow: visible;
   display: flex; flex-direction: column;
   transition: border-color .2s;
 }
