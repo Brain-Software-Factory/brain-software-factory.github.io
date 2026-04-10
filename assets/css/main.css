@@ -504,7 +504,7 @@ body:not(.mobile-nav-active) .mobile-nav-toggle .bi-x { display: none; }
   background: rgba(255,255,255,.02);
   border: 1px solid var(--border-subtle);
   border-radius: 16px; padding: 28px;
-  position: relative; overflow: hidden;
+  position: relative; overflow: visible;
   transition: border-color .2s, background .2s;
   cursor: pointer;
 }
@@ -1227,3 +1227,202 @@ body:not(.mobile-nav-active) .mobile-nav-toggle .bi-x { display: none; }
   margin-left: auto; font-size: 7px; font-weight: 700;
   border-radius: 4px; padding: 1px 5px; flex-shrink: 0;
 }
+
+/* ── PERSPECTIVE MOCKUPS (service cards + steps + service details) ── */
+
+/* Wrapper que establece el contexto de perspectiva */
+.tilt-wrap {
+  perspective: 700px;
+  margin: 14px 0;
+  height: 88px;
+}
+
+/* Variante más alta para service-details cards */
+.tilt-wrap-lg {
+  perspective: 700px;
+  margin: 20px 0;
+  height: 110px;
+}
+
+/* Variante compacta para steps */
+.tilt-wrap-sm {
+  perspective: 600px;
+  margin: 14px 0;
+  height: 72px;
+}
+
+/* Pantalla principal con transform 3D */
+.tilt-screen {
+  width: 100%;
+  height: 100%;
+  background: #070c14;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  transform: rotateX(14deg) rotateY(-5deg) scale(0.97);
+  transform-origin: bottom center;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(37,99,235,0.08);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chrome bar superior con los dots */
+.tilt-bar {
+  background: #111827;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+
+.tilt-dots { display: flex; gap: 4px; }
+.tilt-dot { width: 5px; height: 5px; border-radius: 50%; }
+.tilt-dot-r { background: #ef4444; }
+.tilt-dot-y { background: #f59e0b; }
+.tilt-dot-g { background: #22c55e; }
+
+.tilt-title {
+  font-size: 8px;
+  color: #374151;
+  font-weight: 500;
+  flex: 1;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Área de contenido del mockup */
+.tilt-body {
+  padding: 8px 10px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Overlay de glow — cada card le pone su color via style */
+.tilt-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ── Elementos internos reutilizables ── */
+
+/* Nodos de n8n */
+.tilt-nodes { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
+.tilt-node {
+  font-size: 8px; font-weight: 700;
+  padding: 4px 7px; border-radius: 5px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.tilt-node-blue  { background: rgba(37,99,235,.15);  color: #60a5fa; border: 1px solid rgba(37,99,235,.25); }
+.tilt-node-green { background: rgba(16,185,129,.12); color: #34d399; border: 1px solid rgba(16,185,129,.2); }
+.tilt-node-cyan  { background: rgba(6,182,212,.12);  color: #22d3ee; border: 1px solid rgba(6,182,212,.2); }
+.tilt-node-amber { background: rgba(245,158,11,.12); color: #fbbf24; border: 1px solid rgba(245,158,11,.2); }
+.tilt-edge {
+  flex: 1; height: 1px; background: rgba(255,255,255,.08);
+  position: relative; min-width: 6px;
+}
+.tilt-edge::after {
+  content: '▶'; position: absolute; right: -3px; top: -6px;
+  font-size: 7px; color: rgba(255,255,255,.15);
+}
+
+/* Mini bar chart */
+.tilt-bars { display: flex; align-items: flex-end; gap: 2px; height: 26px; }
+.tilt-bar-item { flex: 1; border-radius: 2px 2px 0 0; }
+
+/* KPI row para Metabase */
+.tilt-kpis { display: flex; gap: 5px; margin-bottom: 5px; }
+.tilt-kpi {
+  flex: 1; background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 5px; padding: 3px 5px;
+}
+.tilt-kpi-num { font-size: 10px; font-weight: 900; line-height: 1; }
+.tilt-kpi-lbl { font-size: 7px; color: #4b5563; margin-top: 1px; }
+
+/* SVG chart */
+.tilt-chart { height: 22px; position: relative; overflow: hidden; }
+.tilt-chart svg { width: 100%; height: 100%; display: block; }
+
+/* Table rows para NocoDB */
+.tilt-thead { display: flex; gap: 4px; margin-bottom: 2px; }
+.tilt-th {
+  flex: 1; font-size: 7px; font-weight: 700;
+  color: #374151; text-transform: uppercase;
+  letter-spacing: .5px; padding: 2px 3px;
+  background: rgba(255,255,255,.03); border-radius: 3px;
+}
+.tilt-tr { display: flex; gap: 4px; margin-bottom: 2px; }
+.tilt-td {
+  flex: 1; font-size: 7px; color: #9ca3af;
+  padding: 2px 3px;
+  border-bottom: 1px solid rgba(255,255,255,.03);
+  white-space: nowrap; overflow: hidden;
+}
+.tilt-badge {
+  display: inline-block; font-size: 6px; font-weight: 700;
+  padding: 1px 4px; border-radius: 3px;
+}
+.tilt-badge-green { background: rgba(74,222,128,.1);  color: #4ade80; }
+.tilt-badge-blue  { background: rgba(37,99,235,.1);   color: #60a5fa; }
+
+/* Terminal para API */
+.tilt-term { display: flex; flex-direction: column; gap: 3px; }
+.tilt-term-line { font-family: 'Courier New', monospace; font-size: 8px; line-height: 1.3; }
+.tc-green { color: #4ade80; }
+.tc-blue  { color: #60a5fa; }
+.tc-amber { color: #fbbf24; }
+.tc-gray  { color: #4b5563; }
+.tc-white { color: #d1d5db; }
+
+/* Chat bubbles para Chatwoot */
+.tilt-chat { display: flex; flex-direction: column; gap: 4px; }
+.tilt-msg { display: flex; gap: 4px; align-items: flex-end; }
+.tilt-msg-user { flex-direction: row-reverse; }
+.tilt-avatar {
+  width: 12px; height: 12px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 6px; flex-shrink: 0;
+}
+.tilt-bubble { padding: 3px 6px; border-radius: 7px; font-size: 7px; line-height: 1.4; max-width: 85%; }
+.tilt-bubble-bot  { background: rgba(37,99,235,.15);  color: #93c5fd; border-radius: 7px 7px 7px 2px; }
+.tilt-bubble-user { background: rgba(37,99,235,.3);   color: #e0f2fe; border-radius: 7px 7px 2px 7px; }
+.tilt-typing { display: flex; gap: 2px; align-items: center; padding: 3px 6px; }
+.tilt-typing span {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: #60a5fa; opacity: 0.6;
+  animation: tiltTyping 1.2s infinite;
+}
+.tilt-typing span:nth-child(2) { animation-delay: 0.2s; }
+.tilt-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes tiltTyping {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
+  30% { transform: translateY(-3px); opacity: 1; }
+}
+
+/* Report rows */
+.tilt-report { display: flex; flex-direction: column; gap: 0; }
+.tilt-report-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 4px;
+}
+.tilt-report-title { font-size: 8px; font-weight: 700; color: #d1d5db; }
+.tilt-report-badge {
+  font-size: 7px; background: rgba(74,222,128,.15);
+  color: #4ade80; padding: 1px 5px; border-radius: 4px; font-weight: 700;
+}
+.tilt-report-row {
+  display: flex; align-items: center; gap: 5px;
+  padding: 2px 0; border-bottom: 1px solid rgba(255,255,255,.04);
+}
+.tilt-report-lbl { font-size: 7px; color: #6b7280; width: 28px; flex-shrink: 0; }
+.tilt-report-bar-wrap { flex: 1; height: 3px; background: rgba(255,255,255,.06); border-radius: 2px; }
+.tilt-report-bar { height: 100%; border-radius: 2px; }
+.tilt-report-val { font-size: 7px; font-weight: 700; color: #f9fafb; width: 26px; text-align: right; flex-shrink: 0; }
+
+/* Deploy terminal para step 03 */
+.tilt-deploy { display: flex; flex-direction: column; gap: 3px; }
