@@ -1,282 +1,472 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Detalle del servicio - Brain</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Servicios — Brain</title>
+  <meta name="description" content="Conocé en profundidad los servicios de automatización e inteligencia artificial de Brain.">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/brain.ico" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/chat-widget.css" rel="stylesheet">
 
+  <style>
+    /* ── PAGE HEADER ─────────────────────────────────────── */
+    .page-header {
+      background: var(--background-color);
+      padding: 140px 0 60px;
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(37,99,235,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .page-header-blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: .10; pointer-events: none;
+      width: 500px; height: 500px; background: var(--accent-color);
+      top: -200px; right: -100px;
+    }
+    .page-header .container { position: relative; z-index: 2; }
+    .page-header h1 {
+      font-size: clamp(28px, 4vw, 42px); font-weight: 900;
+      letter-spacing: -1.5px; color: var(--heading-color);
+      margin-bottom: 10px;
+    }
+    .page-header p { font-size: 15px; color: var(--text-muted); margin-bottom: 20px; }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4b5563; }
+    .breadcrumbs a { color: var(--accent-light); }
+    .breadcrumbs a:hover { color: var(--accent-color); }
+    .breadcrumbs .sep { color: #374151; }
+    .breadcrumbs .current { color: var(--text-muted); }
+
+    /* ── SERVICE DETAIL LAYOUT ───────────────────────────── */
+    .service-detail { background: var(--background-color); padding: 80px 0; }
+
+    /* Service header */
+    .sd-header { margin-bottom: 36px; }
+    .sd-header h1 {
+      font-size: clamp(24px, 3.5vw, 36px); font-weight: 900;
+      letter-spacing: -1px; color: var(--heading-color); margin-bottom: 12px;
+    }
+    .sd-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .sd-meta-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 600;
+      background: var(--accent-bg); border: 1px solid var(--accent-border);
+      color: var(--accent-light); border-radius: 20px; padding: 4px 12px;
+    }
+    .sd-lead {
+      font-size: 15px; color: var(--text-secondary); line-height: 1.7;
+      border-left: 2px solid var(--accent-color); padding-left: 16px;
+    }
+
+    /* Tabs */
+    .sd-tabs { margin-bottom: 48px; }
+    .sd-tabs .nav-tabs {
+      border-bottom: 1px solid var(--border-subtle);
+      gap: 4px; margin-bottom: 32px; flex-wrap: nowrap; overflow-x: auto;
+    }
+    .sd-tabs .nav-link {
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      border: none; border-bottom: 2px solid transparent;
+      background: none; padding: 10px 16px; border-radius: 0;
+      display: inline-flex; align-items: center; gap: 7px;
+      transition: color .2s, border-color .2s; white-space: nowrap;
+    }
+    .sd-tabs .nav-link:hover { color: var(--heading-color); }
+    .sd-tabs .nav-link.active {
+      color: var(--accent-light); border-bottom-color: var(--accent-color);
+    }
+
+    /* Overview tab */
+    .content-block h3 {
+      font-size: 20px; font-weight: 800; letter-spacing: -.5px;
+      color: var(--heading-color); margin-bottom: 14px;
+    }
+    .content-block p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 14px; }
+    .overview-img {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+    .overview-img img { width: 100%; height: 260px; object-fit: cover; display: block; }
+
+    /* Process tab */
+    .process-timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid; grid-template-columns: 56px 1fr; gap: 24px;
+      padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,.03);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-marker {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: var(--accent-bg); border: 1px solid var(--accent-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; color: var(--accent-light);
+      letter-spacing: .5px;
+    }
+    .timeline-content { padding-top: 8px; }
+    .timeline-content h4 {
+      font-size: 15px; font-weight: 800; color: var(--heading-color); margin-bottom: 6px;
+    }
+    .timeline-content p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    /* Benefits tab */
+    .benefit-card {
+      background: rgba(255,255,255,.02); border: 1px solid var(--border-subtle);
+      border-radius: 14px; padding: 24px;
+      transition: border-color .2s, background .2s;
+    }
+    .benefit-card:hover { border-color: var(--border-hover); background: var(--accent-bg); }
+    .benefit-icon {
+      width: 40px; height: 40px; border-radius: 10px; margin-bottom: 14px;
+      background: var(--accent-bg); border: 1px solid var(--accent-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; color: var(--accent-light);
+    }
+    .benefit-card h4 { font-size: 15px; font-weight: 800; color: var(--heading-color); margin-bottom: 8px; }
+    .benefit-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    /* Projects grid */
+    .sd-projects h3 {
+      font-size: 20px; font-weight: 800; color: var(--heading-color);
+      letter-spacing: -.5px; margin-bottom: 24px;
+    }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 768px) { .projects-grid { grid-template-columns: 1fr; } }
+    .project-item {
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border-subtle); position: relative;
+      background: rgba(255,255,255,.02);
+    }
+    .project-item img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .project-info {
+      padding: 14px 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .project-info h5 { font-size: 13px; font-weight: 700; color: var(--heading-color); margin-bottom: 3px; }
+    .project-info p { font-size: 11px; color: var(--accent-light); margin: 0; font-weight: 600; }
+
+    /* ── SIDEBAR ─────────────────────────────────────────── */
+    .sd-sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+    .sd-action-card {
+      background: var(--accent-bg); border: 1px solid var(--accent-border);
+      border-radius: 20px; padding: 28px;
+    }
+    .sd-action-card h3 {
+      font-size: 18px; font-weight: 900; color: var(--heading-color);
+      letter-spacing: -.5px; margin-bottom: 10px;
+    }
+    .sd-action-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .sd-action-btn {
+      display: block; width: 100%; padding: 13px;
+      background: linear-gradient(135deg, var(--accent-secondary), var(--accent-color));
+      color: #fff; border: none; border-radius: 10px;
+      font-size: 14px; font-weight: 700; text-align: center;
+      box-shadow: 0 0 30px var(--accent-glow);
+      transition: box-shadow .2s, transform .2s; margin-bottom: 12px;
+    }
+    .sd-action-btn:hover { color: #fff; box-shadow: 0 0 50px var(--accent-glow); transform: translateY(-1px); }
+    .sd-guarantee {
+      display: flex; align-items: center; gap: 6px; justify-content: center;
+      font-size: 12px; color: #4b5563;
+    }
+    .sd-guarantee i { color: var(--accent-color); }
+
+    .sd-features-card {
+      background: rgba(255,255,255,.02); border: 1px solid var(--border-subtle);
+      border-radius: 16px; padding: 24px;
+    }
+    .sd-features-card h4 {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--heading-color); margin-bottom: 20px;
+    }
+    .sd-features-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+    .sd-features-card li { display: flex; align-items: flex-start; gap: 12px; }
+    .sd-features-card li i {
+      font-size: 16px; color: var(--accent-light);
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .sd-features-card li h5 { font-size: 13px; font-weight: 700; color: var(--heading-color); margin-bottom: 2px; }
+    .sd-features-card li p { font-size: 11px; color: var(--text-muted); margin: 0; }
+
+    .sd-testimonial {
+      background: rgba(255,255,255,.02); border: 1px solid var(--border-subtle);
+      border-radius: 16px; padding: 24px;
+    }
+    .sd-testimonial .quote-icon {
+      width: 28px; height: 28px; border-radius: 7px;
+      background: var(--accent-bg); border: 1px solid var(--accent-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent-light); font-size: 13px; margin-bottom: 14px;
+    }
+    .sd-testimonial .stars { display: flex; gap: 3px; color: #fbbf24; font-size: 12px; margin-bottom: 12px; }
+    .sd-testimonial blockquote {
+      font-size: 13px; color: var(--text-secondary); line-height: 1.65;
+      font-style: italic; margin-bottom: 16px; border: none; padding: 0;
+    }
+    .sd-testimonial .client { display: flex; align-items: center; gap: 10px; }
+    .sd-testimonial .client img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .sd-testimonial .client-name { font-size: 12px; font-weight: 700; color: var(--heading-color); }
+    .sd-testimonial .client-role { font-size: 11px; color: var(--text-muted); }
+
+    .sd-contact-card {
+      background: rgba(255,255,255,.02); border: 1px solid var(--border-subtle);
+      border-radius: 16px; padding: 24px;
+    }
+    .sd-contact-card h4 {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--heading-color); margin-bottom: 16px;
+    }
+    .contact-method { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .contact-method:last-child { margin-bottom: 0; }
+    .contact-method-icon {
+      width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
+      background: var(--accent-bg); border: 1px solid var(--accent-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--accent-light);
+    }
+    .contact-method span { font-size: 10px; font-weight: 700; color: #4b5563; text-transform: uppercase; letter-spacing: 1px; display: block; }
+    .contact-method p { font-size: 13px; color: var(--text-secondary); margin: 0; font-weight: 500; }
+  </style>
 </head>
 
 <body class="service-details-page">
 
+  <!-- ═══════════════════ HEADER ═══════════════════ -->
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    <div class="header-container container-fluid container-xl position-relative d-flex align-items: center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <img src="assets/img/brain.ico" alt="Brain Logo" class="me-2">
         <h1 class="sitename">Brain</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#hero">Inicio</a></li>
-          <li><a href="index.html#about">Nosotros</a></li>
-          <li><a href="index.html#services">Servicios</a></li>
-          <li><a href="portfolio-details.html">Portfolio</a></li>
+          <li><a href="index.html#services" class="active">Servicios</a></li>
+          <li><a href="index.html#steps">Cómo funciona</a></li>
+          <li><a href="index.html#pricing">Planes</a></li>
           <li><a href="index.html#contact">Contacto</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#contact">Comenzar</a>
+      <a class="btn-getstarted" href="https://support.brain.com.ar">Iniciar sesión</a>
 
     </div>
   </header>
 
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade">
-      <div class="container position-relative">
-        <h1>Detalle del servicio</h1>
-        <p>Conocé en profundidad nuestros servicios de automatización e inteligencia artificial.</p>
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Inicio</a></li>
-            <li class="current">Detalle del servicio</li>
-          </ol>
-        </nav>
+    <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
+    <div class="page-header" data-aos="fade">
+      <div class="page-header-blob"></div>
+      <div class="container">
+        <span class="section-label">Servicios</span>
+        <h1>Automatización inteligente</h1>
+        <p>Conocé en profundidad cómo trabajamos y qué tecnologías usamos.</p>
+        <div class="breadcrumbs">
+          <a href="index.html">Inicio</a>
+          <span class="sep"><i class="bi bi-chevron-right" style="font-size:10px;"></i></span>
+          <span class="current">Detalle del servicio</span>
+        </div>
       </div>
-    </div><!-- End Page Title -->
+    </div>
 
-    <!-- Service Details Section -->
-    <section id="service-details" class="service-details section">
+    <!-- ═══════════════════ SERVICE DETAIL ═══════════════════ -->
+    <section class="service-detail">
+      <div class="container">
+        <div class="row g-5">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5">
-
+          <!-- Main content -->
           <div class="col-lg-8 order-lg-1 order-2">
-            <div class="service-main-content">
-              <div class="service-header" data-aos="fade-up">
-                <h1>Automatización con IA</h1>
-                <div class="service-meta">
-                  <span><i class="bi bi-award"></i> Servicio premium</span>
-                  <span><i class="bi bi-clock"></i> Desde 2020</span>
-                  <span><i class="bi bi-star-fill"></i> 4.9/5 Valoración</span>
-                </div>
-                <p class="lead">
-                  Desarrollamos soluciones de automatización inteligente con n8n, NocoDB y Metabase. Flujos automatizados, dashboards en tiempo real y agentes de IA para que tu negocio escale sin límites.
-                </p>
+
+            <!-- Header -->
+            <div class="sd-header" data-aos="fade-up">
+              <h1>Automatización con IA</h1>
+              <div class="sd-meta">
+                <span class="sd-meta-chip"><i class="bi bi-award"></i> Servicio premium</span>
+                <span class="sd-meta-chip"><i class="bi bi-clock-history"></i> Desde 2020</span>
+                <span class="sd-meta-chip"><i class="bi bi-star-fill"></i> 4.9 / 5</span>
               </div>
+              <p class="sd-lead">
+                Desarrollamos soluciones de automatización inteligente con n8n, NocoDB y Metabase. Flujos automatizados, dashboards en tiempo real y agentes de IA para que tu negocio escale sin límites.
+              </p>
+            </div>
 
-              <div class="service-tabs" data-aos="fade-up" data-aos-delay="200">
-                <ul class="nav nav-tabs" id="serviceTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#service-details-tab-1" type="button" role="tab" aria-controls="overview" aria-selected="true">
-                      <i class="bi bi-info-circle"></i> Resumen
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#service-details-tab-2" type="button" role="tab" aria-controls="process" aria-selected="false">
-                      <i class="bi bi-diagram-3"></i> Proceso
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#service-details-tab-3" type="button" role="tab" aria-controls="benefits" aria-selected="false">
-                      <i class="bi bi-graph-up-arrow"></i> Beneficios
-                    </button>
-                  </li>
-                </ul>
+            <!-- Tabs -->
+            <div class="sd-tabs" data-aos="fade-up" data-aos-delay="100">
+              <ul class="nav nav-tabs" id="serviceTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-overview" type="button" role="tab">
+                    <i class="bi bi-info-circle"></i> Resumen
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-process" type="button" role="tab">
+                    <i class="bi bi-diagram-3"></i> Proceso
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-benefits" type="button" role="tab">
+                    <i class="bi bi-graph-up-arrow"></i> Beneficios
+                  </button>
+                </li>
+              </ul>
 
-                <div class="tab-content">
+              <div class="tab-content">
 
-                  <div class="tab-pane fade show active" id="service-details-tab-1" role="tabpanel" aria-labelledby="overview-tab">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="content-block">
-                          <h3>Enfoque en automatización inteligente</h3>
-                          <p>Combinamos herramientas open source como n8n, NocoDB y Metabase para crear flujos automatizados que ahorran tiempo y reducen errores. Cada solución se adapta a las necesidades específicas de tu negocio.</p>
-                          <p>Desde la integración de sistemas hasta la atención al cliente con agentes de IA, nuestro equipo diseña procesos eficientes que escalan con vos.</p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <img src="assets/img/services/services-7.webp" alt="Automatización con n8n" class="img-fluid rounded">
+                <!-- Overview -->
+                <div class="tab-pane fade show active" id="tab-overview" role="tabpanel">
+                  <div class="row g-4 align-items-center">
+                    <div class="col-md-6">
+                      <div class="content-block">
+                        <h3>Enfoque en automatización inteligente</h3>
+                        <p>Combinamos herramientas open source como n8n, NocoDB y Metabase para crear flujos automatizados que ahorran tiempo y reducen errores. Cada solución se adapta a las necesidades específicas de tu negocio.</p>
+                        <p>Desde la integración de sistemas hasta la atención al cliente con agentes de IA, nuestro equipo diseña procesos eficientes que escalan con vos.</p>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="tab-pane fade" id="service-details-tab-2" role="tabpanel" aria-labelledby="process-tab">
-                    <div class="process-timeline">
-                      <div class="timeline-item">
-                        <div class="timeline-marker">01</div>
-                        <div class="timeline-content">
-                          <h4>Diagnóstico inicial</h4>
-                          <p>Analizamos tu operación actual, escuchamos tus necesidades y detectamos oportunidades de mejora mediante automatización e inteligencia de datos.</p>
-                        </div>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-marker">02</div>
-                        <div class="timeline-content">
-                          <h4>Diseño del flujo</h4>
-                          <p>Modelamos procesos inteligentes usando n8n, NocoDB y Metabase. Todo enfocado en maximizar eficiencia y visibilidad.</p>
-                        </div>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-marker">03</div>
-                        <div class="timeline-content">
-                          <h4>Implementación</h4>
-                          <p>Desplegamos las soluciones, conectamos tus sistemas y automatizamos tareas clave con mínimo impacto operativo.</p>
-                        </div>
-                      </div>
-
-                      <div class="timeline-item">
-                        <div class="timeline-marker">04</div>
-                        <div class="timeline-content">
-                          <h4>Análisis y optimización</h4>
-                          <p>Supervisamos el funcionamiento, analizamos métricas y hacemos ajustes para que tus procesos evolucionen con tu negocio.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="tab-pane fade" id="service-details-tab-3" role="tabpanel" aria-labelledby="benefits-tab">
-                    <div class="row g-4">
-                      <div class="col-md-6">
-                        <div class="benefit-card">
-                          <div class="benefit-icon">
-                            <i class="bi bi-graph-up"></i>
-                          </div>
-                          <h4>Mayor visibilidad de datos</h4>
-                          <p>Centralizá la información de varios sistemas en dashboards en tiempo real para que todo el equipo acceda a lo que necesita.</p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="benefit-card">
-                          <div class="benefit-icon">
-                            <i class="bi bi-people"></i>
-                          </div>
-                          <h4>Mejor atención al cliente</h4>
-                          <p>Agentes de IA que responden consultas, enrutan interacciones y optimizan la atención automáticamente.</p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="benefit-card">
-                          <div class="benefit-icon">
-                            <i class="bi bi-cash-coin"></i>
-                          </div>
-                          <h4>ROI mejorado</h4>
-                          <p>Reducí costos operativos con automatización que elimina tareas repetitivas y errores manuales.</p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="benefit-card">
-                          <div class="benefit-icon">
-                            <i class="bi bi-bar-chart-line"></i>
-                          </div>
-                          <h4>Decisiones basadas en datos</h4>
-                          <p>Tomá decisiones informadas con reportes automáticos y métricas en tiempo real.</p>
-                        </div>
+                    <div class="col-md-6">
+                      <div class="overview-img">
+                        <img src="assets/img/services/services-7.webp" alt="Automatización con n8n">
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="service-gallery" data-aos="fade-up" data-aos-delay="300">
-                <h3>Nuestros proyectos</h3>
-                <div class="service-details-slider swiper init-swiper">
-                  <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "speed": 800,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "slidesPerView": 1,
-                      "spaceBetween": 30,
-                      "breakpoints": {
-                        "768": {
-                          "slidesPerView": 2
-                        }
-                      },
-                      "pagination": {
-                        "el": ".swiper-pagination",
-                        "type": "bullets",
-                        "clickable": true
-                      }
-                    }
-                  </script>
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <div class="portfolio-item">
-                        <img src="assets/img/services/services-2.webp" alt="" class="img-fluid" loading="lazy">
-                        <div class="portfolio-info">
-                          <h5>Campaña de automatización</h5>
-                          <p>+187% en eficiencia operativa</p>
-                        </div>
+                <!-- Process -->
+                <div class="tab-pane fade" id="tab-process" role="tabpanel">
+                  <div class="process-timeline">
+                    <div class="timeline-item">
+                      <div class="timeline-marker">01</div>
+                      <div class="timeline-content">
+                        <h4>Diagnóstico inicial</h4>
+                        <p>Analizamos tu operación, escuchamos tus necesidades y detectamos oportunidades de mejora mediante automatización e inteligencia de datos.</p>
                       </div>
                     </div>
-                    <div class="swiper-slide">
-                      <div class="portfolio-item">
-                        <img src="assets/img/services/services-4.webp" alt="" class="img-fluid" loading="lazy">
-                        <div class="portfolio-info">
-                          <h5>Dashboard con Metabase</h5>
-                          <p>Visualización de datos en tiempo real</p>
-                        </div>
+                    <div class="timeline-item">
+                      <div class="timeline-marker">02</div>
+                      <div class="timeline-content">
+                        <h4>Diseño del flujo</h4>
+                        <p>Modelamos procesos inteligentes usando n8n, NocoDB y Metabase. Todo enfocado en maximizar eficiencia y visibilidad.</p>
                       </div>
                     </div>
-                    <div class="swiper-slide">
-                      <div class="portfolio-item">
-                        <img src="assets/img/services/services-10.webp" alt="" class="img-fluid" loading="lazy">
-                        <div class="portfolio-info">
-                          <h5>Integración n8n</h5>
-                          <p>+200% en flujos automatizados</p>
-                        </div>
+                    <div class="timeline-item">
+                      <div class="timeline-marker">03</div>
+                      <div class="timeline-content">
+                        <h4>Implementación</h4>
+                        <p>Desplegamos las soluciones, conectamos tus sistemas y automatizamos tareas clave con mínimo impacto operativo.</p>
+                      </div>
+                    </div>
+                    <div class="timeline-item">
+                      <div class="timeline-marker">04</div>
+                      <div class="timeline-content">
+                        <h4>Análisis y optimización</h4>
+                        <p>Supervisamos el funcionamiento, analizamos métricas y hacemos ajustes para que tus procesos evolucionen con tu negocio.</p>
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-pagination"></div>
+                </div>
+
+                <!-- Benefits -->
+                <div class="tab-pane fade" id="tab-benefits" role="tabpanel">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="benefit-card">
+                        <div class="benefit-icon"><i class="bi bi-graph-up"></i></div>
+                        <h4>Mayor visibilidad de datos</h4>
+                        <p>Centralizá la información de varios sistemas en dashboards en tiempo real para que todo el equipo acceda a lo que necesita.</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="benefit-card">
+                        <div class="benefit-icon"><i class="bi bi-robot"></i></div>
+                        <h4>Mejor atención al cliente</h4>
+                        <p>Agentes de IA que responden consultas, enrutan interacciones y optimizan la atención automáticamente 24/7.</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="benefit-card">
+                        <div class="benefit-icon"><i class="bi bi-cash-coin"></i></div>
+                        <h4>ROI mejorado</h4>
+                        <p>Reducí costos operativos con automatización que elimina tareas repetitivas y errores manuales.</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="benefit-card">
+                        <div class="benefit-icon"><i class="bi bi-bar-chart-line"></i></div>
+                        <h4>Decisiones basadas en datos</h4>
+                        <p>Tomá decisiones informadas con reportes automáticos y métricas en tiempo real.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="sd-projects" data-aos="fade-up" data-aos-delay="200">
+              <h3>Casos de éxito</h3>
+              <div class="projects-grid">
+                <div class="project-item">
+                  <img src="assets/img/services/services-2.webp" alt="Campaña de automatización">
+                  <div class="project-info">
+                    <h5>Campaña de automatización</h5>
+                    <p>+187% en eficiencia operativa</p>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="assets/img/services/services-4.webp" alt="Dashboard con Metabase">
+                  <div class="project-info">
+                    <h5>Dashboard con Metabase</h5>
+                    <p>Visualización de datos en tiempo real</p>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="assets/img/services/services-10.webp" alt="Integración n8n">
+                  <div class="project-info">
+                    <h5>Integración n8n</h5>
+                    <p>+200% en flujos automatizados</p>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
 
+          <!-- Sidebar -->
           <div class="col-lg-4 order-lg-2 order-1">
-            <div class="service-sidebar" data-aos="fade-left">
-              <div class="action-card" data-aos="zoom-in" data-aos-delay="100">
-                <h3>¿Listo para automatizar tu negocio?</h3>
-                <p>Obtené una consultoría gratuita con nuestro equipo y descubrí cómo podemos ayudarte a escalar con IA y automatización.</p>
-                <a href="index.html#contact" class="btn-primary">Agendar consultoría</a>
-                <span class="guarantee"><i class="bi bi-shield-check"></i> Garantía de satisfacción</span>
+            <div class="sd-sidebar" data-aos="fade-left">
+
+              <div class="sd-action-card">
+                <h3>¿Listo para automatizar?</h3>
+                <p>Obtené una consultoría gratuita y descubrí cómo escalar tu negocio con IA y automatización.</p>
+                <a href="index.html#contact" class="sd-action-btn">Agendar consultoría</a>
+                <div class="sd-guarantee">
+                  <i class="bi bi-shield-check"></i> Garantía de satisfacción
+                </div>
               </div>
 
-              <div class="service-features-list" data-aos="fade-up" data-aos-delay="200">
+              <div class="sd-features-card">
                 <h4>Lo que ofrecemos</h4>
                 <ul>
                   <li>
@@ -304,7 +494,7 @@
                     <i class="bi bi-robot"></i>
                     <div>
                       <h5>Agentes de IA</h5>
-                      <p>Atención al cliente inteligente</p>
+                      <p>Atención al cliente inteligente 24/7</p>
                     </div>
                   </li>
                   <li>
@@ -317,151 +507,145 @@
                 </ul>
               </div>
 
-              <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="testimonial-header">
-                  <i class="bi bi-quote"></i>
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
+              <div class="sd-testimonial">
+                <div class="quote-icon"><i class="bi bi-quote"></i></div>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
                 </div>
-                <p class="testimonial-text">
-                  "Las soluciones de automatización de Brain transformaron nuestra operación. En 3 meses aumentamos un 300% la eficiencia en procesos críticos."
-                </p>
-                <div class="client-info">
-                  <img src="assets/img/person/person-m-5.webp" alt="Cliente" class="client-image">
-                  <div class="client-details">
-                    <h5>Cliente Brain</h5>
-                    <span>Empresa argentina</span>
+                <blockquote>"Las soluciones de automatización de Brain transformaron nuestra operación. En 3 meses aumentamos un 300% la eficiencia en procesos críticos."</blockquote>
+                <div class="client">
+                  <img src="assets/img/person/person-m-5.webp" alt="Cliente Brain">
+                  <div>
+                    <div class="client-name">Cliente Brain</div>
+                    <div class="client-role">Empresa argentina</div>
                   </div>
                 </div>
               </div>
 
-              <div class="contact-info" data-aos="fade-up" data-aos-delay="400">
+              <div class="sd-contact-card">
                 <h4>¿Tenés preguntas?</h4>
                 <div class="contact-method">
-                  <i class="bi bi-telephone-fill"></i>
-                  <div>
-                    <span>Llamanos</span>
-                    <p>+54 11 XXXX XXXX</p>
-                  </div>
-                </div>
-                <div class="contact-method">
-                  <i class="bi bi-envelope-fill"></i>
+                  <div class="contact-method-icon"><i class="bi bi-envelope"></i></div>
                   <div>
                     <span>Escribinos</span>
                     <p>info@brain.com.ar</p>
                   </div>
                 </div>
+                <div class="contact-method">
+                  <div class="contact-method-icon"><i class="bi bi-whatsapp"></i></div>
+                  <div>
+                    <span>WhatsApp</span>
+                    <p>Respondemos en minutos</p>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 
         </div>
-
       </div>
-
-    </section><!-- /Service Details Section -->
+    </section>
 
   </main>
 
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer id="footer" class="footer">
+    <div class="container">
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/img/brain.ico" alt="Brain Logo">
             <span class="sitename">Brain</span>
-          </a>
-          <p>Brain es una startup argentina de automatización inteligente. Desarrollamos soluciones con IA, n8n, NocoDB y Metabase para que tu negocio crezca de forma ágil y escalable.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+          <p class="footer-tagline">Startup argentina de automatización inteligente. Desarrollamos soluciones con IA, n8n, NocoDB y Metabase para que tu negocio crezca de forma ágil y escalable.</p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-btn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="footer-social-btn"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="footer-social-btn"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="footer-social-btn"><i class="bi bi-github"></i></a>
           </div>
         </div>
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Enlaces útiles</h4>
-          <ul>
-            <li><a href="index.html#hero">Inicio</a></li>
-            <li><a href="index.html#about">Nosotros</a></li>
-            <li><a href="index.html#services">Servicios</a></li>
-            <li><a href="#">Términos de servicio</a></li>
-            <li><a href="#">Política de privacidad</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Nuestros servicios</h4>
+        <div class="footer-col">
+          <h5>Producto</h5>
           <ul>
             <li><a href="service-details.html">Flujos automatizados</a></li>
-            <li><a href="service-details.html">Dashboards interactivos</a></li>
-            <li><a href="service-details.html">Gestión de datos visual</a></li>
+            <li><a href="service-details.html">Dashboards</a></li>
+            <li><a href="service-details.html">Gestión de datos</a></li>
             <li><a href="service-details.html">Agentes de IA</a></li>
+            <li><a href="service-details.html">Integraciones</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contacto</h4>
-          <p>Buenos Aires, Argentina</p>
-          <p class="mt-4"><strong>Teléfono:</strong> <span>+54 11 XXXX XXXX</span></p>
-          <p><strong>Email:</strong> <span>info@brain.com.ar</span></p>
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="index.html#hero">Inicio</a></li>
+            <li><a href="index.html#pricing">Planes</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="#">Términos de uso</a></li>
+            <li><a href="#">Privacidad</a></li>
+          </ul>
         </div>
 
+        <div class="footer-col">
+          <h5>Contacto</h5>
+          <div class="footer-contact-row"><i class="bi bi-geo-alt"></i><span>Buenos Aires, Argentina</span></div>
+          <div class="footer-contact-row"><i class="bi bi-envelope"></i><span>info@brain.com.ar</span></div>
+          <div class="footer-contact-row"><i class="bi bi-clock"></i><span>Lun–Vie: 9 a 18 hs</span></div>
+        </div>
       </div>
-    </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Brain</strong> <span>Todos los derechos reservados</span></p>
-      <div class="credits">
-        Designed by <a href="https://brain.com.ar/">Brain</a>
+      <div class="footer-bottom">
+        <span>© 2025 Brain. Todos los derechos reservados.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Términos de uso</a>
+          <a href="#">Política de privacidad</a>
+        </div>
       </div>
-    </div>
 
+    </div>
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- ═══════════════════ SCROLL TOP ═══════════════════ -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
-  <!-- Preloader -->
+  <!-- ═══════════════════ PRELOADER ═══════════════════ -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-  <!-- Chat Widget -->
+  <!-- ═══════════════════ CHAT WIDGET ═══════════════════ -->
   <button id="chat-widget-button" class="chat-widget-button" aria-label="Abrir chat">
     <i class="bi bi-chat-dots-fill"></i>
   </button>
   <div id="chat-widget-container" class="chat-widget-container">
     <div id="chat-widget-header" class="chat-widget-header">
       <span><i class="bi bi-chat-dots me-2"></i>Chat Brain</span>
-      <button type="button" id="chat-widget-close" aria-label="Cerrar chat"><i class="bi bi-x-lg"></i></button>
+      <button type="button" id="chat-widget-close" aria-label="Cerrar chat">
+        <i class="bi bi-x-lg"></i>
+      </button>
     </div>
     <div id="chat-widget-body" class="chat-widget-body">
-      <p class="chat-widget-welcome"><strong>Hola 👋, ¿cómo podemos ayudarte?</strong></p>
+      <p class="chat-widget-welcome">¡Hola! Soy el asistente de Brain. ¿En qué puedo ayudarte?</p>
     </div>
-    <div id="chat-widget-footer" class="chat-widget-footer">
-      <input type="text" id="chat-widget-input" class="chat-widget-input" placeholder="Escribí tu mensaje..." autocomplete="off">
-      <button type="button" id="chat-widget-send" class="chat-widget-send"><i class="bi bi-send-fill"></i></button>
+    <div class="chat-widget-footer">
+      <input type="text" id="chat-widget-input" class="chat-widget-input" placeholder="Escribí tu consulta..." autocomplete="off">
+      <button id="chat-widget-send" class="chat-widget-send" aria-label="Enviar">
+        <i class="bi bi-send-fill"></i>
+      </button>
     </div>
   </div>
-  <link href="assets/css/chat-widget.css" rel="stylesheet">
+
+  <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/js/main.js"></script>
   <script src="assets/js/chat-widget.js"></script>
 
 </body>
-
 </html>
