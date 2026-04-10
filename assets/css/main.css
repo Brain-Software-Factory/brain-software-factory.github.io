@@ -1424,5 +1424,5 @@ body:not(.mobile-nav-active) .mobile-nav-toggle .bi-x { display: none; }
 .tilt-report-bar { height: 100%; border-radius: 2px; }
 .tilt-report-val { font-size: 7px; font-weight: 700; color: #f9fafb; width: 26px; text-align: right; flex-shrink: 0; }
 
-/* Deploy terminal para step 03 */
+/* Deploy terminal para step 03 — children use .tilt-term-line + .tc-* color classes */
 .tilt-deploy { display: flex; flex-direction: column; gap: 3px; }
