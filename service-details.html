@@ -59,7 +59,7 @@
       background: rgba(255,255,255,.02);
       border: 1px solid var(--border-subtle);
       border-radius: 20px; padding: 36px;
-      position: relative; overflow: hidden;
+      position: relative; overflow: visible;
       margin-bottom: 20px;
       transition: border-color .2s;
     }
@@ -236,6 +236,33 @@
             </div>
           </div>
           <p class="sdc-desc">Conectamos todas tus herramientas en flujos visuales que trabajan solos. Sin código, sin fricciones. Cada vez que ocurre un evento en tu negocio, n8n lo procesa automáticamente: sincroniza datos, manda notificaciones, actualiza sistemas y genera reportes.</p>
+          <div class="tilt-wrap-lg">
+            <div class="tilt-screen">
+              <div class="tilt-bar">
+                <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
+                <div class="tilt-title">n8n · flujo de automatización</div>
+              </div>
+              <div class="tilt-body">
+                <div class="tilt-nodes" style="margin-bottom:8px;">
+                  <div class="tilt-node tilt-node-blue">Webhook</div>
+                  <div class="tilt-edge"></div>
+                  <div class="tilt-node tilt-node-green">CRM</div>
+                  <div class="tilt-edge"></div>
+                  <div class="tilt-node tilt-node-cyan">NocoDB</div>
+                  <div class="tilt-edge"></div>
+                  <div class="tilt-node tilt-node-amber">Email</div>
+                </div>
+                <div class="tilt-nodes">
+                  <div class="tilt-node" style="background:rgba(139,92,246,.12);color:#a78bfa;border:1px solid rgba(139,92,246,.2);">Slack</div>
+                  <div class="tilt-edge"></div>
+                  <div class="tilt-node tilt-node-blue">Filter</div>
+                  <div class="tilt-edge"></div>
+                  <div class="tilt-node tilt-node-green">Sheet</div>
+                </div>
+              </div>
+              <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(37,99,235,.05),transparent 60%)"></div>
+            </div>
+          </div>
           <div class="sdc-features">
             <div class="sdc-feat">
               <i class="bi bi-arrow-repeat"></i>
@@ -286,6 +313,30 @@
             </div>
           </div>
           <p class="sdc-desc">Convertimos tus datos dispersos en dashboards claros y accionables. Cada área de tu empresa puede ver sus KPIs en tiempo real sin depender del equipo técnico. Los reportes se generan y envían solos.</p>
+          <div class="tilt-wrap-lg">
+            <div class="tilt-screen" style="border-color:rgba(6,182,212,.15);">
+              <div class="tilt-bar">
+                <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
+                <div class="tilt-title">Metabase · dashboard empresa</div>
+              </div>
+              <div class="tilt-body">
+                <div class="tilt-kpis" style="margin-bottom:6px;">
+                  <div class="tilt-kpi"><div class="tilt-kpi-num" style="color:#22d3ee;">247</div><div class="tilt-kpi-lbl">Flujos hoy</div></div>
+                  <div class="tilt-kpi"><div class="tilt-kpi-num" style="color:#4ade80;">99.8%</div><div class="tilt-kpi-lbl">Uptime</div></div>
+                  <div class="tilt-kpi"><div class="tilt-kpi-num" style="color:#f9fafb;">0</div><div class="tilt-kpi-lbl">Errores</div></div>
+                  <div class="tilt-kpi"><div class="tilt-kpi-num" style="color:#fbbf24;">$48k</div><div class="tilt-kpi-lbl">Ventas</div></div>
+                </div>
+                <div class="tilt-chart">
+                  <svg viewBox="0 0 200 28" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="mg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0891b2" stop-opacity=".3"/><stop offset="100%" stop-color="#0891b2" stop-opacity="0"/></linearGradient></defs>
+                    <polygon points="0,28 0,20 25,16 50,18 75,9 100,13 125,5 150,8 175,3 200,4 200,28" fill="url(#mg2)"/>
+                    <polyline points="0,20 25,16 50,18 75,9 100,13 125,5 150,8 175,3 200,4" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(6,182,212,.05),transparent 60%)"></div>
+            </div>
+          </div>
           <div class="sdc-features">
             <div class="sdc-feat">
               <i class="bi bi-speedometer2"></i>
@@ -336,6 +387,41 @@
             </div>
           </div>
           <p class="sdc-desc">Gestioná bases de datos complejas con la facilidad de una hoja de cálculo. NocoDB transforma cualquier base SQL en una interfaz visual colaborativa donde tu equipo puede operar datos sin escribir una línea de código.</p>
+          <div class="tilt-wrap-lg">
+            <div class="tilt-screen" style="border-color:rgba(139,92,246,.15);">
+              <div class="tilt-bar">
+                <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
+                <div class="tilt-title">NocoDB · tabla clientes</div>
+              </div>
+              <div class="tilt-body">
+                <div class="tilt-thead">
+                  <div class="tilt-th">Empresa</div>
+                  <div class="tilt-th">Estado</div>
+                  <div class="tilt-th">Plan</div>
+                  <div class="tilt-th">Fecha</div>
+                </div>
+                <div class="tilt-tr">
+                  <div class="tilt-td">Alpha SA</div>
+                  <div class="tilt-td"><span class="tilt-badge tilt-badge-green">Activo</span></div>
+                  <div class="tilt-td" style="color:#a78bfa;">Business</div>
+                  <div class="tilt-td" style="color:#4b5563;">01/04</div>
+                </div>
+                <div class="tilt-tr">
+                  <div class="tilt-td">Beta Corp</div>
+                  <div class="tilt-td"><span class="tilt-badge tilt-badge-blue">Trial</span></div>
+                  <div class="tilt-td" style="color:#a78bfa;">Starter</div>
+                  <div class="tilt-td" style="color:#4b5563;">05/04</div>
+                </div>
+                <div class="tilt-tr">
+                  <div class="tilt-td">Gamma SA</div>
+                  <div class="tilt-td"><span class="tilt-badge tilt-badge-green">Activo</span></div>
+                  <div class="tilt-td" style="color:#a78bfa;">Scale</div>
+                  <div class="tilt-td" style="color:#4b5563;">10/04</div>
+                </div>
+              </div>
+              <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(139,92,246,.05),transparent 60%)"></div>
+            </div>
+          </div>
           <div class="sdc-features">
             <div class="sdc-feat">
               <i class="bi bi-grid-3x3-gap"></i>
@@ -386,6 +472,31 @@
             </div>
           </div>
           <p class="sdc-desc">Desplegamos bots conversacionales en WhatsApp que entienden el lenguaje natural, atienden consultas, agendan turnos y derivan al equipo humano cuando es necesario. Powered by GPT / Claude, operado desde Chatwoot.</p>
+          <div class="tilt-wrap-lg">
+            <div class="tilt-screen" style="border-color:rgba(16,185,129,.15);">
+              <div class="tilt-bar">
+                <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
+                <div class="tilt-title">Chatwoot · agente IA · online</div>
+              </div>
+              <div class="tilt-body" style="padding:5px 8px;">
+                <div class="tilt-chat">
+                  <div class="tilt-msg">
+                    <div class="tilt-avatar" style="background:rgba(16,185,129,.2);color:#34d399;">🤖</div>
+                    <div class="tilt-bubble tilt-bubble-bot">¡Hola! ¿En qué puedo ayudarte?</div>
+                  </div>
+                  <div class="tilt-msg tilt-msg-user">
+                    <div class="tilt-bubble tilt-bubble-user">Quiero agendar un turno</div>
+                  </div>
+                  <div class="tilt-msg">
+                    <div class="tilt-avatar" style="background:rgba(16,185,129,.2);color:#34d399;">🤖</div>
+                    <div class="tilt-bubble tilt-bubble-bot">¿Qué día preferís: lunes o martes?</div>
+                  </div>
+                  <div class="tilt-typing"><span></span><span></span><span></span></div>
+                </div>
+              </div>
+              <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(16,185,129,.04),transparent 60%)"></div>
+            </div>
+          </div>
           <div class="sdc-features">
             <div class="sdc-feat">
               <i class="bi bi-whatsapp"></i>
@@ -444,6 +555,24 @@
             </div>
           </div>
           <p class="sdc-desc">Si tus sistemas no hablan entre sí, los hacemos hablar. Desarrollamos conectores a medida para ERP, CRM, marketplaces, pasarelas de pago y cualquier sistema legacy que necesites integrar al ecosistema de automatización.</p>
+          <div class="tilt-wrap-lg">
+            <div class="tilt-screen" style="border-color:rgba(245,158,11,.15);">
+              <div class="tilt-bar">
+                <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
+                <div class="tilt-title">API · webhook listener</div>
+              </div>
+              <div class="tilt-body">
+                <div class="tilt-term">
+                  <div class="tilt-term-line"><span class="tc-green">POST</span> <span class="tc-blue">/webhook/crm</span> <span class="tc-gray">· 200 OK · 43ms</span></div>
+                  <div class="tilt-term-line"><span class="tc-gray">▶</span> <span class="tc-amber">{ "event": "lead.created", "id": 4821 }</span></div>
+                  <div class="tilt-term-line"><span class="tc-green">✓</span> <span class="tc-white">sync_nocodb</span> <span class="tc-gray">triggered</span></div>
+                  <div class="tilt-term-line"><span class="tc-green">✓</span> <span class="tc-white">notify_slack</span> <span class="tc-gray">triggered</span></div>
+                  <div class="tilt-term-line"><span class="tc-blue">→</span> <span class="tc-white">2 workflows</span> <span class="tc-green">running</span></div>
+                </div>
+              </div>
+              <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(245,158,11,.04),transparent 60%)"></div>
+            </div>
+          </div>
           <div class="sdc-features">
             <div class="sdc-feat">
               <i class="bi bi-code-square"></i>
@@ -494,6 +623,38 @@
             </div>
           </div>
           <p class="sdc-desc">Tus reportes se generan y distribuyen solos. Configuramos pipelines de datos que consolidan información de múltiples fuentes y envían resúmenes ejecutivos al equipo correcto, en el formato correcto, en el momento justo.</p>
+          <div class="tilt-wrap-lg">
+            <div class="tilt-screen" style="border-color:rgba(239,68,68,.15);">
+              <div class="tilt-bar">
+                <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
+                <div class="tilt-title">Reporte semanal · distribuido</div>
+              </div>
+              <div class="tilt-body">
+                <div class="tilt-report">
+                  <div class="tilt-report-header">
+                    <div class="tilt-report-title">Semana 15 · ventas@empresa.com</div>
+                    <div class="tilt-report-badge">✓ Enviado</div>
+                  </div>
+                  <div class="tilt-report-row">
+                    <div class="tilt-report-lbl">Ventas</div>
+                    <div class="tilt-report-bar-wrap"><div class="tilt-report-bar" style="width:78%;background:rgba(239,68,68,.6);"></div></div>
+                    <div class="tilt-report-val">$48.2k</div>
+                  </div>
+                  <div class="tilt-report-row">
+                    <div class="tilt-report-lbl">Leads</div>
+                    <div class="tilt-report-bar-wrap"><div class="tilt-report-bar" style="width:55%;background:rgba(239,68,68,.4);"></div></div>
+                    <div class="tilt-report-val">124</div>
+                  </div>
+                  <div class="tilt-report-row">
+                    <div class="tilt-report-lbl">NPS</div>
+                    <div class="tilt-report-bar-wrap"><div class="tilt-report-bar" style="width:90%;background:rgba(239,68,68,.7);"></div></div>
+                    <div class="tilt-report-val">9.1</div>
+                  </div>
+                </div>
+              </div>
+              <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(239,68,68,.04),transparent 60%)"></div>
+            </div>
+          </div>
           <div class="sdc-features">
             <div class="sdc-feat">
               <i class="bi bi-calendar3"></i>
