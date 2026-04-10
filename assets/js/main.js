@@ -166,9 +166,9 @@
   /**
    * Frequently Asked Questions Toggle
    */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle, .faq-item .faq-header').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
+  document.querySelectorAll('.faq-item .faq-question').forEach((question) => {
+    question.addEventListener('click', () => {
+      question.closest('.faq-item').classList.toggle('faq-active');
     });
   });
 
