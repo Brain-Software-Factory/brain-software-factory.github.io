@@ -1249,6 +1249,7 @@ body:not(.mobile-nav-active) .mobile-nav-toggle .bi-x { display: none; }
   perspective: 600px;
   margin: 14px 0;
   height: 72px;
+  max-width: 340px;
 }
 
 /* Pantalla principal con transform 3D */
