@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/img/brain.ico" alt="Brain logo" width="64">
+</p>
+
 # Brain — Automatización Inteligente
 
 > Startup argentina de automatización inteligente. Conectamos tus herramientas, automatizamos tus flujos y ponemos tus datos en tiempo real.
