@@ -1242,6 +1242,7 @@ body:not(.mobile-nav-active) .mobile-nav-toggle .bi-x { display: none; }
   perspective: 700px;
   margin: 20px 0;
   height: 110px;
+  max-width: 420px;
 }
 
 /* Variante compacta para steps */
