@@ -160,88 +160,88 @@
     }
 
     /* App layout */
-    .mock-layout { display: flex; height: 320px; }
+    .mock-layout { display: flex; height: 300px; }
 
     /* Sidebar */
     .mock-sidebar {
-      width: 52px;
+      width: 48px;
       background: rgba(255,255,255,0.02);
       border-right: 1px solid rgba(255,255,255,0.04);
       display: flex; flex-direction: column; align-items: center;
-      padding: 14px 0; gap: 14px;
+      padding: 12px 0; gap: 12px;
     }
     .mock-sidebar-logo {
-      width: 26px; height: 26px;
+      width: 24px; height: 24px;
       background: rgba(37,99,235,0.2);
       border: 1px solid rgba(37,99,235,0.3);
-      border-radius: 7px;
-      margin-bottom: 6px;
+      border-radius: 6px;
+      margin-bottom: 4px;
     }
     .mock-nav-item {
-      width: 28px; height: 28px;
-      border-radius: 7px;
+      width: 26px; height: 26px;
+      border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
     }
     .mock-nav-item.active {
       background: rgba(37,99,235,0.2);
       border: 1px solid rgba(37,99,235,0.3);
     }
-    .mock-nav-dot { width: 12px; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.12); }
+    .mock-nav-dot { width: 10px; height: 2.5px; border-radius: 2px; background: rgba(255,255,255,0.12); }
     .mock-nav-item.active .mock-nav-dot { background: rgba(37,99,235,0.7); }
 
     /* Main content */
-    .mock-main { flex: 1; padding: 14px 16px; overflow: hidden; display: flex; flex-direction: column; gap: 12px; }
+    .mock-main { flex: 1; padding: 12px 14px; overflow: hidden; display: flex; flex-direction: column; gap: 10px; }
 
     /* Page header */
     .mock-page-header { display: flex; align-items: center; justify-content: space-between; }
-    .mock-page-title { width: 90px; height: 9px; background: rgba(255,255,255,0.12); border-radius: 4px; }
-    .mock-page-actions { display: flex; gap: 6px; }
-    .mock-btn-sm { height: 18px; border-radius: 5px; }
-    .mock-btn-sm.ghost { width: 48px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); }
-    .mock-btn-sm.primary { width: 36px; background: rgba(37,99,235,0.4); border: 1px solid rgba(37,99,235,0.3); }
+    .mock-page-title { width: 85px; height: 8px; background: rgba(255,255,255,0.12); border-radius: 4px; }
+    .mock-page-actions { display: flex; gap: 5px; }
+    .mock-btn-sm { height: 16px; border-radius: 4px; }
+    .mock-btn-sm.ghost { width: 44px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); }
+    .mock-btn-sm.primary { width: 32px; background: rgba(37,99,235,0.4); border: 1px solid rgba(37,99,235,0.3); }
 
     /* KPI row */
-    .mock-kpis { display: flex; gap: 8px; }
+    .mock-kpis { display: flex; gap: 7px; }
     .mock-kpi {
       flex: 1;
       background: rgba(255,255,255,0.025);
       border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 9px;
-      padding: 9px 11px;
+      border-radius: 8px;
+      padding: 8px 10px;
       position: relative; overflow: hidden;
     }
     .mock-kpi::before {
       content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 1.5px;
-      border-radius: 9px 9px 0 0;
+      top: 0; left: 0; right: 0; height: 2px;
+      border-radius: 8px 8px 0 0;
     }
-    .mk1::before { background: linear-gradient(90deg, transparent, rgba(34,211,238,0.6), transparent); }
-    .mk2::before { background: linear-gradient(90deg, transparent, rgba(74,222,128,0.6), transparent); }
-    .mk3::before { background: linear-gradient(90deg, transparent, rgba(37,99,235,0.6), transparent); }
-    .mk4::before { background: linear-gradient(90deg, transparent, rgba(251,191,36,0.6), transparent); }
-    .mock-kpi-num { font-size: 16px; font-weight: 900; margin-bottom: 3px; line-height: 1; }
+    .mk1::before { background: linear-gradient(90deg, transparent, rgba(34,211,238,0.65), transparent); }
+    .mk2::before { background: linear-gradient(90deg, transparent, rgba(74,222,128,0.65), transparent); }
+    .mk3::before { background: linear-gradient(90deg, transparent, rgba(37,99,235,0.65), transparent); }
+    .mk4::before { background: linear-gradient(90deg, transparent, rgba(251,191,36,0.65), transparent); }
+    .mock-kpi-num { font-size: 15px; font-weight: 900; margin-bottom: 2px; line-height: 1; }
     .mock-kpi-lbl { font-size: 8px; color: #4b5563; }
-    .mock-kpi-delta { font-size: 8px; font-weight: 700; margin-top: 4px; }
+    .mock-kpi-delta { font-size: 8px; font-weight: 700; margin-top: 3px; }
     .delta-up { color: #4ade80; }
     .delta-dn { color: #f87171; }
 
     /* Two-column section */
-    .mock-cols { display: flex; gap: 10px; flex: 1; min-height: 0; }
+    .mock-cols { display: flex; gap: 9px; flex: 1; min-height: 0; }
 
     /* Chart panel */
     .mock-chart-panel {
       flex: 1.4;
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 9px;
-      padding: 10px 12px;
-      display: flex; flex-direction: column; gap: 8px;
+      border-radius: 8px;
+      padding: 9px 11px;
+      display: flex; flex-direction: column; gap: 7px;
       overflow: hidden;
     }
     .mock-panel-header { display: flex; align-items: center; justify-content: space-between; }
-    .mock-panel-title { width: 70px; height: 7px; background: rgba(255,255,255,0.1); border-radius: 3px; }
-    .mock-panel-tag { width: 36px; height: 12px; background: rgba(37,99,235,0.15); border-radius: 4px; }
-    .mock-chart { flex: 1; position: relative; overflow: hidden; }
+    .mock-panel-title { width: 64px; height: 7px; background: rgba(255,255,255,0.1); border-radius: 3px; }
+    .mock-panel-tag { width: 32px; height: 11px; background: rgba(37,99,235,0.15); border-radius: 4px; }
+    .mock-chart { flex: 1; position: relative; overflow: hidden; min-height: 60px; }
     .mock-chart svg { width: 100%; height: 100%; display: block; }
 
     /* Workflow panel */
@@ -249,12 +249,12 @@
       flex: 1;
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 9px;
-      padding: 10px 12px;
-      display: flex; flex-direction: column; gap: 8px;
+      border-radius: 8px;
+      padding: 9px 11px;
+      display: flex; flex-direction: column; gap: 7px;
       overflow: hidden;
     }
-    .mock-flow-rows { display: flex; flex-direction: column; gap: 6px; }
+    .mock-flow-rows { display: flex; flex-direction: column; gap: 5px; }
     .mock-flow-row {
       display: flex; align-items: center; gap: 6px;
       padding: 5px 7px;
@@ -264,7 +264,7 @@
     }
     .mfr-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
     .mfr-name { flex: 1; height: 6px; background: rgba(255,255,255,0.09); border-radius: 3px; }
-    .mfr-badge { height: 12px; border-radius: 4px; width: 28px; }
+    .mfr-badge { height: 11px; border-radius: 4px; width: 26px; }
     .mfr-badge.ok  { background: rgba(74,222,128,0.15); }
     .mfr-badge.run { background: rgba(37,99,235,0.2); }
 
