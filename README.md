@@ -1,118 +1,88 @@
-# Brain - Automatización Inteligente
+# Brain — Automatización Inteligente
 
-Sitio web corporativo de **Brain**, startup argentina especializada en automatización con IA, flujos de trabajo con n8n, dashboards con Metabase y gestión de datos con NocoDB.
+> Startup argentina de automatización inteligente. Conectamos tus herramientas, automatizamos tus flujos y ponemos tus datos en tiempo real.
 
-## Características
-
-- **Landing page** con secciones: Hero, Sobre nosotros, Servicios, Proceso, CTA, Testimonios, Planes, FAQ y Contacto
-- **Formulario de contacto** profesional con validación (configurable con Formspree, FormSubmit o webhook n8n)
-- **Chatbot** integrado conectado a webhook n8n para atención al cliente
-- **Diseño responsive** con tema oscuro
-- **Páginas adicionales:** portfolio, detalle de servicios, página de inicio
-
-## Tecnologías
-
-| Componente | Tecnología |
-|------------|------------|
-| Frontend | HTML5, CSS3, JavaScript (vanilla) |
-| Framework CSS | Bootstrap 5.3 |
-| Estilos | Variables CSS, tema oscuro personalizado |
-| Animaciones | AOS (Animate On Scroll) |
-| Carruseles | Swiper |
-| Galería | GLightbox |
-| Layout | Isotope |
-
-## Estructura del proyecto
-
-```
-brain/
-├── index.html              # Página principal
-├── portfolio-details.html  # Detalle de portfolio
-├── service-details.html    # Detalle de servicios
-├── starter-page.html       # Página de inicio alternativa
-├── forms/
-│   └── contact.php         # Backend formulario (PHP)
-├── assets/
-│   ├── css/
-│   │   ├── main.css        # Estilos principales
-│   │   └── chat-widget.css # Estilos del chatbot
-│   ├── js/
-│   │   ├── main.js         # Lógica principal
-│   │   └── chat-widget.js  # Lógica del chatbot
-│   ├── img/                # Imágenes
-│   └── vendor/             # Bootstrap, AOS, Swiper, etc.
-└── README.md
-```
-
-## Desarrollo local
-
-### Requisitos
-
-- Navegador web moderno
-- Servidor HTTP local (opcional, para probar formularios PHP)
-
-### Ejecución
-
-```bash
-# Opción 1: Abrir directamente
-open index.html
-
-# Opción 2: Con servidor local (Python)
-python -m http.server 8000
-
-# Opción 3: Con Node.js (npx)
-npx serve .
-```
-
-Luego acceder a `http://localhost:8000` (o el puerto que uses).
-
-## Despliegue
-
-El sitio está configurado para **GitHub Pages**. Al hacer push a la rama `main`, el repositorio `brain-software-factory.github.io` se publica automáticamente.
-
-**URL:** [https://brain-software-factory.github.io](https://brain-software-factory.github.io)
-
-## Configuración
-
-### Chatbot
-
-El webhook del chatbot se configura en `assets/js/chat-widget.js`:
-
-```javascript
-const CONFIG = {
-  webhook: {
-    url: "https://webhookdev.brain.com.ar/webhook/.../chat",
-    route: "general",
-  },
-};
-```
-
-### Formulario de contacto
-
-El formulario usa `validate.js` y envía a la URL configurada en el atributo `action` del formulario. Para que funcione en GitHub Pages (solo HTML estático), configurar uno de estos servicios:
-
-- **Formspree:** `action="https://formspree.io/f/TU_ID"`
-- **FormSubmit:** `action="https://formsubmit.co/tu@email.com"`
-- **n8n:** `action="https://tu-webhook.com/webhook/form"`
-
-## Variables de diseño
-
-El tema oscuro se controla en `assets/css/main.css`:
-
-```css
-:root {
-  --background-color: #031119;
-  --default-color: rgba(255, 255, 255, 0.8);
-  --accent-color: #294ef5;
-  --surface-color: #1b262c;
-  --contrast-color: #ffffff;
-}
-```
-
-## Licencia
-
-Proyecto privado de Brain. Todos los derechos reservados.
+[![Live](https://img.shields.io/badge/sitio-live-brightgreen?style=flat-square)](https://brain-software-factory.github.io)
+[![Stack](https://img.shields.io/badge/stack-open_source-blue?style=flat-square)](#stack)
+[![License](https://img.shields.io/badge/license-privado-gray?style=flat-square)](#)
 
 ---
 
-**Brain** · [brain.com.ar](https://brain.com.ar) · Buenos Aires, Argentina
+## Stack
+
+| Herramienta | Rol |
+|-------------|-----|
+| ![n8n](https://img.shields.io/badge/n8n-automatización-EA4B71?style=flat-square&logo=n8n&logoColor=white) | Flujos de automatización visual |
+| ![NocoDB](https://img.shields.io/badge/NocoDB-datos-7C3AED?style=flat-square) | Gestión visual de bases de datos |
+| ![Metabase](https://img.shields.io/badge/Metabase-dashboards-509EE3?style=flat-square) | BI y reportes interactivos |
+| ![Chatwoot](https://img.shields.io/badge/Chatwoot-soporte-1F93FF?style=flat-square) | Gestión de conversaciones + IA |
+| ![Bootstrap](https://img.shields.io/badge/Bootstrap_5-UI-7952B3?style=flat-square&logo=bootstrap&logoColor=white) | Grid y utilidades CSS |
+| ![AOS](https://img.shields.io/badge/AOS-animaciones-222?style=flat-square) | Animaciones on scroll |
+
+---
+
+## Páginas
+
+| Página | Descripción |
+|--------|-------------|
+| `index.html` | Landing principal — Hero, Servicios, Proceso, Testimonios, Precios, FAQ, Contacto |
+| `service-details.html` | Detalle técnico de cada servicio con mockups de producto |
+
+---
+
+## Estructura
+
+```
+brain-software-factory.github.io/
+├── index.html              # Landing principal
+├── service-details.html    # Detalle de servicios
+├── assets/
+│   ├── css/
+│   │   ├── main.css        # Design system completo
+│   │   └── chat-widget.css # Estilos del widget de chat
+│   ├── js/
+│   │   ├── main.js         # Navegación, scroll, FAQ accordion
+│   │   ├── contact-form.js # Validación y envío del formulario
+│   │   └── chat-widget.js  # Widget de chat flotante
+│   ├── img/
+│   │   └── brain.ico       # Logo / favicon
+│   └── vendor/
+│       ├── bootstrap/      # Bootstrap 5
+│       ├── bootstrap-icons/
+│       └── aos/            # Animate On Scroll
+└── docs/
+    └── superpowers/        # Specs y planes de implementación
+```
+
+---
+
+## Design System
+
+**Fondo base:** `#070c14`  
+**Acento principal:** `#2563EB` (azul royal)  
+**Tipografía:** Inter (300–900)  
+**Elevación:** `#0b1221` para superficies secundarias  
+
+```css
+--background-color: #070c14;
+--accent-color:     #2563EB;
+--accent-light:     #3B82F6;
+--heading-color:    #f9fafb;
+--text-muted:       #6b7280;
+--border-subtle:    rgba(255,255,255,0.06);
+```
+
+---
+
+## Servicios
+
+- **Flujos automatizados** — n8n: conecta apps, sincroniza datos, dispara acciones
+- **Dashboards interactivos** — Metabase: KPIs en tiempo real, reportes automáticos
+- **Gestión visual de datos** — NocoDB: bases de datos sin SQL
+- **Integraciones personalizadas** — APIs REST, webhooks, sistemas legacy
+- **Agentes inteligentes** — LLM + Chatwoot: bots en WhatsApp 24/7
+- **Reportes automáticos** — Metabase + n8n: métricas distribuidas al equipo
+
+---
+
+© 2025 Brain. Buenos Aires, Argentina — [info@brain.com.ar](mailto:info@brain.com.ar)
