@@ -64,15 +64,20 @@ WhatsApp + Google Calendar, panel de indicadores base, 1 capacitación. (~5–15
 ### Capa 2 — Implementación (one-time, según complejidad)
 
 Todo lo que **excede** el onboarding estándar: integraciones custom (Tiendanube,
-ERP, OCR, IMAP banco), migraciones de datos, lógica de negocio a medida. Se
-cotiza por bloques de horas. **Tarifa interna real ~USD 70/h** (no se expone la
-tarifa horaria al cliente; se cotiza como precio cerrado por bloque).
+ERP, OCR, IMAP banco), migraciones de datos, lógica de negocio a medida.
 
-| Bloque | Horas | Precio USD | Vigencia | Ejemplo |
-|--------|-------|-----------|----------|---------|
-| **Single** | 10h | 700 | 60 días | Un workflow puntual, una integración simple |
-| **Pack** | 30h | 1.800 | 120 días | Bot completo + handoff + panel |
-| **Strategic** | 80h | 4.500 | 12 meses | Setup integral con OCR + integración externa + dashboards |
+**Política de cara al cliente (web):** no se publican precios. Se dimensiona en
+el diagnóstico y se cotiza cerrado por caso. **Según el alcance y el compromiso
+anual, puede bonificarse total o parcialmente** (gancho de cierre / carta de
+presentación, como se hizo con el rediseño de tienda de Musecases).
+
+Referencia **interna** de dimensionamiento (no se expone; tarifa real ~USD 70/h):
+
+| Bloque | Horas | Ref. interna USD | Ejemplo |
+|--------|-------|------------------|---------|
+| **Single** | 10h | ~700 | Un workflow puntual, una integración simple |
+| **Pack** | 30h | ~1.800 | Bot completo + handoff + panel |
+| **Strategic** | 80h | ~4.500 | Setup integral con OCR + integración externa + dashboards |
 
 ### Capa 3 — Add-ons / expansión de cuenta
 
@@ -132,8 +137,8 @@ Dos modelos posibles (Confluence `Clientes1 / 3. Integraciones`):
 - **Fijo incluido:** un monto fijo en el mensual cubre un tope de consumo.
   Predecible para el cliente; Brain absorbe el riesgo de picos.
 
-**Recomendación:** fijo incluido con tope razonable por plan (predecible vende
-mejor en PyME), y passthrough explícito solo por encima del tope. Define el tope
+**Decisión ratificada:** **fijo incluido con tope** por plan — la PyME compra
+previsibilidad. Passthrough explícito solo por encima del tope. El tope se define
 con el volumen real (Botulinic mide tokens/mes hoy).
 
 ---
@@ -166,8 +171,8 @@ para cerrar · dar SLA 24/7 fuera de Full Stack.
 
 ## 9. Pendientes de ratificación (decisiones de Javier)
 
-- [ ] Ratificar precios de Custom Workflows (Single 700 / Pack 1.800 / Strategic 4.500)
-- [ ] Decidir tokens LLM: fijo incluido vs passthrough (§6)
+- [x] Bloques de implementación = referencia **interna** de dimensionamiento. En la web NO se publican precios: es "cotización a medida, puede quedar sin cargo"
+- [x] Tokens LLM: **fijo incluido con tope** (ratificado)
 - [ ] Decidir si la web expone la capa de implementación (§5) — **recomendado: sí, como "cotizada en el diagnóstico"**
 - [ ] Política de facturación AR/internacional (tipo de cambio, factura A/B/C, cripto)
 - [ ] ¿Free trial 14 días en Bot Essential? ¿Add-on WhatsApp Cloud API oficial?
