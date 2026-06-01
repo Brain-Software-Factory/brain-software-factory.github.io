@@ -5,8 +5,10 @@
 (function () {
   "use strict";
 
+  // Producción: usar el path /webhook/ (no /webhook-test/, que solo responde
+  // con el editor de n8n abierto y "Listen for test event" activo).
   const WEBHOOK_URL =
-    "https://n8ndev.brain.com.ar/webhook-test/aaff6892-80e6-47ae-8d04-b7ddf5972ad1";
+    "https://n8ndev.brain.com.ar/webhook/aaff6892-80e6-47ae-8d04-b7ddf5972ad1";
 
   const form = document.getElementById("contact-form");
   if (!form) return;

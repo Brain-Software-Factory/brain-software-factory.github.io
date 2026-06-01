@@ -15,7 +15,7 @@
   function getChatId() {
     let chatId = sessionStorage.getItem("chatId");
     if (!chatId) {
-      chatId = "chat_" + Math.random().toString(36).substr(2, 9);
+      chatId = "chat_" + Math.random().toString(36).slice(2, 11);
       sessionStorage.setItem("chatId", chatId);
     }
     return chatId;
