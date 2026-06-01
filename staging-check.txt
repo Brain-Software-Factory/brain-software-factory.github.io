@@ -1,0 +1,2 @@
+BRAIN-STAGING-CHECK :: este archivo existe SOLO en development (entorno staging / GitHub Pages).
+Si lo ves en brain.com.ar significa que algo está mal: el server debe servir main.
