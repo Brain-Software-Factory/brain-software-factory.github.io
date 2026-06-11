@@ -182,22 +182,29 @@
   /* floating 3d cards */
   .floaters { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
   .floater {
-    position: absolute; border-radius: 20px; padding: 16px;
-    background: linear-gradient(150deg, rgba(47,128,255,0.16), rgba(10,16,32,0.5));
-    border: 1px solid var(--line-blue);
-    box-shadow: 0 30px 70px -20px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 40px -10px var(--glow);
-    backdrop-filter: blur(14px); will-change: transform;
+    position: absolute; border-radius: 18px; padding: 14px;
+    background: linear-gradient(165deg, rgba(22,28,44,0.94), rgba(10,14,24,0.94));
+    border: 1px solid var(--line-2);
+    box-shadow: 0 30px 70px -22px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.06);
+    backdrop-filter: blur(16px); will-change: transform;
   }
-  .floater-1 { top: 20%; left: 4%; width: 210px; transform: rotate(-9deg); }
-  .floater-2 { bottom: 16%; right: 5%; width: 230px; transform: rotate(8deg); }
-  .floater-3 { top: 24%; right: 8%; width: 150px; transform: rotate(6deg); }
-  .floater-mini { display: flex; align-items: center; gap: 10px; }
-  .floater-av { width: 34px; height: 34px; border-radius: 9px; background: var(--grad); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .floater b { font-size: 0.82rem; display: block; }
-  .floater span { font-size: 0.72rem; color: var(--text-dim); }
-  .floater-bubble { font-size: 0.8rem; color: var(--text-soft); line-height: 1.4; }
-  .floater-stat { font-size: 1.9rem; font-weight: 700; }
-  .floater-tag { font-size: 0.68rem; font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); }
+  .floater-1 { top: 17%; left: 3%; width: 248px; transform: rotate(-5deg); }
+  .floater-2 { bottom: 13%; right: 4%; width: 252px; transform: rotate(5deg); }
+  .floater-3 { top: 22%; right: 7%; width: 212px; transform: rotate(4deg); }
+  /* chat mockup */
+  .cm-head { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; margin-bottom: 11px; border-bottom: 1px solid var(--line); }
+  .cm-av { width: 30px; height: 30px; border-radius: 9px; background: var(--blue); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cm-meta b { font-size: 0.8rem; font-weight: 700; display: block; line-height: 1.15; }
+  .cm-status { font-size: 0.66rem; color: #45D483; display: inline-flex; align-items: center; gap: 5px; }
+  .cm-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #45D483; box-shadow: 0 0 6px #45D483; }
+  .cm-body { display: flex; flex-direction: column; gap: 7px; }
+  .cm-msg { font-size: 0.76rem; line-height: 1.35; padding: 8px 11px; border-radius: 13px; max-width: 92%; }
+  .cm-msg.them { background: var(--bg-3); border: 1px solid var(--line); color: var(--text-soft); align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cm-msg.us { background: var(--blue); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cm-chip { display: flex; align-items: center; gap: 9px; margin-top: 10px; background: rgba(69,212,131,0.1); border: 1px solid rgba(69,212,131,0.25); border-radius: 11px; padding: 9px 11px; }
+  .cm-chip svg { flex-shrink: 0; }
+  .cm-chip b { font-size: 0.72rem; font-weight: 700; display: block; line-height: 1.2; }
+  .cm-chip span { font-size: 0.64rem; color: var(--text-dim); }
   @media (max-width: 980px) { .floaters { display: none; } }
 
   /* ═══════════════ MARQUEE ═══════════════ */
@@ -302,7 +309,7 @@
   /* ═══════════════ GLOBE ═══════════════ */
   .globe-sec { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .globe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-  #globe { width: 100%; max-width: 460px; aspect-ratio: 1; margin: 0 auto; }
+  #neuralnet { width: 100%; max-width: 480px; aspect-ratio: 1; margin: 0 auto; }
   .feat-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
   .feat { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: var(--bg-3); }
   .feat-ico { width: 44px; height: 44px; border-radius: 12px; background: rgba(47,128,255,0.1); border: 1px solid var(--line-blue); display: flex; align-items: center; justify-content: center; color: var(--blue-br); margin-bottom: 14px; }
@@ -315,15 +322,26 @@
 
   /* ═══════════════ CASE STUDY ═══════════════ */
   .case-grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 60px; align-items: center; }
-  .case-visual { background: radial-gradient(120% 120% at 0% 0%, rgba(40,194,255,0.14), transparent 55%), var(--bg-3); border: 1px solid var(--line-2); border-radius: 24px; padding: 38px; }
+  .case-visual { perspective: 1500px; }
+  /* macOS-style window mockup */
+  .macwin { border-radius: 14px; border: 1px solid var(--line-2); background: var(--bg-3); overflow: hidden;
+    box-shadow: 0 44px 90px -34px rgba(0,0,0,0.85), 0 0 60px -24px var(--glow); transform: rotateY(-7deg) rotateX(4deg); transform-style: preserve-3d; transition: transform 0.5s var(--ease); }
+  .macwin:hover { transform: rotateY(-3deg) rotateX(2deg); }
+  .macbar { position: relative; display: flex; align-items: center; gap: 7px; padding: 13px 16px; border-bottom: 1px solid var(--line); background: var(--bg-2); }
+  .macbar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+  .macbar i:nth-child(1){ background:#FF5F57; } .macbar i:nth-child(2){ background:#FEBC2E; } .macbar i:nth-child(3){ background:#28C840; }
+  .mactitle { position: absolute; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 0.74rem; color: var(--text-dim); }
+  .macbody { padding: 22px; }
+  .mac-chat { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+  .mac-chat .cm-msg { font-size: 0.84rem; max-width: 85%; }
   .case-bot { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
   .case-bot-av { width: 60px; height: 60px; border-radius: 18px; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: #fff; }
   .case-bot b { display: block; font-size: 1.4rem; font-weight: 700; }
   .case-bot span { font-size: 0.82rem; color: var(--text-dim); font-family: var(--mono); }
   .case-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-  .cstat { background: var(--bg-2); padding: 22px; }
-  .cstat b { font-size: 2rem; font-weight: 700; display: block; line-height: 1; }
-  .cstat span { font-size: 0.8rem; color: var(--text-dim); margin-top: 6px; display: block; }
+  .cstat { background: var(--bg-2); padding: 16px 18px; }
+  .cstat b { font-size: 1.7rem; font-weight: 700; display: block; line-height: 1; }
+  .cstat span { font-size: 0.74rem; color: var(--text-dim); margin-top: 6px; display: block; }
   .case-feats { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
   .case-feats li { display: flex; gap: 12px; align-items: center; color: var(--text-soft); font-size: 0.95rem; }
   .case-feats svg { color: var(--sky); flex-shrink: 0; }
@@ -460,8 +478,12 @@
     background: radial-gradient(120% 100% at 50% 0%, rgba(47,128,255,0.08), transparent 58%), var(--bg-3);
     transition: all 0.4s var(--ease); }
   .sol:hover { border-color: var(--line-blue); transform: translateY(-6px); }
-  .sol .icon3d-wrap { width: 96px; height: 96px; margin: 0 auto 20px; }
-  .sol .icon3d { width: 84px; height: 84px; }
+  .sol-ico { width: 70px; height: 70px; margin: 0 auto 22px; border-radius: 18px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, rgba(47,128,255,0.16), rgba(40,194,255,0.04));
+    border: 1px solid var(--line-blue); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 10px 26px -12px var(--glow);
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+  .sol-ico svg { width: 32px; height: 32px; }
+  .sol:hover .sol-ico { transform: translateY(-3px) scale(1.05); box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 16px 32px -10px var(--glow); }
   .sol h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em; }
   .sol p { font-size: 0.86rem; color: var(--text-soft); line-height: 1.55; }
   .sol .more { display: inline-block; margin-top: 14px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sky); }
@@ -505,6 +527,10 @@
 <body>
 
   <!-- ═══════════════ NAV ═══════════════ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <linearGradient id="ig" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5AA0FF"/><stop offset="1" stop-color="#28C2FF"/></linearGradient>
+  </defs></svg>
+
   <header class="nav" id="nav">
     <div class="wrap nav-inner">
       <a href="#hero" class="brand" aria-label="Brain inicio">
@@ -533,21 +559,41 @@
       <div class="glow-orb hero-orb-2"></div>
 
       <div class="floaters" id="floaters">
-        <div class="floater floater-1" data-depth="3">
-          <div class="floater-mini">
-            <span class="floater-av"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
-            <div><b>Asistente Brain</b><span>responde en segundos</span></div>
+        <div class="floater chat-mock floater-1" data-depth="3">
+          <div class="cm-head">
+            <span class="cm-av"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <div class="cm-meta"><b>Asistente Brain</b><span class="cm-status">en línea</span></div>
           </div>
-          <p class="floater-bubble" style="margin-top:12px;">"Hola, ¿tenés turno para el jueves?" → resuelto ✓</p>
+          <div class="cm-body">
+            <div class="cm-msg them">Hola, ¿tenés turno para el jueves? 🙌</div>
+            <div class="cm-msg us">¡Sí! Jueves 14:30 o viernes 11:00 👍</div>
+            <div class="cm-msg them">El jueves 14:30 va perfecto</div>
+          </div>
+          <div class="cm-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="#45D483" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><b>Turno confirmado · Jue 14:30</b><span>agendado automáticamente</span></div>
+          </div>
         </div>
-        <div class="floater floater-2" data-depth="5">
-          <span class="floater-tag">Turnos hoy</span>
-          <div class="floater-stat grad-text">37</div>
-          <p class="floater-bubble">agendados automáticamente, sin intervención humana.</p>
+        <div class="floater chat-mock floater-2" data-depth="5">
+          <div class="cm-head">
+            <span class="cm-av"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 7h16l-1.5 9a2 2 0 01-2 1.7H7.5a2 2 0 01-2-1.7L4 7z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 7a3 3 0 016 0" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+            <div class="cm-meta"><b>Brain · Ventas</b><span class="cm-status">en línea</span></div>
+          </div>
+          <div class="cm-body">
+            <div class="cm-msg them">¿Hacen envíos a todo el país?</div>
+            <div class="cm-msg us">¡Sí! Llega en 48–72 hs 🚚 ¿Te paso el link de pago?</div>
+            <div class="cm-msg them">Dale, gracias 🙌</div>
+          </div>
         </div>
-        <div class="floater floater-3" data-depth="7">
-          <span class="floater-tag">Resueltas por IA</span>
-          <div class="floater-stat grad-text">92%</div>
+        <div class="floater chat-mock floater-3" data-depth="7">
+          <div class="cm-head">
+            <span class="cm-av"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <div class="cm-meta"><b>Asistente Brain</b><span class="cm-status">en línea</span></div>
+          </div>
+          <div class="cm-body">
+            <div class="cm-msg them">¿Atienden los sábados?</div>
+            <div class="cm-msg us">Sí, de 9 a 16 hs ☀️</div>
+          </div>
         </div>
       </div>
 
@@ -666,14 +712,14 @@
         </div>
 
         <div class="sol-grid">
-          <div class="sol reveal"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/robot.png" alt="" style="animation-delay:0s" loading="lazy"></div><h3>Asistente omnicanal</h3><p>Atiende por WhatsApp, Instagram y tu web con IA real, las 24 horas.</p></div>
-          <div class="sol reveal d1"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/calendar.png" alt="" style="animation-delay:.4s" loading="lazy"></div><h3>Agenda &amp; turnos</h3><p>Saca, reprograma y recuerda turnos, sincronizado con tu calendario.</p></div>
-          <div class="sol reveal d2"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/bag.png" alt="" style="animation-delay:.8s" loading="lazy"></div><h3>Ventas asistidas</h3><p>Recomienda, evacúa dudas y lleva al cliente hasta la compra o la reserva.</p></div>
-          <div class="sol reveal d3"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/money.png" alt="" style="animation-delay:1.2s" loading="lazy"></div><h3>Recuperación de ventas</h3><p>Vuelve a contactar carritos y clientes que quedaron en el camino.</p></div>
-          <div class="sol reveal"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/gear.png" alt="" style="animation-delay:.2s" loading="lazy"></div><h3>Automatización a medida</h3><p>Conecta tus sistemas y automatiza procesos: recordatorios, reportes, seguimiento.</p></div>
-          <div class="sol reveal d1"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/cards.png" alt="" style="animation-delay:.6s" loading="lazy"></div><h3>CRM &amp; base de clientes</h3><p>Cada conversación y contacto, ordenado y listo para usar.</p></div>
-          <div class="sol reveal d2"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/chart.png" alt="" style="animation-delay:1s" loading="lazy"></div><h3>Dashboards &amp; métricas</h3><p>Reportes en vivo para decidir con números reales, no con corazonadas.</p></div>
-          <div class="sol reveal d3"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/handshake.png" alt="" style="animation-delay:1.4s" loading="lazy"></div><h3>Calificación de leads</h3><p>Filtra interesados, prioriza y deriva los que de verdad valen la pena.</p></div>
+          <div class="sol reveal"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="url(#ig)" stroke-width="1.7" stroke-linejoin="round"/><circle cx="8.5" cy="11.5" r="1.1" fill="url(#ig)"/><circle cx="12" cy="11.5" r="1.1" fill="url(#ig)"/><circle cx="15.5" cy="11.5" r="1.1" fill="url(#ig)"/></svg></div><h3>Asistente omnicanal</h3><p>Atiende por WhatsApp, Instagram y tu web con IA real, las 24 horas.</p></div>
+          <div class="sol reveal d1"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="3" stroke="url(#ig)" stroke-width="1.7"/><path d="M3 9h18M8 3v4M16 3v4" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round"/><path d="M8.5 14l2.2 2.2L15.5 12" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Agenda &amp; turnos</h3><p>Saca, reprograma y recuerda turnos, sincronizado con tu calendario.</p></div>
+          <div class="sol reveal d2"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14l-1.3 11a2 2 0 01-2 1.8H8.3a2 2 0 01-2-1.8L5 7z" stroke="url(#ig)" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 7a3 3 0 016 0" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>Ventas asistidas</h3><p>Recomienda, evacúa dudas y lleva al cliente hasta la compra o la reserva.</p></div>
+          <div class="sol reveal d3"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 11-2.3-5.6" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round"/><path d="M20 4v3.5h-3.5" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.4" stroke="url(#ig)" stroke-width="1.7"/></svg></div><h3>Recuperación de ventas</h3><p>Vuelve a contactar carritos y clientes que quedaron en el camino.</p></div>
+          <div class="sol reveal"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2.4" stroke="url(#ig)" stroke-width="1.7"/><circle cx="18" cy="6" r="2.4" stroke="url(#ig)" stroke-width="1.7"/><circle cx="12" cy="18" r="2.4" stroke="url(#ig)" stroke-width="1.7"/><path d="M7.6 7.7L11 15.6M16.4 7.7L13 15.6M8.4 6h7.2" stroke="url(#ig)" stroke-width="1.7"/></svg></div><h3>Automatización a medida</h3><p>Conecta tus sistemas y automatiza procesos: recordatorios, reportes, seguimiento.</p></div>
+          <div class="sol reveal d1"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8.5" r="2.8" stroke="url(#ig)" stroke-width="1.7"/><path d="M4 19a5 5 0 0110 0" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round"/><path d="M16 7.5a2.6 2.6 0 010 5M18 19a4.6 4.6 0 00-3-4.3" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>CRM &amp; base de clientes</h3><p>Cada conversación y contacto, ordenado y listo para usar.</p></div>
+          <div class="sol reveal d2"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V4" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round"/><path d="M4 20h16" stroke="url(#ig)" stroke-width="1.7" stroke-linecap="round"/><rect x="7.5" y="12" width="3" height="5" rx="1" stroke="url(#ig)" stroke-width="1.7"/><rect x="13.5" y="8" width="3" height="9" rx="1" stroke="url(#ig)" stroke-width="1.7"/></svg></div><h3>Dashboards &amp; métricas</h3><p>Reportes en vivo para decidir con números reales, no con corazonadas.</p></div>
+          <div class="sol reveal d3"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 5h18l-7 8.2V20l-4 1v-7.8L3 5z" stroke="url(#ig)" stroke-width="1.7" stroke-linejoin="round"/></svg></div><h3>Calificación de leads</h3><p>Filtra interesados, prioriza y deriva los que de verdad valen la pena.</p></div>
         </div>
 
         <p class="lead reveal" style="text-align:center;margin:42px auto 0;max-width:680px;">Funciona en <b style="color:var(--text)">salud y estética, ecommerce, gastronomía, servicios, inmobiliaria</b> y cualquier negocio que viva de atender bien y a tiempo.</p>
@@ -683,11 +729,11 @@
     <!-- ═══════════════ GLOBE / REACH ═══════════════ -->
     <section class="block globe-sec">
       <div class="wrap globe-grid">
-        <div class="reveal"><canvas id="globe" width="460" height="460"></canvas></div>
+        <div class="reveal"><canvas id="neuralnet" width="480" height="480"></canvas></div>
         <div class="reveal d1">
-          <span class="eyebrow">Pensado para Argentina</span>
-          <h2 class="h2" style="margin:18px 0 18px;">Tecnología de primera,<br>contexto local.</h2>
-          <p class="lead">Conocemos cómo compra la gente de acá. Brain habla tu idioma, entiende tu mercado y opera sobre una infraestructura propia, rápida y privada.</p>
+          <span class="eyebrow">Inteligencia artificial</span>
+          <h2 class="h2" style="margin:18px 0 18px;">Una IA entrenada<br>con tu negocio.</h2>
+          <p class="lead">Aprende cómo hablás, qué vendés y cómo atendés. Procesa cada conversación y mejora sola — sobre una infraestructura propia, rápida y privada, pensada para Argentina.</p>
           <div class="feat-cards">
             <div class="feat"><div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h4>Velocidad real</h4><p>Respuestas en segundos, sin demoras ni esperas.</p></div>
             <div class="feat"><div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h4>Datos privados</h4><p>Tu información en una infraestructura propia y segura.</p></div>
@@ -743,15 +789,25 @@
     <section class="block" id="caso">
       <div class="wrap case-grid">
         <div class="case-visual reveal">
-          <div class="case-bot">
-            <div class="case-bot-av">D</div>
-            <div><b>Dolores</b><span>asistente · Botulinic</span></div>
-          </div>
-          <div class="case-stats">
-            <div class="cstat"><b class="grad-text">24/7</b><span>Atención sin pausa</span></div>
-            <div class="cstat"><b class="grad-text">2</b><span>Sedes coordinadas</span></div>
-            <div class="cstat"><b class="grad-text">8</b><span>Tratamientos gestionados</span></div>
-            <div class="cstat"><b class="grad-text">0</b><span>Llamados sin atender</span></div>
+          <div class="macwin">
+            <div class="macbar"><i></i><i></i><i></i><span class="mactitle">Dolores · Botulinic</span></div>
+            <div class="macbody">
+              <div class="mac-chat">
+                <div class="cm-msg them">Hola, quería un turno para hiperhidrosis 🙌</div>
+                <div class="cm-msg us">¡Hola! En la sede de Recoleta tengo jueves 14:30. ¿Te lo reservo?</div>
+                <div class="cm-msg them">Sí, dale 🙌</div>
+                <div class="cm-chip">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="#45D483" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <div><b>Turno confirmado · Jue 14:30 · Recoleta</b><span>sincronizado al calendario · recordatorio activado</span></div>
+                </div>
+              </div>
+              <div class="case-stats">
+                <div class="cstat"><b class="grad-text">24/7</b><span>Atención sin pausa</span></div>
+                <div class="cstat"><b class="grad-text">2</b><span>Sedes coordinadas</span></div>
+                <div class="cstat"><b class="grad-text">8</b><span>Tratamientos</span></div>
+                <div class="cstat"><b class="grad-text">0</b><span>Llamados sin atender</span></div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="reveal d1">
@@ -1047,35 +1103,52 @@
       });
     });
 
-    // ─── dotted globe (canvas) ───
-    var globe = document.getElementById("globe");
-    if (globe && !reduce) {
-      var g = globe.getContext("2d"), GW = globe.width, GH = globe.height, R = GW * 0.40, cx = GW / 2, cy = GH / 2;
-      var pts = [], N = 620;
-      for (var i = 0; i < N; i++) {
-        var y = 1 - (i / (N - 1)) * 2, rad = Math.sqrt(1 - y * y), th = i * 2.399963;
-        pts.push({ x: Math.cos(th) * rad, y: y, z: Math.sin(th) * rad });
+    // ─── 3D neural network (canvas) ───
+    var net = document.getElementById("neuralnet");
+    if (net && !reduce) {
+      var g = net.getContext("2d"), W = net.width, H = net.height, cx = W / 2, cy = H / 2, S = W * 0.30;
+      var layers = [4, 6, 6, 4], lx = [-1.25, -0.45, 0.45, 1.25], nodes = [], edges = [];
+      layers.forEach(function (cnt, li) {
+        for (var k = 0; k < cnt; k++) {
+          var y = (k - (cnt - 1) / 2) * (1.7 / Math.max(cnt - 1, 1));
+          nodes.push({ x: lx[li], y: y, z: (k % 2 ? 0.4 : -0.4) });
+        }
+      });
+      function range(li) { var s = 0; for (var i = 0; i < li; i++) s += layers[i]; return [s, s + layers[li]]; }
+      for (var li = 0; li < layers.length - 1; li++) {
+        var a = range(li), b = range(li + 1);
+        for (var i = a[0]; i < a[1]; i++) for (var j = b[0]; j < b[1]; j++) edges.push([i, j]);
       }
-      // pins (approx lat/long for AR cities) -> unit sphere
-      function ll(lat, lon) { var la = lat * Math.PI / 180, lo = lon * Math.PI / 180; return { x: Math.cos(la) * Math.cos(lo), y: Math.sin(la), z: Math.cos(la) * Math.sin(lo) }; }
-      var pins = [ll(-34.6, -58.4), ll(-34.4, -58.6), ll(-31.4, -64.2), ll(-32.9, -60.7), ll(-24.8, -65.4)];
+      var pulses = [];
+      for (var p = 0; p < 16; p++) pulses.push({ e: (p * 9) % edges.length, t: p / 16 });
       var ang = 0;
       function frame() {
-        g.clearRect(0, 0, GW, GH); ang += 0.0032;
-        var sin = Math.sin(ang), cos = Math.cos(ang);
-        for (var i = 0; i < pts.length; i++) {
-          var p = pts[i], xr = p.x * cos - p.z * sin, zr = p.x * sin + p.z * cos;
-          var sx = cx + xr * R, sy = cy + p.y * R, depth = (zr + 1) / 2;
-          g.beginPath(); g.arc(sx, sy, 1.1 + depth * 0.9, 0, 6.283);
-          g.fillStyle = "rgba(90,160,255," + (0.12 + depth * 0.5) + ")"; g.fill();
+        g.clearRect(0, 0, W, H); ang += 0.004;
+        var sin = Math.sin(ang), cos = Math.cos(ang), pr = [];
+        for (var i = 0; i < nodes.length; i++) {
+          var n = nodes[i], xr = n.x * cos - n.z * sin, zr = n.x * sin + n.z * cos;
+          pr.push({ sx: cx + xr * S, sy: cy + n.y * S, d: (zr + 1) / 2 });
         }
-        pins.forEach(function (p) {
-          var xr = p.x * cos - p.z * sin, zr = p.x * sin + p.z * cos;
-          if (zr < 0) return;
-          var sx = cx + xr * R, sy = cy + p.y * R, depth = (zr + 1) / 2;
-          g.beginPath(); g.arc(sx, sy, 3.4, 0, 6.283); g.fillStyle = "#28C2FF"; g.fill();
-          g.beginPath(); g.arc(sx, sy, 7, 0, 6.283); g.strokeStyle = "rgba(40,194,255," + (0.5 * depth) + ")"; g.lineWidth = 1.4; g.stroke();
-        });
+        for (var e = 0; e < edges.length; e++) {
+          var A = pr[edges[e][0]], B = pr[edges[e][1]], d = (A.d + B.d) / 2;
+          g.strokeStyle = "rgba(90,160,255," + (0.04 + d * 0.10) + ")"; g.lineWidth = 1;
+          g.beginPath(); g.moveTo(A.sx, A.sy); g.lineTo(B.sx, B.sy); g.stroke();
+        }
+        for (var pi = 0; pi < pulses.length; pi++) {
+          var ps = pulses[pi]; ps.t += 0.013;
+          if (ps.t >= 1) { ps.t = 0; ps.e = (ps.e + 1 + pi * 3) % edges.length; }
+          var ed = edges[ps.e], P0 = pr[ed[0]], P1 = pr[ed[1]];
+          var x = P0.sx + (P1.sx - P0.sx) * ps.t, y = P0.sy + (P1.sy - P0.sy) * ps.t;
+          g.beginPath(); g.arc(x, y, 5, 0, 6.283); g.fillStyle = "rgba(40,194,255,0.22)"; g.fill();
+          g.beginPath(); g.arc(x, y, 2.2, 0, 6.283); g.fillStyle = "#28C2FF"; g.fill();
+        }
+        for (var i = 0; i < nodes.length; i++) {
+          var Pn = pr[i];
+          g.beginPath(); g.arc(Pn.sx, Pn.sy, 6 + Pn.d * 3, 0, 6.283);
+          g.strokeStyle = "rgba(47,128,255," + (0.10 + Pn.d * 0.18) + ")"; g.lineWidth = 1.2; g.stroke();
+          g.beginPath(); g.arc(Pn.sx, Pn.sy, 3 + Pn.d * 2.4, 0, 6.283);
+          g.fillStyle = "rgba(120,180,255," + (0.4 + Pn.d * 0.55) + ")"; g.fill();
+        }
         requestAnimationFrame(frame);
       }
       frame();
