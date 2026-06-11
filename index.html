@@ -28,7 +28,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300..800&family=Sora:wght@600;700;800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
@@ -96,49 +96,14 @@
       <div class="glow-orb hero-orb-1"></div>
       <div class="glow-orb hero-orb-2"></div>
 
-      <div class="floaters" id="floaters">
-        <div class="floater chat-mock floater-1" data-depth="3">
-          <div class="cm-head">
-            <span class="cm-av"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-            <div class="cm-meta"><b>Asistente Brain</b><span class="cm-status">en línea</span></div>
-          </div>
-          <div class="cm-body">
-            <div class="cm-msg them">Hola, ¿tenés turno para el jueves? 🙌</div>
-            <div class="cm-msg us">¡Sí! Jueves 14:30 o viernes 11:00 👍</div>
-            <div class="cm-msg them">El jueves 14:30 va perfecto</div>
-          </div>
-          <div class="cm-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="#45D483" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><b>Turno confirmado · Jue 14:30</b><span>agendado automáticamente</span></div>
-          </div>
-        </div>
-        <div class="floater chat-mock floater-2" data-depth="5">
-          <div class="cm-head">
-            <span class="cm-av"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 7h16l-1.5 9a2 2 0 01-2 1.7H7.5a2 2 0 01-2-1.7L4 7z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 7a3 3 0 016 0" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-            <div class="cm-meta"><b>Brain · Ventas</b><span class="cm-status">en línea</span></div>
-          </div>
-          <div class="cm-body">
-            <div class="cm-msg them">¿Hacen envíos a todo el país?</div>
-            <div class="cm-msg us">¡Sí! Llega en 48–72 hs 🚚 ¿Te paso el link de pago?</div>
-            <div class="cm-msg them">Dale, gracias 🙌</div>
-          </div>
-        </div>
-        <div class="floater chat-mock floater-3" data-depth="7">
-          <div class="cm-head">
-            <span class="cm-av"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-            <div class="cm-meta"><b>Asistente Brain</b><span class="cm-status">en línea</span></div>
-          </div>
-          <div class="cm-body">
-            <div class="cm-msg them">¿Atienden los sábados?</div>
-            <div class="cm-msg us">Sí, de 9 a 16 hs ☀️</div>
-          </div>
-        </div>
-      </div>
+      <canvas id="brain3d" class="brain-canvas" aria-hidden="true"></canvas>
+      <div class="brain-fallback" id="brainFallback" aria-hidden="true"></div>
+      <div class="hero-veil"></div>
 
       <div class="wrap">
         <div class="hero-inner">
           <span class="pill reveal in"><span class="dot"></span> Inteligencia conversacional · Argentina</span>
-          <h1 class="display reveal in d1"><span class="l1">Tu negocio,</span><span class="grad-text">con cerebro propio.</span></h1>
+          <h1 class="display reveal in d1"><span class="l1">Tu negocio,</span>con <span class="grad-text">cerebro propio.</span></h1>
           <p class="hero-sub reveal in d2">Brain es la plataforma modular con IA que atiende a tus clientes, agenda turnos y cierra ventas — 24 horas, los 7 días. Sin que muevas un dedo.</p>
           <div class="hero-cta reveal in d3">
             <a href="#contacto" class="btn btn-grad">Quiero mi cerebro digital
@@ -208,32 +173,58 @@
 
           <div class="stage reveal d1">
             <div class="stage-glow"></div>
-            <!-- v0: stacked glass cards (atiende) -->
+            <!-- v0: 3D bot attending (atiende) -->
             <div class="visual show" data-vis="0">
-              <div class="stack">
-                <div class="stack-card"><div class="floater-mini"><span class="floater-av" style="width:28px;height:28px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></span><div><b style="font-size:.78rem">Brain</b></div></div></div>
-                <div class="stack-card"><div class="num">···· responde al instante</div></div>
-                <div class="stack-card"><div class="floater-bubble" style="color:var(--text)">"¿Atienden los sábados?" — Sí, de 9 a 16 hs 🙌</div></div>
+              <div class="scene scene-bot">
+                <div class="bot bot-attend">
+                  <div class="bot-antenna"></div>
+                  <div class="bot-head">
+                    <div class="bot-face"><span class="bot-eye"></span><span class="bot-eye"></span></div>
+                  </div>
+                  <div class="bot-torso">
+                    <span class="bot-arm l"></span><span class="bot-arm r"></span>
+                    <span class="bot-core"></span>
+                  </div>
+                  <div class="bot-prop prop-chat"><i></i><i></i><i></i></div>
+                </div>
               </div>
             </div>
-            <!-- v1: 3D calendar (agenda) -->
+            <!-- v1: 3D bot scheduling (agenda) -->
             <div class="visual" data-vis="1">
-              <div class="icon3d-wrap v3d-wrap"><img class="icon3d v3d" src="assets/img/3d/calendar.png" alt="Agenda" loading="lazy"></div>
+              <div class="scene scene-bot">
+                <div class="bot bot-agenda">
+                  <div class="bot-antenna"></div>
+                  <div class="bot-head"><div class="bot-face"><span class="bot-eye"></span><span class="bot-eye"></span></div></div>
+                  <div class="bot-torso"><span class="bot-arm l"></span><span class="bot-arm r"></span><span class="bot-core"></span></div>
+                  <div class="bot-prop prop-cal">
+                    <div class="pcal-bar"></div>
+                    <div class="pcal-days"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                    <span class="pcal-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- v2: 3D shopping bag (vende) -->
+            <!-- v2: 3D bot closing a sale (vende) -->
             <div class="visual" data-vis="2">
-              <div class="icon3d-wrap v3d-wrap"><img class="icon3d v3d" src="assets/img/3d/bag.png" alt="Ventas" loading="lazy"></div>
+              <div class="scene scene-bot">
+                <div class="bot bot-vende">
+                  <div class="bot-antenna"></div>
+                  <div class="bot-head"><div class="bot-face"><span class="bot-eye"></span><span class="bot-eye"></span></div></div>
+                  <div class="bot-torso"><span class="bot-arm l"></span><span class="bot-arm r"></span><span class="bot-core"></span></div>
+                  <div class="bot-prop prop-bag"><span class="bag-handle"></span><span class="bag-body"><b>$</b></span></div>
+                </div>
+              </div>
             </div>
-            <!-- v3: 3D cube (panel) -->
+            <!-- v3: 3D bot scanning the dashboard (panel & IA) -->
             <div class="visual" data-vis="3">
-              <div class="scene"><div class="cube">
-                <div class="face f1"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="face f2"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="face f3"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="face f4"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="face f5"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="face f6"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-              </div></div>
+              <div class="scene scene-bot">
+                <div class="bot bot-panel">
+                  <div class="bot-antenna"></div>
+                  <div class="bot-head"><div class="bot-face"><span class="bot-eye"></span><span class="bot-eye"></span></div></div>
+                  <div class="bot-torso"><span class="bot-arm l"></span><span class="bot-arm r"></span><span class="bot-core"></span></div>
+                  <div class="bot-prop prop-panel"><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -244,20 +235,26 @@
     <section class="block" id="soluciones">
       <div class="wrap">
         <div class="head center reveal">
-          <span class="eyebrow">Todo lo que Brain hace</span>
           <h2 class="h2">Mucho más que un chatbot.<br>Un equipo entero, automatizado.</h2>
           <p class="lead">Activá las piezas que tu negocio necesita. Cada una trabaja sola y se conecta con el resto.</p>
         </div>
 
         <div class="sol-grid">
-          <div class="sol reveal"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" fill="url(#ig)" opacity="0.22"/><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="url(#ig)" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8.5" cy="11.5" r="1.2" fill="url(#ig)"/><circle cx="12" cy="11.5" r="1.2" fill="url(#ig)"/><circle cx="15.5" cy="11.5" r="1.2" fill="url(#ig)"/></svg></div><h3>Asistente omnicanal</h3><p>Atiende por WhatsApp, Instagram y tu web con IA real, las 24 horas.</p></div>
-          <div class="sol reveal d1"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="3" fill="url(#ig)" opacity="0.22"/><rect x="3" y="5" width="18" height="16" rx="3" stroke="url(#ig)" stroke-width="1.5"/><path d="M3 9h18M8 3v4M16 3v4" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 14.2l2.2 2.2L15.5 12" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Agenda &amp; turnos</h3><p>Saca, reprograma y recuerda turnos, sincronizado con tu calendario.</p></div>
-          <div class="sol reveal d2"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14l-1.3 11a2 2 0 01-2 1.8H8.3a2 2 0 01-2-1.8L5 7z" fill="url(#ig)" opacity="0.22"/><path d="M5 7h14l-1.3 11a2 2 0 01-2 1.8H8.3a2 2 0 01-2-1.8L5 7z" stroke="url(#ig)" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 7a3 3 0 016 0" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Ventas asistidas</h3><p>Recomienda, evacúa dudas y lleva al cliente hasta la compra o la reserva.</p></div>
-          <div class="sol reveal d3"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="url(#ig)" opacity="0.16"/><path d="M20 12a8 8 0 11-2.3-5.6" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/><path d="M20 4v3.5h-3.5" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.4" fill="url(#ig)" opacity="0.5"/></svg></div><h3>Recuperación de ventas</h3><p>Vuelve a contactar carritos y clientes que quedaron en el camino.</p></div>
-          <div class="sol reveal"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M7.6 7.7L11 15.6M16.4 7.7L13 15.6M8.4 6h7.2" stroke="url(#ig)" stroke-width="1.5"/><circle cx="6" cy="6" r="2.6" fill="url(#ig)" opacity="0.22"/><circle cx="18" cy="6" r="2.6" fill="url(#ig)" opacity="0.22"/><circle cx="12" cy="18" r="2.6" fill="url(#ig)" opacity="0.22"/><circle cx="6" cy="6" r="2.6" stroke="url(#ig)" stroke-width="1.5"/><circle cx="18" cy="6" r="2.6" stroke="url(#ig)" stroke-width="1.5"/><circle cx="12" cy="18" r="2.6" stroke="url(#ig)" stroke-width="1.5"/></svg></div><h3>Automatización a medida</h3><p>Conecta tus sistemas y automatiza procesos: recordatorios, reportes, seguimiento.</p></div>
-          <div class="sol reveal d1"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8.5" r="2.9" fill="url(#ig)" opacity="0.22"/><path d="M4 19a5 5 0 0110 0z" fill="url(#ig)" opacity="0.22"/><circle cx="9" cy="8.5" r="2.9" stroke="url(#ig)" stroke-width="1.5"/><path d="M4 19a5 5 0 0110 0" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 7.6a2.6 2.6 0 010 5M18.5 19a4.6 4.6 0 00-3-4.3" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>CRM &amp; base de clientes</h3><p>Cada conversación y contacto, ordenado y listo para usar.</p></div>
-          <div class="sol reveal d2"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="11" width="3.2" height="6" rx="1" fill="url(#ig)" opacity="0.22"/><rect x="13.5" y="7" width="3.2" height="10" rx="1" fill="url(#ig)" opacity="0.22"/><path d="M4 20V4M4 20h16" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/><rect x="7" y="11" width="3.2" height="6" rx="1" stroke="url(#ig)" stroke-width="1.5"/><rect x="13.5" y="7" width="3.2" height="10" rx="1" stroke="url(#ig)" stroke-width="1.5"/></svg></div><h3>Dashboards &amp; métricas</h3><p>Reportes en vivo para decidir con números reales, no con corazonadas.</p></div>
-          <div class="sol reveal d3"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 5h18l-7 8.2V20l-4 1v-7.8L3 5z" fill="url(#ig)" opacity="0.22"/><path d="M3 5h18l-7 8.2V20l-4 1v-7.8L3 5z" stroke="url(#ig)" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h3>Calificación de leads</h3><p>Filtra interesados, prioriza y deriva los que de verdad valen la pena.</p></div>
+          <div class="sol sol-lg reveal"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" fill="url(#ig)" opacity="0.22"/><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="url(#ig)" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8.5" cy="11.5" r="1.2" fill="url(#ig)"/><circle cx="12" cy="11.5" r="1.2" fill="url(#ig)"/><circle cx="15.5" cy="11.5" r="1.2" fill="url(#ig)"/></svg></div><h3>Asistente omnicanal</h3><p>El corazón de Brain: atiende por WhatsApp, Instagram y tu web con IA real, las 24 horas. Entiende, resuelve y deriva cuando hace falta una persona.</p>
+            <div class="sol-proof">
+              <div class="cm-msg them">¿Atienden los sábados?</div>
+              <div class="cm-msg us">Sí, de 9 a 16 hs ☀️ ¿Querés que te reserve un turno?</div>
+            </div>
+          </div>
+          <div class="sol sol-md reveal d1"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="3" fill="url(#ig)" opacity="0.22"/><rect x="3" y="5" width="18" height="16" rx="3" stroke="url(#ig)" stroke-width="1.5"/><path d="M3 9h18M8 3v4M16 3v4" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 14.2l2.2 2.2L15.5 12" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Agenda &amp; turnos</h3><p>Saca, reprograma y recuerda turnos, sincronizado con tu calendario.</p></div>
+          <div class="sol sol-md reveal d2"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14l-1.3 11a2 2 0 01-2 1.8H8.3a2 2 0 01-2-1.8L5 7z" fill="url(#ig)" opacity="0.22"/><path d="M5 7h14l-1.3 11a2 2 0 01-2 1.8H8.3a2 2 0 01-2-1.8L5 7z" stroke="url(#ig)" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 7a3 3 0 016 0" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Ventas asistidas</h3><p>Recomienda, evacúa dudas y lleva al cliente hasta la compra o la reserva.</p></div>
+          <div class="sol sol-md reveal d1"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="url(#ig)" opacity="0.16"/><path d="M20 12a8 8 0 11-2.3-5.6" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/><path d="M20 4v3.5h-3.5" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.4" fill="url(#ig)" opacity="0.5"/></svg></div><h3>Recuperación de ventas</h3><p>Vuelve a contactar carritos y clientes que quedaron en el camino.</p></div>
+          <div class="sol sol-md reveal d2"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8.5" r="2.9" fill="url(#ig)" opacity="0.22"/><path d="M4 19a5 5 0 0110 0z" fill="url(#ig)" opacity="0.22"/><circle cx="9" cy="8.5" r="2.9" stroke="url(#ig)" stroke-width="1.5"/><path d="M4 19a5 5 0 0110 0" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 7.6a2.6 2.6 0 010 5M18.5 19a4.6 4.6 0 00-3-4.3" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>CRM &amp; base de clientes</h3><p>Cada conversación y contacto, ordenado y listo para usar.</p></div>
+          <div class="sol sol-wide reveal"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M7.6 7.7L11 15.6M16.4 7.7L13 15.6M8.4 6h7.2" stroke="url(#ig)" stroke-width="1.5"/><circle cx="6" cy="6" r="2.6" fill="url(#ig)" opacity="0.22"/><circle cx="18" cy="6" r="2.6" fill="url(#ig)" opacity="0.22"/><circle cx="12" cy="18" r="2.6" fill="url(#ig)" opacity="0.22"/><circle cx="6" cy="6" r="2.6" stroke="url(#ig)" stroke-width="1.5"/><circle cx="18" cy="6" r="2.6" stroke="url(#ig)" stroke-width="1.5"/><circle cx="12" cy="18" r="2.6" stroke="url(#ig)" stroke-width="1.5"/></svg></div><h3>Automatización a medida</h3><p>Conecta tus sistemas y automatiza procesos: recordatorios, reportes, seguimiento.</p></div>
+          <div class="sol sol-wide reveal d1"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="11" width="3.2" height="6" rx="1" fill="url(#ig)" opacity="0.22"/><rect x="13.5" y="7" width="3.2" height="10" rx="1" fill="url(#ig)" opacity="0.22"/><path d="M4 20V4M4 20h16" stroke="url(#ig)" stroke-width="1.5" stroke-linecap="round"/><rect x="7" y="11" width="3.2" height="6" rx="1" stroke="url(#ig)" stroke-width="1.5"/><rect x="13.5" y="7" width="3.2" height="10" rx="1" stroke="url(#ig)" stroke-width="1.5"/></svg></div><h3>Dashboards &amp; métricas</h3><p>Reportes en vivo para decidir con números reales, no con corazonadas.</p>
+            <div class="sol-metric"><b>92%</b><span>de consultas resueltas por IA</span></div>
+          </div>
+          <div class="sol sol-wide reveal d2"><div class="sol-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 5h18l-7 8.2V20l-4 1v-7.8L3 5z" fill="url(#ig)" opacity="0.22"/><path d="M3 5h18l-7 8.2V20l-4 1v-7.8L3 5z" stroke="url(#ig)" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h3>Calificación de leads</h3><p>Filtra interesados, prioriza y deriva los que de verdad valen la pena.</p></div>
         </div>
 
         <p class="lead reveal" style="text-align:center;margin:42px auto 0;max-width:680px;">Funciona en <b style="color:var(--text)">salud y estética, ecommerce, gastronomía, servicios, inmobiliaria</b> y cualquier negocio que viva de atender bien y a tiempo.</p>
@@ -269,8 +266,7 @@
       <div class="wrap globe-grid">
         <div class="reveal"><canvas id="neuralnet" width="480" height="480"></canvas></div>
         <div class="reveal d1">
-          <span class="eyebrow">Inteligencia artificial</span>
-          <h2 class="h2" style="margin:18px 0 18px;">Una IA entrenada<br>con tu negocio.</h2>
+          <h2 class="h2" style="margin:0 0 18px;">Una IA entrenada<br>con tu negocio.</h2>
           <p class="lead">Aprende cómo hablás, qué vendés y cómo atendés. Procesa cada conversación y mejora sola — sobre una infraestructura propia, rápida y privada, pensada para Argentina.</p>
           <div class="feat-cards">
             <div class="feat"><div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h4>Velocidad real</h4><p>Respuestas en segundos, sin demoras ni esperas.</p></div>
@@ -366,7 +362,6 @@
     <section class="block pricing" id="precios">
       <div class="wrap">
         <div class="head center reveal">
-          <span class="eyebrow">Planes</span>
           <h2 class="h2">Precios claros.<br>Cero letra chica.</h2>
           <p class="lead">En dólares, todo incluido: infraestructura, onboarding y mejoras continuas. La competencia te cobra el armado aparte (desde USD 1.600). Con Brain, lo ves todo desde el primer día.</p>
         </div>
@@ -456,8 +451,7 @@
     <section class="block" id="faq">
       <div class="wrap faq-grid">
         <div class="reveal">
-          <span class="eyebrow">Preguntas</span>
-          <h2 class="h2" style="margin-top:18px;">Lo que todos<br>nos preguntan.</h2>
+          <h2 class="h2">Lo que todos<br>nos preguntan.</h2>
           <p class="lead" style="margin-top:18px;">¿Tu duda no está acá? Escribinos, respondemos en menos de 24 horas.</p>
           <a href="#contacto" class="btn btn-glass" style="margin-top:22px;">Hacé tu consulta</a>
         </div>
@@ -490,8 +484,8 @@
           <p>Te respondemos en menos de 24 horas hábiles.</p>
           <form id="contact-form" action="#" method="post">
             <div class="f-row">
-              <div class="f-field"><label for="nameInput">Nombre</label><input type="text" id="nameInput" name="name" placeholder="Tu nombre completo" required></div>
-              <div class="f-field"><label for="emailInput">Email</label><input type="email" id="emailInput" name="email" placeholder="vos@empresa.com" required></div>
+              <div class="f-field"><label for="nameInput">Nombre</label><input type="text" id="nameInput" name="name" placeholder="Tu nombre completo" autocomplete="name" required></div>
+              <div class="f-field"><label for="emailInput">Email</label><input type="email" id="emailInput" name="email" placeholder="vos@empresa.com" autocomplete="email" required></div>
             </div>
             <div class="f-row"><div class="f-field full"><label for="subjectInput">Asunto</label><input type="text" id="subjectInput" name="subject" placeholder="¿En qué te podemos ayudar?" required></div></div>
             <div class="f-row"><div class="f-field full"><label for="messageInput">Mensaje</label><textarea id="messageInput" name="message" placeholder="Contanos qué hacés y qué te gustaría automatizar..." required></textarea></div></div>
@@ -548,6 +542,7 @@
   </div>
 
   <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <script type="module" src="assets/js/brain3d.js"></script>
   <script src="assets/js/app.js"></script>
 
   <script src="assets/js/contact-form.js"></script>

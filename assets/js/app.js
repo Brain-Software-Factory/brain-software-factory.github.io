@@ -22,18 +22,7 @@
     var mq = document.getElementById("marquee");
     if (mq) mq.innerHTML += mq.innerHTML;
 
-    // hero floaters parallax
-    var floaters = [].slice.call(document.querySelectorAll(".floater"));
-    if (!reduce && floaters.length && window.matchMedia("(pointer:fine)").matches) {
-      window.addEventListener("mousemove", function (e) {
-        var cx = (e.clientX / window.innerWidth - 0.5), cy = (e.clientY / window.innerHeight - 0.5);
-        floaters.forEach(function (f) {
-          var d = parseFloat(f.getAttribute("data-depth")) || 4;
-          var base = f.style.getPropertyValue("--r") || "";
-          f.style.transform = "translate(" + (cx * d * 5) + "px," + (cy * d * 5) + "px) rotate(" + (f.classList.contains("floater-1") ? -9 : f.classList.contains("floater-2") ? 8 : 6) + "deg)";
-        });
-      });
-    }
+    // (hero parallax now handled by the WebGL brain — brain3d.js)
 
     // stepper -> visual swap (+ auto-advance)
     var steps = [].slice.call(document.querySelectorAll(".step"));
@@ -53,15 +42,23 @@
       }, { threshold: 0.3 }).observe(modular);
     }
 
-    // dashboard mock tilt
+    // dashboard mock tilt — spring-smoothed (Emil: decouple mouse from transform via lerp)
     var mock = document.getElementById("mock"), mockWrap = document.getElementById("mockWrap");
     if (mock && !reduce && window.matchMedia("(pointer:fine)").matches) {
+      var tRX = 8, tRY = -6, cRX = 8, cRY = -6, mockRAF = null;
+      function mockFrame() {
+        cRX += (tRX - cRX) * 0.09; cRY += (tRY - cRY) * 0.09;
+        mock.style.transform = "rotateX(" + cRX.toFixed(2) + "deg) rotateY(" + cRY.toFixed(2) + "deg)";
+        if (Math.abs(tRX - cRX) > 0.02 || Math.abs(tRY - cRY) > 0.02) { mockRAF = requestAnimationFrame(mockFrame); }
+        else { mockRAF = null; }
+      }
+      function kickMock() { if (!mockRAF) mockRAF = requestAnimationFrame(mockFrame); }
       mockWrap.addEventListener("mousemove", function (e) {
         var r = mockWrap.getBoundingClientRect();
         var px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
-        mock.style.transform = "rotateX(" + (8 - py * 8) + "deg) rotateY(" + (-6 + px * 10) + "deg)";
+        tRX = 8 - py * 8; tRY = -6 + px * 10; kickMock();
       });
-      mockWrap.addEventListener("mouseleave", function () { mock.style.transform = "rotateX(8deg) rotateY(-6deg)"; });
+      mockWrap.addEventListener("mouseleave", function () { tRX = 8; tRY = -6; kickMock(); });
     }
 
     // FAQ
