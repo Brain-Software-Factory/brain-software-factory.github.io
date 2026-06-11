@@ -20,20 +20,23 @@ Plataforma modular con IA que atiende a tus clientes, agenda turnos y cierra ven
 
 ## Sitio
 
-Landing de una sola página, autocontenida y sin dependencias de frameworks. HTML + CSS + JS vanilla, con tipografía web, imágenes 3D y un widget de chat conectado al asistente de Brain.
+Landing de una sola página, sin dependencias de frameworks. HTML + CSS + JS vanilla con separación de responsabilidades (markup, estilos y scripts en archivos propios), tipografía web y un widget de chat conectado al asistente de Brain.
 
 ## Estructura
 
 ```
 brain-software-factory.github.io/
-├── index.html                # Landing completa (estilos y scripts embebidos)
+├── index.html                # Markup de la landing (solo estructura)
 ├── assets/
-│   ├── img/
-│   │   ├── brain-logo.png     # Logo / favicon / icono social
-│   │   └── 3d/                # Iconografía 3D (azul de marca)
-│   └── js/
-│       ├── contact-form.js    # Envío del formulario de contacto
-│       └── chat-widget.js     # Widget de chat flotante
+│   ├── css/
+│   │   └── main.css           # Design system + estilos de la página
+│   ├── js/
+│   │   ├── app.js             # Interacciones (nav, reveals, stepper, red neuronal…)
+│   │   ├── contact-form.js    # Envío del formulario de contacto
+│   │   └── chat-widget.js     # Widget de chat flotante
+│   └── img/
+│       ├── brain-logo.png     # Logo / favicon / icono social
+│       └── 3d/                # Imágenes 3D (stepper)
 ├── docs/                      # Documentación interna (no se publica)
 └── .github/                   # Deploy automático
 ```
