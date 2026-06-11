@@ -1,1280 +1,1088 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Brain — Automatización Inteligente</title>
-  <meta name="description" content="Brain - Startup argentina de automatización inteligente. Soluciones con IA, n8n, NocoDB y Metabase para automatizar flujos, dashboards y gestión de datos.">
-  <meta name="keywords" content="automatización, inteligencia artificial, n8n, NocoDB, Metabase, dashboards, Argentina, startup, WhatsApp bot, Chatwoot">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="assets/img/brain.ico" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <title>Brain · Infraestructura de atención inteligente | Atiende, agenda y vende 24/7</title>
+  <meta name="description" content="Brain es la plataforma modular con IA que atiende a tus clientes, agenda turnos y cierra ventas las 24 horas. Inteligencia conversacional para empresas de Argentina. Desde USD 100/mes.">
+  <meta name="keywords" content="asistente IA WhatsApp, automatización empresas Argentina, agenda de turnos automática, atención 24/7, plataforma conversacional, inteligencia artificial negocios">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#070B14">
+  <link rel="canonical" href="https://brain.com.ar/">
 
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Brain">
+  <meta property="og:title" content="Brain · Atención inteligente. Cero fricción.">
+  <meta property="og:description" content="Un cerebro digital, modular y con IA, que atiende, agenda y vende por vos. 24/7. Desde USD 100/mes.">
+  <meta property="og:url" content="https://brain.com.ar/">
+  <meta property="og:image" content="https://brain.com.ar/assets/img/brain-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Brain · Atención inteligente. Cero fricción.">
+  <meta name="twitter:description" content="Un cerebro digital con IA que atiende, agenda y vende. 24/7. Desde USD 100/mes.">
+  <meta name="twitter:image" content="https://brain.com.ar/assets/img/brain-logo.png">
 
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="icon" href="assets/img/brain-logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/brain-logo.png">
 
-  <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/chat-widget.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300..800&family=Sora:wght@600;700;800&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Brain",
+    "url": "https://brain.com.ar",
+    "logo": "https://brain.com.ar/assets/img/brain-logo.png",
+    "description": "Plataforma modular con IA para atención al cliente, agenda de turnos y ventas automatizadas 24/7.",
+    "email": "ventas@brain.com.ar",
+    "areaServed": "AR",
+    "address": { "@type": "PostalAddress", "addressLocality": "Buenos Aires", "addressCountry": "AR" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Asistente de IA y automatización para empresas",
+    "provider": { "@type": "Organization", "name": "Brain" },
+    "areaServed": "Argentina",
+    "offers": [
+      { "@type": "Offer", "name": "Bot Essential", "price": "100", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Automation Suite", "price": "300", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Full Stack", "price": "500", "priceCurrency": "USD" }
+    ]
+  }
+  </script>
+
+  <style>
+  /* ═══════════════════════════════════════════════════════════
+     BRAIN — Pomelo-inspired system · electric blue on deep ink
+     ═══════════════════════════════════════════════════════════ */
+  :root {
+    --bg:        #070B14;
+    --bg-2:      #0A1020;
+    --bg-3:      #0E1424;
+    --glass:     rgba(255,255,255,0.035);
+    --glass-2:   rgba(255,255,255,0.06);
+
+    --text:      #EAF0FB;
+    --text-soft: rgba(234,240,251,0.66);
+    --text-dim:  rgba(234,240,251,0.42);
+    --text-faint:rgba(234,240,251,0.26);
+
+    --blue:      #2F80FF;
+    --blue-br:   #5AA0FF;
+    --sky:       #28C2FF;
+    --royal:     #2E5BEA;
+    --grad:      linear-gradient(110deg, #2E5BEA 0%, #2F80FF 45%, #28C2FF 100%);
+    --grad-soft: linear-gradient(110deg, #2F80FF, #28C2FF);
+    --glow:      rgba(47,128,255,0.45);
+
+    --line:      rgba(234,240,251,0.08);
+    --line-2:    rgba(234,240,251,0.14);
+    --line-blue: rgba(47,128,255,0.35);
+
+    --font: "Onest", system-ui, -apple-system, sans-serif;
+    --mono: "Spline Sans Mono", ui-monospace, monospace;
+    --maxw: 1240px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font); background: var(--bg); color: var(--text);
+    line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--blue); color: #fff; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  input, textarea { font-family: inherit; }
+
+  /* atmospheric grain */
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+    opacity: 0.03; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  /* geometric wireframe bg */
+  .grid-bg {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 75%);
+  }
+  .glow-orb { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; }
+
+  /* ─── type ─── */
+  h1, h2, h3 { font-weight: 700; letter-spacing: -0.03em; line-height: 1.02; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; background: var(--grad-soft); -webkit-background-clip: text;
+    background-clip: text; color: transparent; display: inline-block;
+  }
+  .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .display { font-size: clamp(2.6rem, 6.5vw, 5.4rem); }
+  .h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); }
+  .lead { color: var(--text-soft); font-size: 1.1rem; }
+
+  /* ─── buttons ─── */
+  .btn { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.96rem;
+    padding: 14px 26px; border-radius: 14px; transition: all 0.35s var(--ease); white-space: nowrap; position: relative; }
+  .btn-grad { background: var(--blue); color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.18); }
+  .btn-grad:hover { background: var(--royal); transform: translateY(-1px); }
+  .btn-grad svg { transition: transform 0.35s var(--ease); }
+  .btn-grad:hover svg { transform: translateX(4px); }
+  .btn-glass { background: var(--glass-2); color: var(--text); border: 1px solid var(--line-2); backdrop-filter: blur(10px); }
+  .btn-glass:hover { border-color: var(--line-blue); color: #fff; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 9px; padding: 8px 16px; border-radius: 100px;
+    border: 1px solid var(--line-2); background: var(--glass); font-size: 0.82rem; color: var(--text-soft);
+    font-family: var(--mono); letter-spacing: 0.02em; backdrop-filter: blur(10px);
+  }
+  .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sky); box-shadow: 0 0 10px var(--sky); }
+
+  /* ═══════════════ NAV ═══════════════ */
+  header.nav { position: fixed; inset: 0 0 auto 0; z-index: 1000; transition: all 0.4s var(--ease); padding: 16px 0; }
+  header.nav.scrolled { padding: 9px 0; background: rgba(7,11,20,0.78); backdrop-filter: blur(20px) saturate(150%); border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-logo { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .brand-name { font-family: "Sora", var(--font); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.045em; color: var(--text); }
+  .brand-name b { color: var(--blue); font-weight: 700; }
+  .nav-links { display: flex; align-items: center; gap: 30px; }
+  .nav-links a.lnk { font-size: 0.92rem; color: var(--text-soft); font-weight: 500; transition: color 0.3s; }
+  .nav-links a.lnk:hover { color: var(--text); }
+  .nav-toggle { display: none; width: 42px; height: 42px; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid var(--line-2); }
+
+  /* ═══════════════ HERO ═══════════════ */
+  .hero { position: relative; padding: 170px 0 90px; overflow: hidden; min-height: 92vh; display: flex; align-items: center; }
+  .hero .grid-bg { opacity: 0.6; }
+  .hero-orb-1 { width: 600px; height: 600px; top: -160px; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(47,128,255,0.32), transparent 68%); }
+  .hero-orb-2 { width: 460px; height: 460px; bottom: -200px; right: -100px; background: radial-gradient(circle, rgba(40,194,255,0.18), transparent 70%); }
+  .hero-inner { position: relative; z-index: 3; text-align: center; max-width: 920px; margin: 0 auto; }
+  .hero h1 { margin: 26px 0; }
+  .hero h1 .l1 { display: block; }
+  .hero-sub { max-width: 600px; margin: 0 auto; font-size: 1.2rem; color: var(--text-soft); }
+  .hero-cta { display: flex; gap: 14px; justify-content: center; margin-top: 38px; flex-wrap: wrap; }
+
+  /* floating 3d cards */
+  .floaters { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+  .floater {
+    position: absolute; border-radius: 20px; padding: 16px;
+    background: linear-gradient(150deg, rgba(47,128,255,0.16), rgba(10,16,32,0.5));
+    border: 1px solid var(--line-blue);
+    box-shadow: 0 30px 70px -20px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 40px -10px var(--glow);
+    backdrop-filter: blur(14px); will-change: transform;
+  }
+  .floater-1 { top: 20%; left: 4%; width: 210px; transform: rotate(-9deg); }
+  .floater-2 { bottom: 16%; right: 5%; width: 230px; transform: rotate(8deg); }
+  .floater-3 { top: 24%; right: 8%; width: 150px; transform: rotate(6deg); }
+  .floater-mini { display: flex; align-items: center; gap: 10px; }
+  .floater-av { width: 34px; height: 34px; border-radius: 9px; background: var(--grad); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .floater b { font-size: 0.82rem; display: block; }
+  .floater span { font-size: 0.72rem; color: var(--text-dim); }
+  .floater-bubble { font-size: 0.8rem; color: var(--text-soft); line-height: 1.4; }
+  .floater-stat { font-size: 1.9rem; font-weight: 700; }
+  .floater-tag { font-size: 0.68rem; font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); }
+  @media (max-width: 980px) { .floaters { display: none; } }
+
+  /* ═══════════════ MARQUEE ═══════════════ */
+  .marquee-sec { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 22px 0; overflow: hidden; background: var(--bg-2); position: relative; z-index: 3; }
+  .marquee { display: flex; gap: 52px; white-space: nowrap; width: max-content; animation: scroll 30s linear infinite; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  .marq { display: inline-flex; align-items: center; gap: 11px; font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.04em; color: var(--text-dim); text-transform: uppercase; }
+  .marq svg { color: var(--blue); }
+
+  /* ═══════════════ sections ═══════════════ */
+  section.block { padding: 120px 0; position: relative; }
+  .head { max-width: 660px; }
+  .head.center { margin: 0 auto; text-align: center; }
+  .head .eyebrow { margin-bottom: 18px; }
+  .head h2 { margin-bottom: 20px; }
+
+  /* ═══════════════ STEPPER (modular platform) ═══════════════ */
+  .modular { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stepper-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 56px; }
+  .steps { display: flex; flex-direction: column; }
+  .step { display: grid; grid-template-columns: 56px 1fr; gap: 18px; padding: 14px 0; cursor: pointer; position: relative; opacity: 0.5; transition: opacity 0.4s var(--ease); }
+  .step.active { opacity: 1; }
+  .step:hover { opacity: 0.85; }
+  .step.active:hover { opacity: 1; }
+  .step-rail { display: flex; flex-direction: column; align-items: center; }
+  .step-ico { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--line-2); display: flex; align-items: center; justify-content: center; color: var(--text-soft); transition: all 0.4s var(--ease); background: var(--bg-3); flex-shrink: 0; }
+  .step.active .step-ico { border-color: transparent; background: var(--grad); color: #fff; box-shadow: 0 0 30px -4px var(--glow); }
+  .step-line { width: 1px; flex: 1; background: var(--line-2); margin: 6px 0; min-height: 8px; }
+  .step:last-child .step-line { display: none; }
+  .step-body { padding-top: 13px; }
+  .step-body h3 { font-size: 1.4rem; }
+  .step-detail { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease); }
+  .step.active .step-detail { max-height: 220px; }
+  .step-detail ul { list-style: none; margin: 14px 0 8px; display: flex; flex-direction: column; gap: 9px; }
+  .step-detail li { display: flex; gap: 9px; align-items: center; font-size: 0.92rem; color: var(--text-soft); }
+  .step-detail li svg { color: var(--sky); flex-shrink: 0; }
+
+  .stage { position: relative; height: 460px; border-radius: 26px; border: 1px solid var(--line-2);
+    background: radial-gradient(120% 120% at 70% 10%, rgba(47,128,255,0.14), transparent 55%), var(--bg-3);
+    overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .stage-glow { position: absolute; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, var(--glow), transparent 70%); filter: blur(60px); }
+  .visual { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.9); transition: all 0.55s var(--ease); pointer-events: none; }
+  .visual.show { opacity: 1; transform: scale(1); pointer-events: auto; }
+
+  /* 3D cube */
+  .scene { perspective: 900px; width: 220px; height: 220px; }
+  .cube { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; animation: spin 16s linear infinite; }
+  @keyframes spin { from { transform: rotateX(-22deg) rotateY(0); } to { transform: rotateX(-22deg) rotateY(360deg); } }
+  .face { position: absolute; width: 220px; height: 220px; border: 1px solid var(--line-blue);
+    background: linear-gradient(135deg, rgba(47,128,255,0.22), rgba(40,194,255,0.06));
+    display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(3,1fr); gap: 6px; padding: 8px; backdrop-filter: blur(2px); }
+  .face span { border: 1px solid rgba(90,160,255,0.4); border-radius: 4px; background: linear-gradient(135deg, rgba(47,128,255,0.3), rgba(47,128,255,0.05)); box-shadow: inset 0 0 12px rgba(90,160,255,0.25); }
+  .face.f1 { transform: rotateY(0) translateZ(110px); }
+  .face.f2 { transform: rotateY(90deg) translateZ(110px); }
+  .face.f3 { transform: rotateY(180deg) translateZ(110px); }
+  .face.f4 { transform: rotateY(-90deg) translateZ(110px); }
+  .face.f5 { transform: rotateX(90deg) translateZ(110px); }
+  .face.f6 { transform: rotateX(-90deg) translateZ(110px); }
+
+  /* float keyframe (used by stacked cards + 3D icons) */
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+
+  /* stacked glass cards visual */
+  .stack { position: relative; width: 240px; height: 200px; }
+  .stack-card { position: absolute; width: 200px; height: 120px; border-radius: 16px; border: 1px solid var(--line-blue);
+    background: linear-gradient(150deg, rgba(47,128,255,0.28), rgba(10,16,32,0.6)); backdrop-filter: blur(8px);
+    box-shadow: 0 24px 50px -16px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.15); padding: 16px; }
+  .stack-card:nth-child(1) { top: 0; left: 0; transform: rotate(-8deg); }
+  .stack-card:nth-child(2) { top: 30px; left: 30px; transform: rotate(4deg); }
+  .stack-card:nth-child(3) { top: 60px; left: 12px; transform: rotate(-2deg); animation: bob 6s ease-in-out infinite; }
+  .stack-card .chip { width: 30px; height: 22px; border-radius: 5px; background: linear-gradient(135deg, #FFD66B, #E0A02E); }
+  .stack-card .num { font-family: var(--mono); font-size: 0.8rem; color: var(--text-soft); margin-top: 14px; letter-spacing: 0.1em; }
+
+  /* dashboard mockup */
+  .mock-wrap { perspective: 1600px; width: 100%; }
+  .mock { border-radius: 16px; border: 1px solid var(--line-2); background: var(--bg-3); overflow: hidden;
+    box-shadow: 0 50px 100px -30px rgba(0,0,0,0.8), 0 0 60px -20px var(--glow); transform: rotateX(8deg) rotateY(-6deg); transform-style: preserve-3d; transition: transform 0.5s var(--ease); }
+  .mock-bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--bg-2); }
+  .mock-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--line-2); display: block; }
+  .mock-bar i:nth-child(1){ background:#FF5F57;} .mock-bar i:nth-child(2){ background:#FEBC2E;} .mock-bar i:nth-child(3){ background:#28C840;}
+  .mock-bar span { margin-left: auto; font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); }
+  .mock-body { display: grid; grid-template-columns: 56px 1fr; }
+  .mock-side { border-right: 1px solid var(--line); padding: 16px 0; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .mock-side .si { width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: var(--text-dim); }
+  .mock-side .si.on { background: var(--grad); color: #fff; }
+  .mock-main { padding: 18px; }
+  .mock-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 16px; }
+  .mc { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: var(--bg-2); }
+  .mc .lbl { font-size: 0.68rem; color: var(--text-dim); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em; }
+  .mc .val { font-size: 1.5rem; font-weight: 700; margin-top: 6px; }
+  .mc .val small { font-size: 0.7rem; color: var(--sky); font-weight: 600; }
+  .spark { height: 30px; margin-top: 8px; }
+  .mock-table { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .mtr { display: grid; grid-template-columns: 1.3fr 1fr 1.4fr 0.9fr; gap: 10px; padding: 11px 14px; font-size: 0.78rem; align-items: center; border-bottom: 1px solid var(--line); }
+  .mtr:last-child { border-bottom: none; }
+  .mtr.head { color: var(--text-dim); font-family: var(--mono); text-transform: uppercase; font-size: 0.66rem; letter-spacing: 0.06em; background: var(--bg-2); }
+  .mtr .cli { color: var(--text); }
+  .mtr .sub { color: var(--text-dim); }
+  .badge-ok { display: inline-flex; align-items: center; gap: 5px; font-size: 0.68rem; padding: 3px 9px; border-radius: 100px; background: rgba(40,200,100,0.12); color: #45D483; border: 1px solid rgba(40,200,100,0.25); }
+  .badge-hu { display: inline-flex; align-items: center; gap: 5px; font-size: 0.68rem; padding: 3px 9px; border-radius: 100px; background: rgba(47,128,255,0.12); color: var(--blue-br); border: 1px solid var(--line-blue); }
+
+  /* ═══════════════ GLOBE ═══════════════ */
+  .globe-sec { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .globe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  #globe { width: 100%; max-width: 460px; aspect-ratio: 1; margin: 0 auto; }
+  .feat-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
+  .feat { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: var(--bg-3); }
+  .feat-ico { width: 44px; height: 44px; border-radius: 12px; background: rgba(47,128,255,0.1); border: 1px solid var(--line-blue); display: flex; align-items: center; justify-content: center; color: var(--blue-br); margin-bottom: 14px; }
+  .feat h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+  .feat p { font-size: 0.86rem; color: var(--text-dim); }
+
+  /* ═══════════════ DASHBOARD SECTION ═══════════════ */
+  .dash-sec { position: relative; overflow: hidden; }
+  .dash-orb { width: 700px; height: 500px; left: 50%; bottom: -10%; transform: translateX(-50%); background: radial-gradient(ellipse, rgba(47,128,255,0.18), transparent 65%); }
+
+  /* ═══════════════ CASE STUDY ═══════════════ */
+  .case-grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 60px; align-items: center; }
+  .case-visual { background: radial-gradient(120% 120% at 0% 0%, rgba(40,194,255,0.14), transparent 55%), var(--bg-3); border: 1px solid var(--line-2); border-radius: 24px; padding: 38px; }
+  .case-bot { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .case-bot-av { width: 60px; height: 60px; border-radius: 18px; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: #fff; }
+  .case-bot b { display: block; font-size: 1.4rem; font-weight: 700; }
+  .case-bot span { font-size: 0.82rem; color: var(--text-dim); font-family: var(--mono); }
+  .case-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .cstat { background: var(--bg-2); padding: 22px; }
+  .cstat b { font-size: 2rem; font-weight: 700; display: block; line-height: 1; }
+  .cstat span { font-size: 0.8rem; color: var(--text-dim); margin-top: 6px; display: block; }
+  .case-feats { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .case-feats li { display: flex; gap: 12px; align-items: center; color: var(--text-soft); font-size: 0.95rem; }
+  .case-feats svg { color: var(--sky); flex-shrink: 0; }
+  .case-label { font-family: var(--mono); font-size: 0.76rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em; }
+
+  /* ═══════════════ PRICING ═══════════════ */
+  .pricing { background: var(--bg-2); border-top: 1px solid var(--line); }
+  .toggle-row { display: flex; align-items: center; justify-content: center; gap: 13px; margin-bottom: 48px; }
+  .toggle-row span { font-size: 0.92rem; color: var(--text-dim); transition: color 0.3s; font-weight: 500; }
+  .toggle-row span.on { color: var(--text); }
+  .toggle { width: 52px; height: 30px; border-radius: 100px; background: var(--bg-3); border: 1px solid var(--line-2); position: relative; transition: all 0.3s; }
+  .toggle.year { background: var(--blue); border-color: transparent; }
+  .toggle .knob { position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: var(--text); transition: all 0.3s var(--ease); }
+  .toggle.year .knob { left: 25px; background: #fff; }
+  .save { font-family: var(--mono); font-size: 0.72rem; color: var(--sky); border: 1px solid var(--line-blue); padding: 4px 10px; border-radius: 100px; }
+  .price-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; align-items: stretch; }
+  .plan { background: var(--bg-3); border: 1px solid var(--line); border-radius: 22px; padding: 30px 24px; display: flex; flex-direction: column; position: relative; transition: all 0.4s var(--ease); }
+  .plan:hover { transform: translateY(-6px); border-color: var(--line-2); }
+  .plan.pop { border-color: transparent; background: linear-gradient(var(--bg-3), var(--bg-3)) padding-box, var(--grad) border-box; box-shadow: 0 30px 70px -30px var(--glow); }
+  .plan-flag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--grad); color: #fff; font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 15px; border-radius: 100px; }
+  .plan-name { font-size: 1.4rem; font-weight: 700; }
+  .plan-desc { font-size: 0.86rem; color: var(--text-dim); margin: 6px 0 22px; min-height: 38px; }
+  .plan-price { display: flex; align-items: flex-end; gap: 4px; }
+  .plan-price .cur { font-size: 1rem; color: var(--text-soft); margin-bottom: 8px; }
+  .plan-price .num { font-size: 3.2rem; font-weight: 700; line-height: 1; transition: opacity 0.3s; letter-spacing: -0.04em; }
+  .plan-price .per { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 8px; }
+  .plan-annual { font-size: 0.76rem; color: var(--sky); margin-top: 8px; min-height: 18px; font-family: var(--mono); }
+  .plan-feats { list-style: none; margin: 26px 0; display: flex; flex-direction: column; gap: 13px; flex-grow: 1; }
+  .plan-feats li { display: flex; gap: 11px; align-items: flex-start; font-size: 0.91rem; color: var(--text-soft); }
+  .plan-feats svg { color: var(--sky); flex-shrink: 0; margin-top: 3px; }
+  .plan .btn { width: 100%; justify-content: center; }
+  .price-note { text-align: center; margin-top: 34px; font-size: 0.88rem; color: var(--text-dim); display: flex; align-items: center; justify-content: center; gap: 10px; }
+  .price-note svg { color: var(--blue); }
+
+  /* ═══════════════ FAQ ═══════════════ */
+  .faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 56px; align-items: start; }
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 22px 0; cursor: pointer; }
+  .faq-q h3 { font-weight: 600; font-size: 1.06rem; letter-spacing: -0.01em; }
+  .faq-ico { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line-2); display: flex; align-items: center; justify-content: center; color: var(--blue); transition: all 0.4s var(--ease); }
+  .faq-item.open .faq-ico { background: var(--grad); color: #fff; border-color: transparent; transform: rotate(135deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease); }
+  .faq-a p { padding-bottom: 22px; color: var(--text-soft); font-size: 0.95rem; line-height: 1.65; }
+
+  /* ═══════════════ CTA + CONTACT ═══════════════ */
+  .contact { position: relative; overflow: hidden; }
+  .contact-orb { width: 700px; height: 500px; left: 50%; top: -20%; transform: translateX(-50%); background: radial-gradient(ellipse, rgba(47,128,255,0.2), transparent 64%); }
+  .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
+  .contact-copy h2 { margin: 18px 0 20px; }
+  .contact-copy p { color: var(--text-soft); font-size: 1.05rem; margin-bottom: 30px; }
+  .ci-item { display: flex; align-items: center; gap: 15px; margin-bottom: 16px; }
+  .ci-ico { width: 44px; height: 44px; border-radius: 12px; background: var(--bg-3); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--blue-br); flex-shrink: 0; }
+  .ci-item .lbl { font-size: 0.74rem; color: var(--text-dim); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em; }
+  .ci-item .val { font-size: 1rem; font-weight: 500; }
+  .form-card { background: var(--bg-3); border: 1px solid var(--line-2); border-radius: 24px; padding: 36px; box-shadow: 0 40px 90px -40px rgba(0,0,0,0.7); }
+  .form-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+  .form-card > p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 24px; }
+  .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .f-field { display: flex; flex-direction: column; gap: 7px; }
+  .f-field.full { grid-column: 1 / -1; }
+  .f-field label { font-size: 0.82rem; color: var(--text-soft); font-weight: 500; }
+  .f-field input, .f-field textarea { background: var(--bg); border: 1px solid var(--line-2); border-radius: 12px; padding: 13px 15px; color: var(--text); font-size: 0.95rem; transition: all 0.3s; width: 100%; }
+  .f-field input::placeholder, .f-field textarea::placeholder { color: var(--text-faint); }
+  .f-field input:focus, .f-field textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--glow); }
+  .f-field textarea { resize: vertical; min-height: 110px; }
+  .btn-submit { width: 100%; justify-content: center; margin-top: 6px; display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: #fff; font-weight: 600; font-size: 0.98rem; padding: 15px; border-radius: 12px; transition: all 0.35s var(--ease); }
+  .btn-submit:hover { background: var(--royal); transform: translateY(-1px); }
+  #form-status > div { display: none; padding: 12px 14px; border-radius: 10px; font-size: 0.88rem; margin-top: 14px; }
+  #form-status > div.d-block { display: block; }
+  .loading { background: var(--bg-2); color: var(--text-soft); }
+  .error-message { background: rgba(255,80,80,0.12); color: #FF7A7A; border: 1px solid rgba(255,80,80,0.3); }
+  .sent-message { background: rgba(40,200,100,0.12); color: #45D483; border: 1px solid rgba(40,200,100,0.3); }
+
+  /* ═══════════════ FOOTER ═══════════════ */
+  footer.foot { border-top: 1px solid var(--line); padding: 70px 0 34px; background: var(--bg-2); }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .foot-tag { color: var(--text-dim); font-size: 0.92rem; max-width: 320px; line-height: 1.6; margin-top: 16px; }
+  .foot-social { display: flex; gap: 10px; margin-top: 22px; }
+  .foot-social a { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line-2); display: flex; align-items: center; justify-content: center; color: var(--text-soft); transition: all 0.3s; }
+  .foot-social a:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+  .foot-col h5 { font-family: var(--mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 16px; font-weight: 500; }
+  .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .foot-col a { color: var(--text-soft); font-size: 0.92rem; transition: color 0.3s; }
+  .foot-col a:hover { color: var(--blue-br); }
+  .foot-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 26px; flex-wrap: wrap; gap: 14px; }
+  .foot-bottom span { color: var(--text-faint); font-size: 0.84rem; }
+  .foot-bottom .links { display: flex; gap: 22px; }
+  .foot-bottom .links a { color: var(--text-dim); font-size: 0.84rem; }
+
+  /* ═══════════════ CHAT WIDGET ═══════════════ */
+  .chat-widget-button { position: fixed; bottom: 24px; right: 24px; z-index: 998; width: 60px; height: 60px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px -4px rgba(47,128,255,0.35); transition: all 0.4s var(--ease); animation: pulse 2.6s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 14px 36px -8px var(--glow), 0 0 0 0 rgba(47,128,255,0.45);} 70% { box-shadow: 0 14px 36px -8px var(--glow), 0 0 0 16px rgba(47,128,255,0);} 100% { box-shadow: 0 14px 36px -8px var(--glow), 0 0 0 0 rgba(47,128,255,0);} }
+  .chat-widget-button:hover { transform: scale(1.06); }
+  .chat-widget-container { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 380px; max-width: calc(100vw - 32px); height: 560px; max-height: calc(100vh - 48px); background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 22px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 40px 90px -20px rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transform: translateY(20px) scale(0.96); transition: all 0.45s var(--ease); }
+  .chat-widget-container.chat-widget-open { opacity: 1; pointer-events: auto; transform: none; }
+  .chat-widget-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, rgba(47,128,255,0.1), transparent); }
+  .chat-widget-header > span { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; font-weight: 600; }
+  .chat-widget-header .dot { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .chat-widget-header .dot img { width: 100%; height: 100%; object-fit: contain; }
+  .chat-widget-header button { width: 32px; height: 32px; border-radius: 8px; color: var(--text-soft); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+  .chat-widget-header button:hover { background: var(--bg-3); color: var(--text); }
+  .chat-widget-body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .chat-widget-body p { padding: 12px 15px; border-radius: 14px; font-size: 0.9rem; line-height: 1.45; max-width: 84%; }
+  .chat-widget-welcome, .chat-widget-message-bot { background: var(--bg-3); border: 1px solid var(--line); color: var(--text-soft); align-self: flex-start; border-bottom-left-radius: 4px; }
+  .chat-widget-message-user { background: var(--grad); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .chat-widget-loading { background: var(--bg-3); color: var(--text-dim); align-self: flex-start; font-style: italic; }
+  .chat-widget-message-error { background: rgba(255,80,80,0.12); color: #FF7A7A; align-self: flex-start; }
+  .chat-widget-footer { display: flex; gap: 10px; padding: 16px; border-top: 1px solid var(--line); }
+  .chat-widget-input { flex: 1; background: var(--bg); border: 1px solid var(--line-2); border-radius: 100px; padding: 12px 18px; color: var(--text); font-size: 0.9rem; }
+  .chat-widget-input:focus { outline: none; border-color: var(--blue); }
+  .chat-widget-send { width: 44px; height: 44px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; }
+  .chat-widget-send:hover { filter: brightness(1.1); }
+  .chat-widget-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .scroll-top { position: fixed; bottom: 24px; left: 24px; z-index: 997; width: 46px; height: 46px; border-radius: 50%; background: var(--bg-3); border: 1px solid var(--line-2); color: var(--text-soft); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: all 0.4s var(--ease); }
+  .scroll-top.show { opacity: 1; pointer-events: auto; }
+  .scroll-top:hover { border-color: var(--blue); color: var(--blue); }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: 0.08s; } .reveal.d2 { transition-delay: 0.16s; } .reveal.d3 { transition-delay: 0.24s; }
+
+  /* ─── 3D rendered icons (blue duotone) ─── */
+  .icon3d-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
+  .icon3d-wrap::after { content: ""; position: absolute; bottom: 4px; width: 58%; height: 14px; border-radius: 50%; background: radial-gradient(ellipse, rgba(47,128,255,0.45), transparent 70%); filter: blur(7px); z-index: 0; }
+  .icon3d { object-fit: contain; position: relative; z-index: 1;
+    filter: grayscale(1) sepia(1) hue-rotate(178deg) saturate(2.6) brightness(1.02) drop-shadow(0 12px 22px rgba(47,128,255,0.45));
+    animation: bob 5.5s ease-in-out infinite; }
+
+  /* ─── solutions catalog ─── */
+  .sol-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 52px; }
+  .sol { border: 1px solid var(--line); border-radius: 20px; padding: 30px 22px; text-align: center;
+    background: radial-gradient(120% 100% at 50% 0%, rgba(47,128,255,0.08), transparent 58%), var(--bg-3);
+    transition: all 0.4s var(--ease); }
+  .sol:hover { border-color: var(--line-blue); transform: translateY(-6px); }
+  .sol .icon3d-wrap { width: 96px; height: 96px; margin: 0 auto 20px; }
+  .sol .icon3d { width: 84px; height: 84px; }
+  .sol h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .sol p { font-size: 0.86rem; color: var(--text-soft); line-height: 1.55; }
+  .sol .more { display: inline-block; margin-top: 14px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sky); }
+
+  /* stepper visual 3D */
+  .visual .v3d-wrap { width: 200px; height: 200px; }
+  .visual .v3d { width: 180px; height: 180px; }
+
+  /* pricing setup */
+  .plan-setup { font-size: 0.76rem; color: var(--text-dim); margin-top: 8px; font-family: var(--mono); }
+  .plan-setup b { color: var(--sky); font-weight: 600; }
+  .plan.enterprise { background: radial-gradient(130% 120% at 50% 0%, rgba(47,128,255,0.1), transparent 55%), var(--bg-3); }
+  .plan-quote { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+
+  /* responsive */
+  @media (max-width: 980px) {
+    .stepper-grid, .globe-grid, .contact-grid, .case-grid, .faq-grid, .mock-cards { grid-template-columns: 1fr; }
+    .sol-grid, .price-grid { grid-template-columns: repeat(2, 1fr); }
+    .stage { order: -1; height: 360px; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; position: absolute; top: 62px; left: 16px; right: 16px; flex-direction: column; align-items: flex-start; gap: 16px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 16px; padding: 22px; }
+    .nav-toggle { display: flex; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .feat-cards { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 18px; }
+    section.block { padding: 80px 0; }
+    .f-row, .foot-grid, .case-stats, .feat-cards, .sol-grid, .price-grid { grid-template-columns: 1fr; }
+    .mock-cards { grid-template-columns: 1fr 1fr; }
+    .mtr { grid-template-columns: 1fr 1fr; }
+    .mtr .hide-sm { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+  </style>
+  <noscript><style>.reveal{opacity:1!important;transform:none!important;}.faq-a{max-height:none!important;}.visual{opacity:1!important;position:relative!important;transform:none!important;}</style></noscript>
 </head>
 
-<body class="index-page">
+<body>
 
-  <!-- ═══════════════════ HEADER ═══════════════════ -->
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <img src="assets/img/brain.ico" alt="Brain Logo" class="me-2">
-        <h1 class="sitename">Brain</h1>
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="#hero" class="brand" aria-label="Brain inicio">
+        <span class="brand-logo"><img src="assets/img/brain-logo.png" alt="Brain" width="38" height="38"></span>
+        <span class="brand-name">Brai<b>n</b></span>
       </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Inicio</a></li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#steps">Cómo funciona</a></li>
-          <li><a href="#testimonials">Casos</a></li>
-          <li><a href="#pricing">Planes</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      <nav class="nav-links" id="navLinks">
+        <a class="lnk" href="#plataforma">Plataforma</a>
+        <a class="lnk" href="#soluciones">Soluciones</a>
+        <a class="lnk" href="#caso">Casos</a>
+        <a class="lnk" href="#precios">Precios</a>
+        <a class="lnk" href="#contacto">Contacto</a>
       </nav>
-
-      <a class="btn-getstarted" href="#contact">Agendá una demo</a>
-
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </header>
 
-  <main class="main">
+  <main>
 
-    <!-- ═══════════════════ HERO ═══════════════════ -->
-    <section id="hero" class="hero">
-      <div class="hero-blob hero-blob-1"></div>
-      <div class="hero-blob hero-blob-2"></div>
-      <div class="hero-blob hero-blob-3"></div>
-      <div class="hero-grid-overlay"></div>
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero" id="hero">
+      <div class="grid-bg"></div>
+      <div class="glow-orb hero-orb-1"></div>
+      <div class="glow-orb hero-orb-2"></div>
 
-      <div class="container">
-        <div class="row align-items-center g-5">
-
-          <div class="col-lg-7" data-aos="fade-up">
-            <div class="hero-badge">
-              <div class="hero-badge-dot"></div>
-              <span>Startup argentina · n8n · NocoDB · Metabase</span>
-            </div>
-
-            <h1 class="hero-title">
-              Automatizá lo<br>
-              repetitivo.<br>
-              <span class="accent">Escalá lo importante.</span>
-            </h1>
-
-            <p class="hero-sub">
-              Brain conecta tus herramientas, automatiza tus flujos y pone tus datos en tiempo real. Sin código. Sin fricciones. Con resultados desde la primera semana.
-            </p>
-
-            <div class="hero-ctas">
-              <a href="#contact" class="btn-hero-primary">
-                Solicitar demo gratuita <i class="bi bi-arrow-right"></i>
-              </a>
-              <a href="#steps" class="btn-hero-secondary">
-                Ver cómo funciona <i class="bi bi-arrow-down"></i>
-              </a>
-            </div>
-
-            <div class="hero-stats">
-              <div>
-                <div class="hero-stat-value">3<span>x</span></div>
-                <div class="hero-stat-label">Velocidad operativa</div>
-              </div>
-              <div>
-                <div class="hero-stat-value">-<span>70</span>%</div>
-                <div class="hero-stat-label">Tareas manuales</div>
-              </div>
-              <div>
-                <div class="hero-stat-value">48<span>hs</span></div>
-                <div class="hero-stat-label">Primer flujo live</div>
-              </div>
-            </div>
+      <div class="floaters" id="floaters">
+        <div class="floater floater-1" data-depth="3">
+          <div class="floater-mini">
+            <span class="floater-av"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+            <div><b>Asistente Brain</b><span>responde en segundos</span></div>
           </div>
+          <p class="floater-bubble" style="margin-top:12px;">"Hola, ¿tenés turno para el jueves?" → resuelto ✓</p>
+        </div>
+        <div class="floater floater-2" data-depth="5">
+          <span class="floater-tag">Turnos hoy</span>
+          <div class="floater-stat grad-text">37</div>
+          <p class="floater-bubble">agendados automáticamente, sin intervención humana.</p>
+        </div>
+        <div class="floater floater-3" data-depth="7">
+          <span class="floater-tag">Resueltas por IA</span>
+          <div class="floater-stat grad-text">92%</div>
+        </div>
+      </div>
 
-          <div class="col-lg-5" data-aos="zoom-out" data-aos-delay="200">
-            <div class="hero-card" style="position: relative;">
-
-              <div class="hero-toast hero-toast-top">
-                <i class="bi bi-lightning-charge hero-toast-icon"></i>
-                <div>
-                  <div class="hero-toast-main">Flujo activado</div>
-                  <div class="hero-toast-sub">CRM → Email → Slack · hace 2s</div>
-                </div>
-              </div>
-
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <span class="hero-card-title">Automatizaciones activas</span>
-                <span class="hero-status-badge">
-                  <span class="hero-status-dot"></span> Live
-                </span>
-              </div>
-
-              <div class="hero-flow-item">
-                <div class="hero-flow-icon" style="background: rgba(37,99,235,.15); color: #60a5fa;">
-                  <i class="bi bi-arrow-repeat"></i>
-                </div>
-                <div class="flex-grow-1">
-                  <div class="hero-flow-name">Sync CRM → NocoDB</div>
-                  <div class="hero-flow-desc">Cada 15 min · 1.240 registros</div>
-                </div>
-                <span class="hero-flow-status s-active">Activo</span>
-              </div>
-
-              <div class="hero-flow-item">
-                <div class="hero-flow-icon" style="background: rgba(16,185,129,.15); color: #34d399;">
-                  <i class="bi bi-robot"></i>
-                </div>
-                <div class="flex-grow-1">
-                  <div class="hero-flow-name">Agente WhatsApp</div>
-                  <div class="hero-flow-desc">IA + Chatwoot · 24/7</div>
-                </div>
-                <span class="hero-flow-status s-running">Ejecutando</span>
-              </div>
-
-              <div class="hero-flow-item">
-                <div class="hero-flow-icon" style="background: rgba(6,182,212,.15); color: #22d3ee;">
-                  <i class="bi bi-bar-chart-line"></i>
-                </div>
-                <div class="flex-grow-1">
-                  <div class="hero-flow-name">Reporte semanal</div>
-                  <div class="hero-flow-desc">Metabase → Email equipo</div>
-                </div>
-                <span class="hero-flow-status s-done">Completado</span>
-              </div>
-
-              <div class="hero-metrics">
-                <div class="hero-metric">
-                  <div class="hero-metric-num">247</div>
-                  <div class="hero-metric-lbl">Ejecuciones hoy</div>
-                </div>
-                <div class="hero-metric">
-                  <div class="hero-metric-num">0</div>
-                  <div class="hero-metric-lbl">Errores</div>
-                </div>
-                <div class="hero-metric">
-                  <div class="hero-metric-num">99.8%</div>
-                  <div class="hero-metric-lbl">Uptime</div>
-                </div>
-              </div>
-
-              <div class="hero-toast hero-toast-bottom">
-                <i class="bi bi-graph-up-arrow hero-toast-icon"></i>
-                <div>
-                  <div class="hero-toast-main">+340 tareas automáticas</div>
-                  <div class="hero-toast-sub">Esta semana · sin intervención manual</div>
-                </div>
-              </div>
-
-            </div>
+      <div class="wrap">
+        <div class="hero-inner">
+          <span class="pill reveal in"><span class="dot"></span> Inteligencia conversacional · Argentina</span>
+          <h1 class="display reveal in d1"><span class="l1">Tu negocio,</span><span class="grad-text">con cerebro propio.</span></h1>
+          <p class="hero-sub reveal in d2">Brain es la plataforma modular con IA que atiende a tus clientes, agenda turnos y cierra ventas — 24 horas, los 7 días. Sin que muevas un dedo.</p>
+          <div class="hero-cta reveal in d3">
+            <a href="#contacto" class="btn btn-grad">Quiero mi cerebro digital
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="#plataforma" class="btn btn-glass">Ver la plataforma</a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════ PROBLEMA / SOLUCIÓN ═══════════════════ -->
-    <section id="pain" class="pain-section section">
-      <div class="container">
+    <!-- ═══════════════ MARQUEE ═══════════════ -->
+    <div class="marquee-sec">
+      <div class="marquee" id="marquee">
+        <span class="marq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 11-3.5-6.6L20 4l-.5 4-3.6-.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> WhatsApp</span>
+        <span class="marq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/></svg> Instagram</span>
+        <span class="marq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Agenda sincronizada</span>
+        <span class="marq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 3 8-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Reportes en vivo</span>
+        <span class="marq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Disponible 24/7</span>
+        <span class="marq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 6.5L21 9l-5 4 1.5 7L12 16l-5.5 4L8 13 3 9l6.5-.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg> Multi-sede</span>
+      </div>
+    </div>
 
-        <div class="text-center mb-5" data-aos="fade-up">
-          <span class="section-label">El problema real</span>
-          <h2 class="section-title">¿Cuánto le cuesta a tu negocio<br><span class="accent">no automatizar?</span></h2>
-          <p class="section-sub mx-auto" style="max-width:520px;">Cada tarea manual es tiempo perdido. Cada dato disperso, una decisión mal tomada.</p>
+    <!-- ═══════════════ MODULAR PLATFORM (stepper) ═══════════════ -->
+    <section class="block modular" id="plataforma">
+      <div class="wrap">
+        <div class="head center reveal">
+          <span class="eyebrow">Plataforma modular</span>
+          <h2 class="h2">Una plataforma para construir,<br>operar y escalar tu atención.</h2>
+          <p class="lead">Activá solo los módulos que necesitás. Brain crece con tu negocio, pieza por pieza.</p>
         </div>
 
-        <div class="pain-grid" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="pain-col">
-            <div class="pain-col-header pain">
-              <i class="bi bi-x-circle"></i> Sin Brain
+        <div class="stepper-grid">
+          <div class="steps" id="steps">
+            <div class="step active" data-v="0">
+              <div class="step-rail"><div class="step-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div><div class="step-line"></div></div>
+              <div class="step-body"><h3>Atiende</h3><div class="step-detail"><ul>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Conversación natural por WhatsApp, Instagram y web</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Entiende preguntas reales, sin libretos rígidos</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Resuelve la consulta de punta a punta</li>
+              </ul></div></div>
             </div>
-            <div class="pain-item">
-              <div class="pain-item-icon"><i class="bi bi-clock-history"></i></div>
-              <div class="pain-item-title">Tareas repetitivas que consumen horas</div>
-              <div class="pain-item-desc">Tu equipo copia datos entre sistemas, manda emails manualmente y genera reportes desde cero cada semana.</div>
+            <div class="step" data-v="1">
+              <div class="step-rail"><div class="step-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><div class="step-line"></div></div>
+              <div class="step-body"><h3>Agenda</h3><div class="step-detail"><ul>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Saca, modifica y cancela turnos en tiempo real</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Sincronizado con tu calendario</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Recordatorios automáticos, menos ausentes</li>
+              </ul></div></div>
             </div>
-            <div class="pain-item">
-              <div class="pain-item-icon"><i class="bi bi-layout-split"></i></div>
-              <div class="pain-item-title">Datos dispersos, decisiones a ciegas</div>
-              <div class="pain-item-desc">La información vive en hojas de cálculo, emails y herramientas separadas. Nadie tiene el panorama completo.</div>
+            <div class="step" data-v="2">
+              <div class="step-rail"><div class="step-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16l-1.5 9a2 2 0 01-2 1.7H7.5a2 2 0 01-2-1.7L4 7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 7a3 3 0 016 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><div class="step-line"></div></div>
+              <div class="step-body"><h3>Vende</h3><div class="step-detail"><ul>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Califica al interesado y recomienda lo justo</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Lo lleva hasta la compra o la reserva</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Re-contacta a quienes quedaron en el camino</li>
+              </ul></div></div>
             </div>
-            <div class="pain-item">
-              <div class="pain-item-icon"><i class="bi bi-chat-square-dots"></i></div>
-              <div class="pain-item-title">Atención al cliente lenta y despareja</div>
-              <div class="pain-item-desc">Los mensajes se pierden, las respuestas tardan horas y la experiencia depende de quién esté disponible.</div>
-            </div>
-          </div>
-
-          <div class="pain-divider">
-            <div class="pain-divider-line"></div>
-            <div class="pain-divider-node"><i class="bi bi-arrow-right"></i></div>
-            <div class="pain-divider-line"></div>
-            <div class="pain-divider-node"><i class="bi bi-arrow-right"></i></div>
-            <div class="pain-divider-line"></div>
-            <div class="pain-divider-node"><i class="bi bi-arrow-right"></i></div>
-            <div class="pain-divider-line"></div>
-          </div>
-
-          <div class="pain-col">
-            <div class="pain-col-header brain">
-              <i class="bi bi-check-circle"></i> Con Brain
-            </div>
-            <div class="solution-item">
-              <div class="solution-item-icon"><i class="bi bi-diagram-3"></i></div>
-              <div class="solution-item-title">Flujos automáticos que trabajan solos</div>
-              <div class="solution-item-desc">Diseñamos flujos en n8n que conectan tus herramientas y ejecutan tareas sin intervención humana, 24/7.</div>
-            </div>
-            <div class="solution-item">
-              <div class="solution-item-icon"><i class="bi bi-bar-chart-line"></i></div>
-              <div class="solution-item-title">Dashboard unificado en tiempo real</div>
-              <div class="solution-item-desc">Centralizamos tus datos en Metabase y NocoDB para que cada área tenga visibilidad total al instante.</div>
-            </div>
-            <div class="solution-item">
-              <div class="solution-item-icon"><i class="bi bi-robot"></i></div>
-              <div class="solution-item-title">Agente de IA que responde por vos</div>
-              <div class="solution-item-desc">Desplegamos agentes inteligentes en WhatsApp con Chatwoot que atienden, derivan y aprenden 24/7.</div>
+            <div class="step" data-v="3">
+              <div class="step-rail"><div class="step-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/></svg></div><div class="step-line"></div></div>
+              <div class="step-body"><h3>Panel &amp; IA</h3><div class="step-detail"><ul>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Todas tus conversaciones en un panel</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Métricas y reportes en vivo</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> IA de última generación, mejorada cada mes</li>
+              </ul></div></div>
             </div>
           </div>
 
+          <div class="stage reveal d1">
+            <div class="stage-glow"></div>
+            <!-- v0: stacked glass cards (atiende) -->
+            <div class="visual show" data-vis="0">
+              <div class="stack">
+                <div class="stack-card"><div class="floater-mini"><span class="floater-av" style="width:28px;height:28px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></span><div><b style="font-size:.78rem">Brain</b></div></div></div>
+                <div class="stack-card"><div class="num">···· responde al instante</div></div>
+                <div class="stack-card"><div class="floater-bubble" style="color:var(--text)">"¿Atienden los sábados?" — Sí, de 9 a 16 hs 🙌</div></div>
+              </div>
+            </div>
+            <!-- v1: 3D calendar (agenda) -->
+            <div class="visual" data-vis="1">
+              <div class="icon3d-wrap v3d-wrap"><img class="icon3d v3d" src="assets/img/3d/calendar.png" alt="Agenda" loading="lazy"></div>
+            </div>
+            <!-- v2: 3D shopping bag (vende) -->
+            <div class="visual" data-vis="2">
+              <div class="icon3d-wrap v3d-wrap"><img class="icon3d v3d" src="assets/img/3d/bag.png" alt="Ventas" loading="lazy"></div>
+            </div>
+            <!-- v3: 3D cube (panel) -->
+            <div class="visual" data-vis="3">
+              <div class="scene"><div class="cube">
+                <div class="face f1"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="face f2"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="face f3"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="face f4"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="face f5"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="face f6"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════ SERVICES ═══════════════════ -->
-    <section id="services" class="services section">
-      <div class="container">
-
-        <div class="services-header" data-aos="fade-up">
-          <div>
-            <span class="section-label">Servicios</span>
-            <h2 class="section-title">Soluciones que<br><span class="accent">ya funcionan</span></h2>
-            <p class="section-sub">Tecnología open source, configurada por expertos, lista para escalar.</p>
-          </div>
-          <a href="service-details.html" class="services-link">
-            Ver todos los servicios <i class="bi bi-arrow-right"></i>
-          </a>
+    <!-- ═══════════════ SOLUTIONS CATALOG ═══════════════ -->
+    <section class="block" id="soluciones">
+      <div class="wrap">
+        <div class="head center reveal">
+          <span class="eyebrow">Todo lo que Brain hace</span>
+          <h2 class="h2">Mucho más que un chatbot.<br>Un equipo entero, automatizado.</h2>
+          <p class="lead">Activá las piezas que tu negocio necesita. Cada una trabaja sola y se conecta con el resto.</p>
         </div>
 
-        <div class="services-grid">
+        <div class="sol-grid">
+          <div class="sol reveal"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/robot.png" alt="" style="animation-delay:0s" loading="lazy"></div><h3>Asistente omnicanal</h3><p>Atiende por WhatsApp, Instagram y tu web con IA real, las 24 horas.</p></div>
+          <div class="sol reveal d1"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/calendar.png" alt="" style="animation-delay:.4s" loading="lazy"></div><h3>Agenda &amp; turnos</h3><p>Saca, reprograma y recuerda turnos, sincronizado con tu calendario.</p></div>
+          <div class="sol reveal d2"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/bag.png" alt="" style="animation-delay:.8s" loading="lazy"></div><h3>Ventas asistidas</h3><p>Recomienda, evacúa dudas y lleva al cliente hasta la compra o la reserva.</p></div>
+          <div class="sol reveal d3"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/money.png" alt="" style="animation-delay:1.2s" loading="lazy"></div><h3>Recuperación de ventas</h3><p>Vuelve a contactar carritos y clientes que quedaron en el camino.</p></div>
+          <div class="sol reveal"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/gear.png" alt="" style="animation-delay:.2s" loading="lazy"></div><h3>Automatización a medida</h3><p>Conecta tus sistemas y automatiza procesos: recordatorios, reportes, seguimiento.</p></div>
+          <div class="sol reveal d1"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/cards.png" alt="" style="animation-delay:.6s" loading="lazy"></div><h3>CRM &amp; base de clientes</h3><p>Cada conversación y contacto, ordenado y listo para usar.</p></div>
+          <div class="sol reveal d2"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/chart.png" alt="" style="animation-delay:1s" loading="lazy"></div><h3>Dashboards &amp; métricas</h3><p>Reportes en vivo para decidir con números reales, no con corazonadas.</p></div>
+          <div class="sol reveal d3"><div class="icon3d-wrap"><img class="icon3d" src="assets/img/3d/handshake.png" alt="" style="animation-delay:1.4s" loading="lazy"></div><h3>Calificación de leads</h3><p>Filtra interesados, prioriza y deriva los que de verdad valen la pena.</p></div>
+        </div>
 
-          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card-icon" style="background: rgba(37,99,235,.12); color: #60a5fa;">
-              <i class="bi bi-diagram-3"></i>
-            </div>
-            <div class="service-card-tag">Automatización</div>
-            <div class="service-card-title">Flujos automatizados</div>
-            <div class="service-card-desc">Conectamos tus apps y automatizamos tareas repetitivas. Desde emails hasta sincronización de datos entre sistemas.</div>
-            <div class="tilt-wrap">
-              <div class="tilt-screen">
-                <div class="tilt-bar">
-                  <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
-                  <div class="tilt-title">n8n · workflow activo</div>
-                </div>
-                <div class="tilt-body" style="justify-content:space-between;">
-                  <div class="tilt-nodes" style="margin-bottom:0;">
-                    <div class="tilt-node tilt-node-blue">Webhook</div>
-                    <div class="tilt-edge"></div>
-                    <div class="tilt-node tilt-node-green">CRM</div>
-                    <div class="tilt-edge"></div>
-                    <div class="tilt-node tilt-node-cyan">NocoDB</div>
-                    <div class="tilt-edge"></div>
-                    <div class="tilt-node tilt-node-amber">Email</div>
-                  </div>
-                  <div class="tilt-bars" style="height:28px;">
-                    <div class="tilt-bar-item" style="background:rgba(37,99,235,.35);height:35%"></div>
-                    <div class="tilt-bar-item" style="background:rgba(37,99,235,.6);height:62%"></div>
-                    <div class="tilt-bar-item" style="background:rgba(37,99,235,.35);height:38%"></div>
-                    <div class="tilt-bar-item" style="background:rgba(37,99,235,.8);height:80%"></div>
-                    <div class="tilt-bar-item" style="background:rgba(37,99,235,.5);height:52%"></div>
-                    <div class="tilt-bar-item" style="background:rgba(37,99,235,.9);height:100%"></div>
-                    <div class="tilt-bar-item" style="background:rgba(37,99,235,.6);height:65%"></div>
-                    <div class="tilt-bar-item" style="background:rgba(37,99,235,.4);height:45%"></div>
-                  </div>
-                </div>
-                <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(37,99,235,.05),transparent 60%)"></div>
-              </div>
-            </div>
-            <div class="service-card-footer">
-              <span class="service-card-tool">n8n</span>
-              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
-            </div>
+        <p class="lead reveal" style="text-align:center;margin:42px auto 0;max-width:680px;">Funciona en <b style="color:var(--text)">salud y estética, ecommerce, gastronomía, servicios, inmobiliaria</b> y cualquier negocio que viva de atender bien y a tiempo.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════ GLOBE / REACH ═══════════════ -->
+    <section class="block globe-sec">
+      <div class="wrap globe-grid">
+        <div class="reveal"><canvas id="globe" width="460" height="460"></canvas></div>
+        <div class="reveal d1">
+          <span class="eyebrow">Pensado para Argentina</span>
+          <h2 class="h2" style="margin:18px 0 18px;">Tecnología de primera,<br>contexto local.</h2>
+          <p class="lead">Conocemos cómo compra la gente de acá. Brain habla tu idioma, entiende tu mercado y opera sobre una infraestructura propia, rápida y privada.</p>
+          <div class="feat-cards">
+            <div class="feat"><div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h4>Velocidad real</h4><p>Respuestas en segundos, sin demoras ni esperas.</p></div>
+            <div class="feat"><div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h4>Datos privados</h4><p>Tu información en una infraestructura propia y segura.</p></div>
+            <div class="feat"><div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><h4>Siempre activo</h4><p>24 horas, los 365 días. Nunca deja de atender.</p></div>
+            <div class="feat"><div class="feat-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 6.5L21 9l-5 4 1.5 7L12 16l-5.5 4L8 13 3 9l6.5-.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div><h4>Multi-sede</h4><p>Coordina varias sucursales desde un solo lugar.</p></div>
           </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="150">
-            <div class="service-card-icon" style="background: rgba(6,182,212,.12); color: #22d3ee;">
-              <i class="bi bi-bar-chart-line"></i>
-            </div>
-            <div class="service-card-tag">Business Intelligence</div>
-            <div class="service-card-title">Dashboards interactivos</div>
-            <div class="service-card-desc">KPIs y métricas en tiempo real. Reportes automáticos para que cada área tome decisiones con datos confiables.</div>
-            <div class="tilt-wrap">
-              <div class="tilt-screen" style="border-color:rgba(6,182,212,.15);">
-                <div class="tilt-bar">
-                  <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
-                  <div class="tilt-title">Metabase · KPIs live</div>
-                </div>
-                <div class="tilt-body" style="justify-content:space-between;">
-                  <div class="tilt-kpis" style="margin-bottom:0;">
-                    <div class="tilt-kpi"><div class="tilt-kpi-num" style="color:#22d3ee;">247</div><div class="tilt-kpi-lbl">Flujos hoy</div></div>
-                    <div class="tilt-kpi"><div class="tilt-kpi-num" style="color:#4ade80;">99.8%</div><div class="tilt-kpi-lbl">Uptime</div></div>
-                    <div class="tilt-kpi"><div class="tilt-kpi-num" style="color:#f9fafb;">0</div><div class="tilt-kpi-lbl">Errores</div></div>
-                  </div>
-                  <div class="tilt-chart" style="height:28px;">
-                    <svg viewBox="0 0 200 28" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                      <defs><linearGradient id="mg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0891b2" stop-opacity=".3"/><stop offset="100%" stop-color="#0891b2" stop-opacity="0"/></linearGradient></defs>
-                      <polygon points="0,28 0,20 25,16 50,18 75,9 100,13 125,5 150,8 175,3 200,4 200,28" fill="url(#mg1)"/>
-                      <polyline points="0,20 25,16 50,18 75,9 100,13 125,5 150,8 175,3 200,4" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
-                    </svg>
-                  </div>
-                </div>
-                <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(6,182,212,.05),transparent 60%)"></div>
-              </div>
-            </div>
-            <div class="service-card-footer">
-              <span class="service-card-tool">Metabase</span>
-              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
-            </div>
-          </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-card-icon" style="background: rgba(139,92,246,.12); color: #a78bfa;">
-              <i class="bi bi-table"></i>
-            </div>
-            <div class="service-card-tag">Datos</div>
-            <div class="service-card-title">Gestión visual de datos</div>
-            <div class="service-card-desc">Administrá bases de datos como hojas de cálculo. Sin SQL, sin fricción, con toda la potencia de una base relacional.</div>
-            <div class="tilt-wrap">
-              <div class="tilt-screen" style="border-color:rgba(139,92,246,.15);">
-                <div class="tilt-bar">
-                  <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
-                  <div class="tilt-title">NocoDB · tabla clientes</div>
-                </div>
-                <div class="tilt-body" style="justify-content:flex-start;">
-                  <div class="tilt-thead">
-                    <div class="tilt-th">Nombre</div>
-                    <div class="tilt-th">Estado</div>
-                    <div class="tilt-th">Valor</div>
-                  </div>
-                  <div class="tilt-tr">
-                    <div class="tilt-td">Empresa Alpha</div>
-                    <div class="tilt-td"><span class="tilt-badge tilt-badge-green">Activo</span></div>
-                    <div class="tilt-td" style="color:#a78bfa;">$4.200</div>
-                  </div>
-                  <div class="tilt-tr">
-                    <div class="tilt-td">Beta Corp</div>
-                    <div class="tilt-td"><span class="tilt-badge tilt-badge-blue">Trial</span></div>
-                    <div class="tilt-td" style="color:#a78bfa;">$1.800</div>
-                  </div>
-                  <div class="tilt-tr">
-                    <div class="tilt-td">Gamma SA</div>
-                    <div class="tilt-td"><span class="tilt-badge tilt-badge-green">Activo</span></div>
-                    <div class="tilt-td" style="color:#a78bfa;">$6.500</div>
-                  </div>
-                </div>
-                <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(139,92,246,.05),transparent 60%)"></div>
-              </div>
-            </div>
-            <div class="service-card-footer">
-              <span class="service-card-tool">NocoDB</span>
-              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
-            </div>
-          </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-card-icon" style="background: rgba(245,158,11,.12); color: #fbbf24;">
-              <i class="bi bi-plug"></i>
-            </div>
-            <div class="service-card-tag">Integración</div>
-            <div class="service-card-title">Integraciones personalizadas</div>
-            <div class="service-card-desc">Conectamos tus sistemas actuales con APIs, bases de datos y herramientas externas. Todo funciona junto.</div>
-            <div class="tilt-wrap">
-              <div class="tilt-screen" style="border-color:rgba(245,158,11,.15);">
-                <div class="tilt-bar">
-                  <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
-                  <div class="tilt-title">API · webhook listener</div>
-                </div>
-                <div class="tilt-body">
-                  <div class="tilt-term">
-                    <div class="tilt-term-line"><span class="tc-green">POST</span> <span class="tc-blue">/webhook/crm</span></div>
-                    <div class="tilt-term-line"><span class="tc-gray">▶</span> <span class="tc-white">payload:</span> <span class="tc-amber">{ "event": "lead.created" }</span></div>
-                    <div class="tilt-term-line"><span class="tc-green">✓</span> <span class="tc-white">200 OK</span> <span class="tc-gray">· 43ms</span></div>
-                    <div class="tilt-term-line"><span class="tc-gray">→</span> <span class="tc-blue">trigger:</span> <span class="tc-white">sync_nocodb</span></div>
-                  </div>
-                </div>
-                <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(245,158,11,.04),transparent 60%)"></div>
-              </div>
-            </div>
-            <div class="service-card-footer">
-              <span class="service-card-tool">API / Webhooks</span>
-              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
-            </div>
-          </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="150">
-            <div class="service-card-icon" style="background: rgba(16,185,129,.12); color: #34d399;">
-              <i class="bi bi-robot"></i>
-            </div>
-            <div class="service-card-tag">Inteligencia Artificial</div>
-            <div class="service-card-title">Agentes inteligentes</div>
-            <div class="service-card-desc">IA que atiende, deriva y aprende en WhatsApp con Chatwoot. Disponible 24/7. Sin código de tu parte.</div>
-            <div class="tilt-wrap">
-              <div class="tilt-screen" style="border-color:rgba(16,185,129,.15);">
-                <div class="tilt-bar">
-                  <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
-                  <div class="tilt-title">Chatwoot · agente IA · online</div>
-                </div>
-                <div class="tilt-body" style="padding:5px 8px;justify-content:flex-start;">
-                  <div class="tilt-chat">
-                    <div class="tilt-msg">
-                      <div class="tilt-avatar" style="background:rgba(16,185,129,.2);color:#34d399;">🤖</div>
-                      <div class="tilt-bubble tilt-bubble-bot">¡Hola! ¿En qué puedo ayudarte?</div>
-                    </div>
-                    <div class="tilt-msg tilt-msg-user">
-                      <div class="tilt-bubble tilt-bubble-user">Estado de mi pedido #4821</div>
-                    </div>
-                    <div class="tilt-msg">
-                      <div class="tilt-avatar" style="background:rgba(16,185,129,.2);color:#34d399;">🤖</div>
-                      <div class="tilt-bubble tilt-bubble-bot">En camino · llega mañana 🚚</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(16,185,129,.04),transparent 60%)"></div>
-              </div>
-            </div>
-            <div class="service-card-footer">
-              <span class="service-card-tool">LLM + n8n</span>
-              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
-            </div>
-          </div>
-
-          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-card-icon" style="background: rgba(239,68,68,.12); color: #f87171;">
-              <i class="bi bi-file-earmark-bar-graph"></i>
-            </div>
-            <div class="service-card-tag">Reporting</div>
-            <div class="service-card-title">Reportes automáticos</div>
-            <div class="service-card-desc">Generá informes diarios, semanales o a demanda. Tus métricas llegan solas, al equipo correcto, en el momento justo.</div>
-            <div class="tilt-wrap">
-              <div class="tilt-screen" style="border-color:rgba(239,68,68,.15);">
-                <div class="tilt-bar">
-                  <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
-                  <div class="tilt-title">Reporte semanal · enviado</div>
-                </div>
-                <div class="tilt-body" style="justify-content:flex-start;">
-                  <div class="tilt-report">
-                    <div class="tilt-report-header">
-                      <div class="tilt-report-title">Métricas · semana 15</div>
-                      <div class="tilt-report-badge">✓ Enviado</div>
-                    </div>
-                    <div class="tilt-report-row">
-                      <div class="tilt-report-lbl">Ventas</div>
-                      <div class="tilt-report-bar-wrap"><div class="tilt-report-bar" style="width:78%;background:rgba(239,68,68,.6);"></div></div>
-                      <div class="tilt-report-val">$48.2k</div>
-                    </div>
-                    <div class="tilt-report-row">
-                      <div class="tilt-report-lbl">Leads</div>
-                      <div class="tilt-report-bar-wrap"><div class="tilt-report-bar" style="width:55%;background:rgba(239,68,68,.4);"></div></div>
-                      <div class="tilt-report-val">124</div>
-                    </div>
-                    <div class="tilt-report-row">
-                      <div class="tilt-report-lbl">NPS</div>
-                      <div class="tilt-report-bar-wrap"><div class="tilt-report-bar" style="width:90%;background:rgba(239,68,68,.7);"></div></div>
-                      <div class="tilt-report-val">9.1</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(239,68,68,.04),transparent 60%)"></div>
-              </div>
-            </div>
-            <div class="service-card-footer">
-              <span class="service-card-tool">Metabase + n8n</span>
-              <div class="service-card-arrow"><i class="bi bi-arrow-up-right"></i></div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════ STEPS ═══════════════════ -->
-    <section id="steps" class="steps section">
-      <div class="container">
-
-        <div class="text-center mb-5" data-aos="fade-up">
-          <span class="section-label">Proceso</span>
-          <h2 class="section-title">De cero a automatizado<br><span class="accent">en 4 pasos</span></h2>
-          <p class="section-sub mx-auto" style="max-width:480px;">Sin reuniones interminables. Sin implementaciones que duran meses.</p>
+    <!-- ═══════════════ DASHBOARD MOCKUP ═══════════════ -->
+    <section class="block dash-sec">
+      <div class="glow-orb dash-orb"></div>
+      <div class="wrap" style="position:relative;z-index:2;">
+        <div class="head center reveal">
+          <span class="eyebrow">Panel inteligente</span>
+          <h2 class="h2">Gestioná todo tu negocio<br>desde un panel con IA.</h2>
+          <p class="lead">Operá, medí y escalá con información en tiempo real. Todo lo que pasa, en un solo lugar.</p>
         </div>
 
-        <div class="steps-track" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="step-row">
-            <div class="step-node"><i class="bi bi-lightbulb"></i></div>
-            <div class="step-body">
-              <div class="step-num-tag">Paso 01</div>
-              <div class="step-title">Diagnóstico inicial</div>
-              <div class="step-desc">Escuchamos tu operación, mapeamos los procesos que más tiempo consumen e identificamos dónde la automatización genera mayor impacto. Sin compromiso.</div>
-              <div class="step-chips">
-                <span class="step-chip"><i class="bi bi-calendar-check"></i> 1 reunión</span>
-                <span class="step-chip"><i class="bi bi-clock"></i> 45 min</span>
-                <span class="step-chip"><i class="bi bi-gift"></i> Gratis</span>
+        <div class="mock-wrap reveal d1" style="margin-top:50px;" id="mockWrap">
+          <div class="mock" id="mock">
+            <div class="mock-bar"><i></i><i></i><i></i><span><img src="assets/img/brain-logo.png" alt="" style="width:13px;height:13px;object-fit:contain;vertical-align:-2px;margin-right:6px;">panel.brain.com.ar</span></div>
+            <div class="mock-body">
+              <div class="mock-side">
+                <div class="si on"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.6"/></svg></div>
+                <div class="si"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+                <div class="si"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6"/></svg></div>
+                <div class="si"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 19V5M9 19V9M14 19v-7M19 19V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
               </div>
-            </div>
-          </div>
-
-          <div class="step-row">
-            <div class="step-node"><i class="bi bi-gear"></i></div>
-            <div class="step-body">
-              <div class="step-num-tag">Paso 02</div>
-              <div class="step-title">Diseño del flujo</div>
-              <div class="step-desc">Modelamos los procesos con las herramientas adecuadas: n8n para automatizaciones, NocoDB para datos, Metabase para dashboards. Todo enfocado en resultados medibles.</div>
-              <div class="step-chips">
-                <span class="step-chip"><i class="bi bi-diagram-3"></i> n8n</span>
-                <span class="step-chip"><i class="bi bi-table"></i> NocoDB</span>
-                <span class="step-chip"><i class="bi bi-bar-chart-line"></i> Metabase</span>
-              </div>
-              <div class="tilt-wrap-sm" style="margin-top:16px;">
-                <div class="tilt-screen">
-                  <div class="tilt-bar">
-                    <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
-                    <div class="tilt-title">n8n · diseño de flujo</div>
-                  </div>
-                  <div class="tilt-body">
-                    <div class="tilt-nodes">
-                      <div class="tilt-node tilt-node-blue">Trigger</div>
-                      <div class="tilt-edge"></div>
-                      <div class="tilt-node tilt-node-green">Filtrar</div>
-                      <div class="tilt-edge"></div>
-                      <div class="tilt-node tilt-node-cyan">NocoDB</div>
-                      <div class="tilt-edge"></div>
-                      <div class="tilt-node tilt-node-amber">Notificar</div>
-                    </div>
-                  </div>
-                  <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(37,99,235,.05),transparent 60%)"></div>
+              <div class="mock-main">
+                <div class="mock-cards">
+                  <div class="mc"><div class="lbl">Conversaciones hoy</div><div class="val">248</div></div>
+                  <div class="mc"><div class="lbl">Resueltas por IA</div><div class="val">92<small>%</small></div><svg class="spark" viewBox="0 0 120 30" preserveAspectRatio="none"><path d="M0 24 L20 18 L40 20 L60 10 L80 14 L100 5 L120 8" stroke="#2F80FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <div class="mc"><div class="lbl">Turnos agendados</div><div class="val">37 <small>+12%</small></div></div>
+                </div>
+                <div class="mock-table">
+                  <div class="mtr head"><span>Hora</span><span class="hide-sm">Canal</span><span>Cliente · Tema</span><span>Estado</span></div>
+                  <div class="mtr"><span class="sub">14:32</span><span class="sub hide-sm">WhatsApp</span><span class="cli">María L. · Turno hiperhidrosis</span><span><span class="badge-ok">Resuelto</span></span></div>
+                  <div class="mtr"><span class="sub">14:18</span><span class="sub hide-sm">Instagram</span><span class="cli">Bruno R. · Consulta precios</span><span><span class="badge-ok">Resuelto</span></span></div>
+                  <div class="mtr"><span class="sub">13:55</span><span class="sub hide-sm">WhatsApp</span><span class="cli">Carla M. · Reprogramar turno</span><span><span class="badge-ok">Resuelto</span></span></div>
+                  <div class="mtr"><span class="sub">13:40</span><span class="sub hide-sm">Web</span><span class="cli">Diego A. · Caso complejo</span><span><span class="badge-hu">Derivado</span></span></div>
+                  <div class="mtr"><span class="sub">13:12</span><span class="sub hide-sm">WhatsApp</span><span class="cli">Sofía T. · Nuevo turno</span><span><span class="badge-ok">Resuelto</span></span></div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="step-row">
-            <div class="step-node"><i class="bi bi-rocket-takeoff"></i></div>
-            <div class="step-body">
-              <div class="step-num-tag">Paso 03</div>
-              <div class="step-title">Implementación</div>
-              <div class="step-desc">Desplegamos la solución, conectamos tus sistemas y activamos los flujos. El primer resultado live puede estar en menos de 48 horas.</div>
-              <div class="step-chips">
-                <span class="step-chip"><i class="bi bi-lightning-charge"></i> 48hs primer flujo</span>
-                <span class="step-chip"><i class="bi bi-shield-check"></i> Zero downtime</span>
-              </div>
-              <div class="tilt-wrap-sm" style="margin-top:16px;">
-                <div class="tilt-screen" style="border-color:rgba(74,222,128,.15);">
-                  <div class="tilt-bar">
-                    <div class="tilt-dots"><span class="tilt-dot tilt-dot-r"></span><span class="tilt-dot tilt-dot-y"></span><span class="tilt-dot tilt-dot-g"></span></div>
-                    <div class="tilt-title">deploy · en progreso</div>
-                  </div>
-                  <div class="tilt-body">
-                    <div class="tilt-deploy">
-                      <div class="tilt-term-line"><span class="tc-green">✓</span> <span class="tc-white">workflow deployed</span></div>
-                      <div class="tilt-term-line"><span class="tc-green">✓</span> <span class="tc-white">3 flows active</span> <span class="tc-gray">· 0 errors</span></div>
-                      <div class="tilt-term-line"><span class="tc-blue">▶</span> <span class="tc-white">monitoring</span> <span class="tc-green">live</span></div>
-                    </div>
-                  </div>
-                  <div class="tilt-glow" style="background:linear-gradient(135deg,rgba(74,222,128,.04),transparent 60%)"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step-row">
-            <div class="step-node"><i class="bi bi-graph-up-arrow"></i></div>
-            <div class="step-body">
-              <div class="step-num-tag">Paso 04</div>
-              <div class="step-title">Soporte y mejora continua</div>
-              <div class="step-desc">Monitoreamos el funcionamiento, analizamos métricas y ajustamos los flujos para que tu operación siga evolucionando con el negocio.</div>
-              <div class="step-chips">
-                <span class="step-chip"><i class="bi bi-headset"></i> Soporte incluido</span>
-                <span class="step-chip"><i class="bi bi-arrow-repeat"></i> Mejoras iterativas</span>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════ SOCIAL PROOF ═══════════════════ -->
-    <section id="testimonials" class="social-proof section">
-      <div class="container">
-
-        <div class="text-center mb-5" data-aos="fade-up">
-          <span class="section-label">Caso de éxito</span>
-          <h2 class="section-title">En producción,<br><span class="accent">hoy, 24/7</span></h2>
-          <p class="section-sub mx-auto" style="max-width:520px;">Nuestro primer cliente productivo dejó de tomar turnos a mano. Esto es lo que mide, en serio, todos los días.</p>
-        </div>
-
-        <div class="stats-strip" data-aos="fade-up" data-aos-delay="100">
-          <div class="stat-cell">
-            <div class="stat-value">24/7</div>
-            <div class="stat-label">Atención automática por WhatsApp</div>
+    <!-- ═══════════════ CASE STUDY ═══════════════ -->
+    <section class="block" id="caso">
+      <div class="wrap case-grid">
+        <div class="case-visual reveal">
+          <div class="case-bot">
+            <div class="case-bot-av">D</div>
+            <div><b>Dolores</b><span>asistente · Botulinic</span></div>
           </div>
-          <div class="stat-cell">
-            <div class="stat-value">9</div>
-            <div class="stat-label">Procesos automatizados</div>
-          </div>
-          <div class="stat-cell">
-            <div class="stat-value">2</div>
-            <div class="stat-label">Sedes sincronizadas en una agenda</div>
-          </div>
-          <div class="stat-cell">
-            <div class="stat-value">0</div>
-            <div class="stat-label">Dobles reservas (validación automática)</div>
+          <div class="case-stats">
+            <div class="cstat"><b class="grad-text">24/7</b><span>Atención sin pausa</span></div>
+            <div class="cstat"><b class="grad-text">2</b><span>Sedes coordinadas</span></div>
+            <div class="cstat"><b class="grad-text">8</b><span>Tratamientos gestionados</span></div>
+            <div class="cstat"><b class="grad-text">0</b><span>Llamados sin atender</span></div>
           </div>
         </div>
-
-        <div class="testimonials-grid" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="testimonial-card featured">
-            <div class="testimonial-quote-icon"><i class="bi bi-hospital"></i></div>
-            <p class="testimonial-text">Botulinic, la clínica de estética médica del Dr. Diego Angelillo, tomaba turnos por WhatsApp a mano entre dos sedes —con dobles reservas y sin atención fuera de horario. Brain desplegó <strong style="color:var(--heading-color);font-style:normal;">«Dolores»</strong>, un asistente con IA que atiende las 24 horas, agenda directo contra Google Calendar sin pisar horarios, manda recordatorios y deriva al equipo cuando hace falta. En producción desde marzo de 2026, con la marca de la clínica.</p>
-            <div class="testimonial-meta">
-              <div class="testimonial-avatar">B</div>
-              <div>
-                <div class="testimonial-name">Botulinic</div>
-                <div class="testimonial-role">Clínica médica estética · Recoleta + Nordelta</div>
-              </div>
-              <span class="testimonial-tag"><i class="bi bi-broadcast"></i> En vivo</span>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-quote-icon"><i class="bi bi-robot"></i></div>
-            <p class="testimonial-text">El asistente entiende el mensaje del paciente, consulta la disponibilidad real, ofrece horarios y confirma el turno en segundos. Lo que no resuelve, lo pasa a una persona con todo el historial a la vista.</p>
-            <div class="testimonial-meta">
-              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#1D4ED8,#3B82F6);">D</div>
-              <div>
-                <div class="testimonial-name">Asistente «Dolores»</div>
-                <div class="testimonial-role">Bot WhatsApp con IA · GPT-4</div>
-              </div>
-              <span class="testimonial-tag"><i class="bi bi-whatsapp"></i> WhatsApp</span>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-quote-icon"><i class="bi bi-window-stack"></i></div>
-            <p class="testimonial-text">La clínica opera todo desde un solo panel con su marca: conversaciones, agenda y métricas. Sin entrar a cinco sistemas distintos, sin planillas, sin depender de una sola persona.</p>
-            <div class="testimonial-meta">
-              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#0EA5E9,#22d3ee);">P</div>
-              <div>
-                <div class="testimonial-name">Brain Platform</div>
-                <div class="testimonial-role">Panel único · Chatwoot + Metabase</div>
-              </div>
-              <span class="testimonial-tag"><i class="bi bi-grid-1x2"></i> Plataforma</span>
-            </div>
-          </div>
-
+        <div class="reveal d1">
+          <div class="case-label">Caso real · Salud &amp; estética médica</div>
+          <h2 class="h2" style="margin:14px 0 20px;">Conocé a <span class="grad-text">Dolores</span>.</h2>
+          <p class="lead">Botulinic es una clínica de estética médica con sedes en Recoleta y Nordelta. <b style="color:var(--text)">Dolores</b> es su cerebro digital: atiende cada consulta por WhatsApp a cualquier hora, agenda, reprograma y cancela turnos sincronizados con el calendario, y coordina las dos sedes en tiempo real.</p>
+          <p class="lead" style="margin-top:14px;">Manda recordatorios automáticos, vuelve a contactar a los pacientes a los seis meses y, cuando hace falta una persona, deriva la conversación sin que el cliente lo note. Funciona todos los días desde marzo de 2026.</p>
+          <ul class="case-feats">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Agenda y modifica turnos sola, sincronizada al calendario</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Recordatorios y re-contacto automáticos</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Derivación a un humano cuando el caso lo amerita</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════ PRICING ═══════════════════ -->
-    <section id="pricing" class="pricing section">
-      <div class="container">
-
-        <div class="text-center mb-5" data-aos="fade-up">
-          <span class="section-label">Planes</span>
-          <h2 class="section-title">Elegí el plan que<br><span class="accent">escala con tu negocio</span></h2>
-          <p class="section-sub mx-auto" style="max-width:520px;">La plataforma es mensual. La implementación a medida, si tu caso la necesita, se cotiza cerrada en el diagnóstico. Lo que ves es lo que pagás.</p>
-          <div class="billing-toggle">
-            <span class="active">Mensual</span>
-            <div class="toggle-pill"></div>
-            <span>Anual <span style="color:#4ade80;font-size:11px;font-weight:700;">−20%</span></span>
-          </div>
+    <!-- ═══════════════ PRICING ═══════════════ -->
+    <section class="block pricing" id="precios">
+      <div class="wrap">
+        <div class="head center reveal">
+          <span class="eyebrow">Planes</span>
+          <h2 class="h2">Precios claros.<br>Cero letra chica.</h2>
+          <p class="lead">En dólares, todo incluido: infraestructura, onboarding y mejoras continuas. La competencia te cobra el armado aparte (desde USD 1.600). Con Brain, lo ves todo desde el primer día.</p>
         </div>
 
-        <div class="pricing-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="toggle-row reveal">
+          <span id="lblMonth" class="on">Mensual</span>
+          <button class="toggle" id="billToggle" aria-label="Cambiar facturación"><span class="knob"></span></button>
+          <span id="lblYear">Anual</span>
+          <span class="save">Ahorrás 20%</span>
+        </div>
 
-          <!-- Starter -->
-          <div class="pricing-card">
-            <div class="d-flex align-items-center justify-content-between mb-4">
-              <div class="plan-icon" style="background: rgba(37,99,235,.10); color: var(--accent-light);">
-                <i class="bi bi-whatsapp" style="color:#4ade80;"></i>
-              </div>
-              <span class="plan-tier">Starter</span>
-            </div>
+        <div class="price-grid">
+          <div class="plan reveal">
             <div class="plan-name">Bot Essential</div>
-            <div class="plan-tagline">Para negocios que quieren automatizar su atención al cliente en WhatsApp desde el día uno.</div>
-
-            <!-- Mock: Chat Chatwoot -->
-            <div class="plan-mock">
-              <div class="mock-chrome">
-                <div class="mock-dots"><span></span><span></span><span></span></div>
-                <div class="mock-chrome-title">Chatwoot · Agente Brain</div>
-                <div class="mock-live"><span class="mock-live-dot"></span>Online</div>
-              </div>
-              <div class="mock-chat-body">
-                <div class="mock-msg mock-msg-bot">
-                  <div class="mock-bot-avatar"><i class="bi bi-robot"></i></div>
-                  <div class="mock-bubble">¡Hola! Soy el asistente de Brain. ¿En qué puedo ayudarte?</div>
-                </div>
-                <div class="mock-msg mock-msg-user">
-                  <div class="mock-bubble">Quiero agendar un turno para mañana</div>
-                </div>
-                <div class="mock-msg mock-msg-bot">
-                  <div class="mock-bot-avatar"><i class="bi bi-robot"></i></div>
-                  <div class="mock-bubble">Perfecto! ¿A qué hora preferís: 10 hs, 14 hs o 16 hs?</div>
-                </div>
-                <div class="mock-typing">
-                  <span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="plan-price-block">
-              <div class="plan-price">
-                <span class="price-usd">USD</span>
-                <span class="price-num">100</span>
-                <span class="price-per">/mes</span>
-              </div>
-              <div class="price-note">Facturación mensual · Cancelación en cualquier momento</div>
-            </div>
-
-            <div class="plan-section-label">Stack incluido</div>
-            <div class="stack-chips">
-              <span class="chip chip-wa"><i class="bi bi-whatsapp"></i> WhatsApp</span>
-              <span class="chip chip-ct"><i class="bi bi-headset"></i> Chatwoot</span>
-              <span class="chip chip-llm"><i class="bi bi-robot"></i> LLM</span>
-            </div>
-
-            <div class="plan-section-label">Funcionalidades</div>
-            <ul class="plan-features">
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">1 bot de WhatsApp</span> con IA conversacional</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Agendamiento de turnos automático</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Chatwoot</span> — bandeja unificada de conversaciones</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Panel de administración completo</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Transferencia a agente humano</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Historial y etiquetado de conversaciones</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Soporte técnico por email</span></li>
-              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Dashboards Metabase</li>
-              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Flujos n8n personalizados</li>
-              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Múltiples bots</li>
+            <div class="plan-desc">Tu primer cerebro digital. Para no perder ningún cliente.</div>
+            <div class="plan-price"><span class="cur">USD</span><span class="num" data-m="100" data-y="80">100</span><span class="per">/mes</span></div>
+            <div class="plan-annual" data-annual="USD 960/año">&nbsp;</div>
+            <div class="plan-setup"><b>Setup bonificado</b> · arrancás sin costo inicial</div>
+            <ul class="plan-feats">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 1 asistente de IA en WhatsApp</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Atención y consultas automáticas 24/7</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Bandeja unificada</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Panel de control</li>
             </ul>
-
-            <a href="#contact" class="plan-cta cta-ghost">Empezar con Starter</a>
+            <a href="#contacto" class="btn btn-glass">Empezar</a>
           </div>
 
-          <!-- Business -->
-          <div class="pricing-card popular">
-            <div class="popular-badge">Más popular</div>
-            <div class="d-flex align-items-center justify-content-between mb-4 mt-3">
-              <div class="plan-icon" style="background: rgba(37,99,235,.15); color: var(--accent-light);">
-                <i class="bi bi-diagram-3"></i>
-              </div>
-              <span class="plan-tier">Business</span>
-            </div>
+          <div class="plan pop reveal d1">
+            <div class="plan-flag">Más elegido</div>
             <div class="plan-name">Automation Suite</div>
-            <div class="plan-tagline">Para equipos que necesitan múltiples bots, datos centralizados y automatizaciones que conectan todo.</div>
-
-            <!-- Mock: n8n Flow -->
-            <div class="plan-mock">
-              <div class="mock-chrome">
-                <div class="mock-dots"><span></span><span></span><span></span></div>
-                <div class="mock-chrome-title">n8n · Flujo activo</div>
-                <div class="mock-live"><span class="mock-live-dot"></span>Running</div>
-              </div>
-              <div class="mock-flow-body">
-                <div class="mock-nodes">
-                  <div class="mock-node mock-node-trigger">Webhook</div>
-                  <div class="mock-edge"></div>
-                  <div class="mock-node mock-node-green">CRM</div>
-                  <div class="mock-edge"></div>
-                  <div class="mock-node mock-node-cyan">NocoDB</div>
-                  <div class="mock-edge"></div>
-                  <div class="mock-node mock-node-amber">Email</div>
-                </div>
-                <div class="mock-bars">
-                  <div class="mock-bar-item" style="height:40%"></div>
-                  <div class="mock-bar-item md" style="height:60%"></div>
-                  <div class="mock-bar-item" style="height:35%"></div>
-                  <div class="mock-bar-item md" style="height:75%"></div>
-                  <div class="mock-bar-item hi" style="height:90%"></div>
-                  <div class="mock-bar-item md" style="height:65%"></div>
-                  <div class="mock-bar-item hi" style="height:100%"></div>
-                  <div class="mock-bar-item" style="height:50%"></div>
-                  <div class="mock-bar-item md" style="height:80%"></div>
-                  <div class="mock-bar-item hi" style="height:95%"></div>
-                  <div class="mock-bar-item md" style="height:70%"></div>
-                  <div class="mock-bar-item" style="height:45%"></div>
-                </div>
-                <div class="mock-bar-meta">
-                  <span class="mock-bar-label">Últimas 24 hs</span>
-                  <span class="mock-bar-value">1.240 ejecuciones</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="plan-price-block">
-              <div class="plan-price">
-                <span class="price-usd">USD</span>
-                <span class="price-num">300</span>
-                <span class="price-per">/mes</span>
-              </div>
-              <div class="price-note">Todo lo de Starter · Escala sin límites</div>
-            </div>
-
-            <div class="plan-section-label">Stack incluido</div>
-            <div class="stack-chips">
-              <span class="chip chip-wa"><i class="bi bi-whatsapp"></i> WhatsApp</span>
-              <span class="chip chip-ct"><i class="bi bi-headset"></i> Chatwoot</span>
-              <span class="chip chip-llm"><i class="bi bi-robot"></i> LLM</span>
-              <span class="chip chip-mb"><i class="bi bi-bar-chart-line"></i> Metabase</span>
-              <span class="chip chip-n8n"><i class="bi bi-diagram-3"></i> n8n</span>
-              <span class="chip chip-noco"><i class="bi bi-table"></i> NocoDB</span>
-            </div>
-
-            <div class="plan-section-label">Funcionalidades</div>
-            <ul class="plan-features">
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Hasta 3 bots de WhatsApp</span> con IA</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Agendamiento + CRM integrado</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Chatwoot multi-bandeja para todo el equipo</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Dashboards Metabase</span> — KPIs y reportes automáticos</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Flujos n8n</span> ilimitados</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">NocoDB</span> — gestión visual de datos sin SQL</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Integraciones personalizadas</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Soporte prioritario · respuesta en 4 hs</span></li>
-              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Bots ilimitados</li>
-              <li class="feat-disabled"><i class="bi bi-x-circle feat-off"></i> Soporte dedicado 24/7</li>
+            <div class="plan-desc">Automatizá de verdad y crecé sin sumar gente.</div>
+            <div class="plan-price"><span class="cur">USD</span><span class="num" data-m="300" data-y="240">300</span><span class="per">/mes</span></div>
+            <div class="plan-annual" data-annual="USD 2.880/año">&nbsp;</div>
+            <div class="plan-setup">Setup único <b>USD 290</b> · implementación a medida</div>
+            <ul class="plan-feats">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Todo lo de Essential, ampliado</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Agendamiento de turnos</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Hasta 3 asistentes y canales</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Automatización de procesos</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Reportes y métricas en vivo</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> CRM y recuperación de ventas</li>
             </ul>
-
-            <a href="#contact" class="plan-cta cta-primary">Empezar con Business</a>
+            <a href="#contacto" class="btn btn-grad" style="justify-content:center;">Quiero este plan</a>
           </div>
 
-          <!-- Scale -->
-          <div class="pricing-card">
-            <div class="d-flex align-items-center justify-content-between mb-4">
-              <div class="plan-icon" style="background: rgba(139,92,246,.12); color: #a78bfa;">
-                <i class="bi bi-building"></i>
-              </div>
-              <span class="plan-tier">Scale</span>
-            </div>
+          <div class="plan reveal d2">
             <div class="plan-name">Full Stack</div>
-            <div class="plan-tagline">El sistema operativo completo de tu negocio: gestión, agenda, atención con IA y métricas, todo bajo tu marca. Es lo que hoy corre en producción.</div>
-
-            <!-- Mock: Metabase Dashboard -->
-            <div class="plan-mock">
-              <div class="mock-chrome">
-                <div class="mock-dots"><span></span><span></span><span></span></div>
-                <div class="mock-chrome-title">Metabase · Dashboard empresa</div>
-                <div class="mock-live"><span class="mock-live-dot"></span>Live</div>
-              </div>
-              <div class="mock-dash-body">
-                <div class="mock-kpi-row">
-                  <div class="mock-kpi">
-                    <div class="mock-kpi-num">247</div>
-                    <div class="mock-kpi-lbl">Flujos hoy</div>
-                  </div>
-                  <div class="mock-kpi">
-                    <div class="mock-kpi-num" style="color:#4ade80">0</div>
-                    <div class="mock-kpi-lbl">Errores</div>
-                  </div>
-                  <div class="mock-kpi">
-                    <div class="mock-kpi-num">99.8%</div>
-                    <div class="mock-kpi-lbl">Uptime</div>
-                  </div>
-                </div>
-                <div class="mock-area">
-                  <svg viewBox="0 0 200 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#2563EB" stop-opacity="0.25"/>
-                        <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
-                      </linearGradient>
-                    </defs>
-                    <polygon points="0,44 0,31 16,35 32,24 48,26 64,15 80,20 96,11 112,13 128,6 144,9 160,3 176,5 200,7 200,44" fill="url(#areaGrad)"/>
-                    <polyline points="0,31 16,35 32,24 48,26 64,15 80,20 96,11 112,13 128,6 144,9 160,3 176,5 200,7" fill="none" stroke="#2563EB" stroke-width="1.5"/>
-                  </svg>
-                </div>
-                <div class="mock-table-row">
-                  <div class="mock-table-dot" style="background:#3B82F6"></div>
-                  <div class="mock-table-line" style="width:45%"></div>
-                  <div class="mock-table-line" style="width:20%"></div>
-                  <div class="mock-table-tag" style="background:rgba(34,197,94,.1);color:#4ade80;">Activo</div>
-                </div>
-                <div class="mock-table-row">
-                  <div class="mock-table-dot" style="background:#22d3ee"></div>
-                  <div class="mock-table-line" style="width:55%"></div>
-                  <div class="mock-table-line" style="width:15%"></div>
-                  <div class="mock-table-tag" style="background:rgba(37,99,235,.1);color:#60a5fa;">En curso</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="plan-price-block">
-              <div class="plan-price">
-                <span class="price-usd">USD</span>
-                <span class="price-num">500</span>
-                <span class="price-per">/mes</span>
-              </div>
-              <div class="price-note">Plataforma a medida con tu marca · SLA + backups diarios</div>
-            </div>
-
-            <div class="plan-section-label">Stack incluido</div>
-            <div class="stack-chips">
-              <span class="chip chip-wa"><i class="bi bi-whatsapp"></i> WhatsApp</span>
-              <span class="chip chip-ct"><i class="bi bi-headset"></i> Chatwoot</span>
-              <span class="chip chip-llm"><i class="bi bi-robot"></i> IA / GPT-4</span>
-              <span class="chip chip-mb"><i class="bi bi-bar-chart-line"></i> Metabase</span>
-              <span class="chip chip-n8n"><i class="bi bi-diagram-3"></i> n8n</span>
-              <span class="chip chip-noco"><i class="bi bi-calendar-check"></i> Calendar</span>
-            </div>
-
-            <div class="plan-section-label">Funcionalidades</div>
-            <ul class="plan-features">
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Plataforma web propia</span> con tu marca — un solo panel</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Gestión de clientes/pacientes + <span class="feat-highlight">agenda integrada con Google Calendar</span></span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Asistente de IA entrenado en tu protocolo, 24/7</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Multi-sede y multi-canal sincronizados</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Chatwoot — bandeja unificada para todo el equipo</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Dashboards Metabase a medida de tu operación</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Recordatorios y seguimientos automáticos</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Roles y permisos por usuario</span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span><span class="feat-highlight">Soporte dedicado, SLA y backups diarios</span></span></li>
-              <li><i class="bi bi-check-circle-fill feat-on"></i> <span>Implementación llave en mano + capacitación</span></li>
+            <div class="plan-desc">El sistema completo. Tu operación entera, sola.</div>
+            <div class="plan-price"><span class="cur">USD</span><span class="num" data-m="500" data-y="400">500</span><span class="per">/mes</span></div>
+            <div class="plan-annual" data-annual="USD 4.800/año">&nbsp;</div>
+            <div class="plan-setup">Setup único <b>USD 690</b> · migración incluida</div>
+            <ul class="plan-feats">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Gestión completa de clientes y turnos</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Calendario sincronizado con Google</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> IA avanzada y multi-sede</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Dashboards y BI a medida</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Soporte prioritario con SLA</li>
             </ul>
-
-            <a href="#contact" class="plan-cta cta-ghost">Contactar ventas</a>
+            <a href="#contacto" class="btn btn-glass">Hablar con ventas</a>
           </div>
 
-        </div>
-
-        <div class="impl-block" data-aos="fade-up">
-          <div class="impl-block-header">
-            <div class="impl-block-title">¿Tu caso necesita más que el plan?</div>
-            <p class="impl-block-sub">Si necesitás integraciones a medida, migración de datos o lógica propia de tu negocio, lo armamos como un proyecto de implementación. Lo dimensionamos juntos en el diagnóstico — y según el alcance y tu compromiso anual, <strong style="color:var(--accent-light);">puede quedar bonificado o sin cargo</strong>.</p>
-          </div>
-          <div class="impl-grid">
-            <div class="impl-card">
-              <div class="impl-card-tag">Single</div>
-              <div class="impl-card-name">Integración puntual</div>
-              <div class="impl-card-hours">Alcance acotado</div>
-              <div class="impl-card-price">Cotización <b>a medida</b></div>
-              <div class="impl-card-desc">Un workflow específico, una integración simple o un dashboard a medida.</div>
-            </div>
-            <div class="impl-card">
-              <div class="impl-card-tag">Pack</div>
-              <div class="impl-card-name">Automatización completa</div>
-              <div class="impl-card-hours">Alcance medio</div>
-              <div class="impl-card-price">Cotización <b>a medida</b></div>
-              <div class="impl-card-desc">Bot a medida + handoff + panel, o varias integraciones conectadas entre sí.</div>
-            </div>
-            <div class="impl-card">
-              <div class="impl-card-tag">Strategic</div>
-              <div class="impl-card-name">Setup integral</div>
-              <div class="impl-card-hours">Alcance integral</div>
-              <div class="impl-card-price">Cotización <b>a medida</b></div>
-              <div class="impl-card-desc">Sistema completo con integraciones externas, OCR, migración de datos y dashboards.</div>
-            </div>
+          <div class="plan enterprise reveal d3">
+            <div class="plan-name">A medida</div>
+            <div class="plan-desc">Integraciones, OCR, multi-marca y volúmenes grandes.</div>
+            <div class="plan-price"><span class="plan-quote grad-text">Cotización</span></div>
+            <div class="plan-annual">&nbsp;</div>
+            <div class="plan-setup">Alcance y precio cerrados antes de arrancar</div>
+            <ul class="plan-feats">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Todo lo de Full Stack, sin límites</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Integración con tus sistemas</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Migración de datos y OCR</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Múltiples marcas o sucursales</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Acuerdo de nivel de servicio</li>
+            </ul>
+            <a href="#contacto" class="btn btn-glass">Pedir cotización</a>
           </div>
         </div>
 
-        <p class="pricing-note" data-aos="fade-up">
-          <i class="bi bi-shield-check"></i>
-          Lo que ves es lo que pagás. Sin sorpresas: la plataforma incluye infraestructura, onboarding y actualizaciones; la implementación a medida se cotiza cerrada antes de arrancar.
+        <p class="price-note reveal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Infraestructura, onboarding y actualizaciones incluidas. La implementación a medida se cotiza cerrada antes de arrancar.
         </p>
-
       </div>
     </section>
 
-    <!-- ═══════════════════ FAQ ═══════════════════ -->
-    <section id="faq" class="faq section">
-      <div class="container">
-        <div class="faq-layout">
-
-          <div class="faq-left" data-aos="fade-right">
-            <span class="section-label">FAQ</span>
-            <h2 class="section-title">Preguntas<br><span class="accent">frecuentes</span></h2>
-            <p class="section-sub" style="font-size:14px;">¿No encontrás lo que buscás? Escribinos directamente.</p>
-            <div class="faq-cta-box">
-              <p>¿Tenés una pregunta más específica sobre tu caso de uso?</p>
-              <a href="#contact" class="faq-cta-btn">
-                <i class="bi bi-chat-dots"></i> Hablar con el equipo
-              </a>
-            </div>
-          </div>
-
-          <div class="faq-list" data-aos="fade-left" data-aos-delay="100">
-
-            <div class="faq-item faq-active">
-              <div class="faq-question">
-                <h3>¿Qué es la automatización con n8n?</h3>
-                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
-              </div>
-              <div class="faq-content">
-                <p>n8n es una herramienta de automatización visual que conecta tus aplicaciones sin código. Con Brain diseñamos flujos personalizados que automatizan tareas repetitivas y reducen errores en tu operación.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <div class="faq-question">
-                <h3>¿Qué herramientas utilizan?</h3>
-                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
-              </div>
-              <div class="faq-content">
-                <p>Trabajamos con tecnologías open source: n8n para automatización, NocoDB para gestión de datos, Metabase para dashboards y Chatwoot para gestión de conversaciones. Todas flexibles, seguras y escalables.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <div class="faq-question">
-                <h3>¿Qué tipo de procesos puedo automatizar?</h3>
-                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
-              </div>
-              <div class="faq-content">
-                <p>Desde envío de emails y reportes automáticos hasta integración de sistemas, atención al cliente con IA en WhatsApp y sincronización de datos. Todo depende de tu necesidad específica.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <div class="faq-question">
-                <h3>¿Cuánto tarda el proceso de implementación?</h3>
-                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
-              </div>
-              <div class="faq-content">
-                <p>Un flujo simple puede estar live en 48 horas. Un proyecto integral puede llevar semanas. Hacemos un diagnóstico sin compromiso para darte un estimado preciso.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <div class="faq-question">
-                <h3>¿Ofrecen soporte post-implementación?</h3>
-                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
-              </div>
-              <div class="faq-content">
-                <p>Sí. Monitoreamos el funcionamiento, analizamos métricas y hacemos ajustes continuos. El soporte está incluido según el plan elegido.</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <div class="faq-question">
-                <h3>¿Trabajan con empresas argentinas?</h3>
-                <span class="faq-toggle"><i class="bi bi-plus"></i></span>
-              </div>
-              <div class="faq-content">
-                <p>Absolutamente. Somos una startup argentina y trabajamos con clientes de todo el país. Conocemos el contexto local, las regulaciones y las necesidades de tu negocio.</p>
-              </div>
-            </div>
-
-          </div>
+    <!-- ═══════════════ FAQ ═══════════════ -->
+    <section class="block" id="faq">
+      <div class="wrap faq-grid">
+        <div class="reveal">
+          <span class="eyebrow">Preguntas</span>
+          <h2 class="h2" style="margin-top:18px;">Lo que todos<br>nos preguntan.</h2>
+          <p class="lead" style="margin-top:18px;">¿Tu duda no está acá? Escribinos, respondemos en menos de 24 horas.</p>
+          <a href="#contacto" class="btn btn-glass" style="margin-top:22px;">Hacé tu consulta</a>
+        </div>
+        <div class="reveal d1">
+          <div class="faq-item open"><div class="faq-q"><h3>¿Qué es exactamente Brain?</h3><span class="faq-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><p>Una plataforma con IA que atiende a tus clientes, agenda turnos y vende por vos, 24/7. No es un menú de respuestas armadas: entiende lo que cada persona quiere y resuelve la conversación completa, como tu mejor empleado.</p></div></div>
+          <div class="faq-item"><div class="faq-q"><h3>¿Necesito saber de tecnología?</h3><span class="faq-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><p>Para nada. Nosotros lo armamos, lo entrenamos con tu negocio y lo dejamos funcionando. Vos solo mirás los resultados desde un panel simple.</p></div></div>
+          <div class="faq-item"><div class="faq-q"><h3>¿En cuánto tiempo está funcionando?</h3><span class="faq-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><p>Un asistente puede estar atendiendo en cuestión de días. Un sistema completo e integrado lleva algunas semanas. Antes de arrancar te damos un plazo claro y cerrado.</p></div></div>
+          <div class="faq-item"><div class="faq-q"><h3>¿Hay costo de instalación?</h3><span class="faq-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><p>El plan Essential arranca con setup bonificado. Los planes superiores tienen un setup único y transparente (USD 290 a 690) que cubre la implementación a medida. La competencia suele cobrar el armado desde USD 1.600 aparte: nosotros te lo dejamos cerrado y claro desde el principio.</p></div></div>
+          <div class="faq-item"><div class="faq-q"><h3>¿Atiende como un robot o se nota natural?</h3><span class="faq-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><p>Conversa con lenguaje natural y el tono de tu marca. Cuando hace falta una persona, deriva sin fricción. No reemplaza a tu equipo: lo libera de lo repetitivo.</p></div></div>
+          <div class="faq-item"><div class="faq-q"><h3>¿Mis datos están seguros?</h3><span class="faq-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><p>Sí. Tu información y la de tus clientes vive en una infraestructura propia y privada, gestionada por nosotros. No se comparte ni se usa para otra cosa.</p></div></div>
+          <div class="faq-item"><div class="faq-q"><h3>¿Trabajan con empresas de todo el país?</h3><span class="faq-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><p>Somos una empresa argentina y trabajamos con clientes de todo el país. Conocemos el contexto local y las necesidades reales de tu negocio.</p></div></div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════ CONTACT ═══════════════════ -->
-    <section id="contact" class="contact section">
-      <div class="container">
-
-        <div class="text-center mb-5" data-aos="fade-up">
-          <span class="section-label">Contacto</span>
-          <h2 class="section-title">Hablemos de<br><span class="accent">tu proyecto</span></h2>
-          <p class="section-sub mx-auto" style="max-width:480px;">Contanos qué necesitás y te respondemos en menos de 24 horas.</p>
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section class="block contact" id="contacto">
+      <div class="glow-orb contact-orb"></div>
+      <div class="wrap contact-grid">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Hablemos</span>
+          <h2 class="h2">Dale un <span class="grad-text">cerebro</span><br>a tu negocio.</h2>
+          <p>Contanos qué hacés y dónde estás perdiendo tiempo o clientes. Te mostramos cómo lo resuelve Brain. Sin compromiso.</p>
+          <div class="ci-item"><span class="ci-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/></svg></span><div><div class="lbl">Email</div><a class="val" href="mailto:ventas@brain.com.ar">ventas@brain.com.ar</a></div></div>
+          <div class="ci-item"><span class="ci-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg></span><div><div class="lbl">Ubicación</div><div class="val">Buenos Aires, Argentina</div></div></div>
+          <div class="ci-item"><span class="ci-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><div><div class="lbl">Respuesta</div><div class="val">En menos de 24 horas</div></div></div>
         </div>
-
-        <div class="contact-layout" data-aos="fade-up" data-aos-delay="100">
-
-          <div>
-            <div class="contact-info-list">
-              <div class="contact-info-item">
-                <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
-                <div>
-                  <div class="contact-info-label">Ubicación</div>
-                  <div class="contact-info-value">Buenos Aires, Argentina</div>
-                </div>
-              </div>
-              <div class="contact-info-item">
-                <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
-                <div>
-                  <div class="contact-info-label">Email</div>
-                  <div class="contact-info-value">
-                    <a href="mailto:info@brain.com.ar">info@brain.com.ar</a>
-                  </div>
-                </div>
-              </div>
-              <div class="contact-info-item">
-                <div class="contact-info-icon"><i class="bi bi-clock"></i></div>
-                <div>
-                  <div class="contact-info-label">Horarios</div>
-                  <div class="contact-info-value">Lun–Vie: 9 a 18 hs · Sáb: 9 a 16 hs</div>
-                </div>
-              </div>
+        <div class="form-card reveal d1">
+          <h3>Contanos sobre tu proyecto</h3>
+          <p>Te respondemos en menos de 24 horas hábiles.</p>
+          <form id="contact-form" action="#" method="post">
+            <div class="f-row">
+              <div class="f-field"><label for="nameInput">Nombre</label><input type="text" id="nameInput" name="name" placeholder="Tu nombre completo" required></div>
+              <div class="f-field"><label for="emailInput">Email</label><input type="email" id="emailInput" name="email" placeholder="vos@empresa.com" required></div>
             </div>
-
-            <div class="contact-social mt-4">
-              <a href="#" class="social-icon-btn"><i class="bi bi-linkedin"></i></a>
-              <a href="#" class="social-icon-btn"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="social-icon-btn"><i class="bi bi-twitter-x"></i></a>
-              <a href="#" class="social-icon-btn"><i class="bi bi-whatsapp"></i></a>
-            </div>
-          </div>
-
-          <div class="contact-form-card">
-            <h3>Enviá tu consulta</h3>
-            <p class="form-sub">Te respondemos en menos de 24 horas hábiles.</p>
-
-            <form id="contact-form" action="#" method="post">
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="nameInput">Nombre</label>
-                  <input type="text" id="nameInput" name="name" placeholder="Tu nombre completo" required>
-                </div>
-                <div class="form-field">
-                  <label for="emailInput">Email</label>
-                  <input type="email" id="emailInput" name="email" placeholder="tu@empresa.com" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-field full">
-                  <label for="subjectInput">Asunto</label>
-                  <input type="text" id="subjectInput" name="subject" placeholder="¿En qué podemos ayudarte?" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-field full">
-                  <label for="messageInput">Mensaje</label>
-                  <textarea id="messageInput" name="message" placeholder="Contanos sobre tu proyecto o proceso..." required></textarea>
-                </div>
-              </div>
-
-              <div id="form-status">
-                <div class="loading">Enviando...</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Tu mensaje fue enviado. ¡Gracias!</div>
-              </div>
-
-              <button type="submit" class="btn-submit">
-                Enviar mensaje <i class="bi bi-send"></i>
-              </button>
-            </form>
-          </div>
-
+            <div class="f-row"><div class="f-field full"><label for="subjectInput">Asunto</label><input type="text" id="subjectInput" name="subject" placeholder="¿En qué te podemos ayudar?" required></div></div>
+            <div class="f-row"><div class="f-field full"><label for="messageInput">Mensaje</label><textarea id="messageInput" name="message" placeholder="Contanos qué hacés y qué te gustaría automatizar..." required></textarea></div></div>
+            <div id="form-status"><div class="loading">Enviando...</div><div class="error-message"></div><div class="sent-message">¡Listo! Tu mensaje fue enviado. Te contactamos pronto.</div></div>
+            <button type="submit" class="btn-submit">Enviar mensaje
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ═══════════════════ FOOTER ═══════════════════ -->
-  <footer id="footer" class="footer">
-    <div class="container">
-
-      <div class="footer-grid">
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
         <div>
-          <div class="footer-logo">
-            <img src="assets/img/brain.ico" alt="Brain Logo">
-            <span class="sitename">Brain</span>
-          </div>
-          <p class="footer-tagline">Startup argentina de automatización inteligente. Desarrollamos soluciones con IA, n8n, NocoDB y Metabase para que tu negocio crezca de forma ágil y escalable.</p>
-          <div class="footer-social">
-            <a href="#" class="footer-social-btn"><i class="bi bi-linkedin"></i></a>
-            <a href="#" class="footer-social-btn"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="footer-social-btn"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="footer-social-btn"><i class="bi bi-github"></i></a>
+          <div class="brand"><span class="brand-logo"><img src="assets/img/brain-logo.png" alt="Brain" width="38" height="38"></span><span class="brand-name">Brai<b>n</b></span></div>
+          <p class="foot-tag">La plataforma de atención inteligente para empresas argentinas. Atención, turnos y ventas que nunca dejan de funcionar.</p>
+          <div class="foot-social">
+            <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 11-4 0 2 2 0 014 0zM3.2 8.6h3.5V21H3.2V8.6zM9 8.6h3.36v1.7h.05c.47-.9 1.6-1.84 3.3-1.84 3.53 0 4.18 2.32 4.18 5.34V21h-3.5v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V8.6z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 11.5a8 8 0 01-11.8 7L4 20l1.6-4A8 8 0 1120 11.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
-
-        <div class="footer-col">
-          <h5>Producto</h5>
-          <ul>
-            <li><a href="service-details.html">Flujos automatizados</a></li>
-            <li><a href="service-details.html">Dashboards</a></li>
-            <li><a href="service-details.html">Gestión de datos</a></li>
-            <li><a href="service-details.html">Agentes de IA</a></li>
-            <li><a href="service-details.html">Integraciones</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>Empresa</h5>
-          <ul>
-            <li><a href="#hero">Inicio</a></li>
-            <li><a href="#pricing">Planes</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#">Términos de uso</a></li>
-            <li><a href="#">Privacidad</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>Contacto</h5>
-          <div class="footer-contact-row"><i class="bi bi-geo-alt"></i><span>Buenos Aires, Argentina</span></div>
-          <div class="footer-contact-row"><i class="bi bi-envelope"></i><span>info@brain.com.ar</span></div>
-          <div class="footer-contact-row"><i class="bi bi-clock"></i><span>Lun–Vie: 9 a 18 hs</span></div>
-        </div>
+        <div class="foot-col"><h5>Plataforma</h5><ul><li><a href="#plataforma">Atiende</a></li><li><a href="#plataforma">Agenda</a></li><li><a href="#plataforma">Vende</a></li><li><a href="#precios">Planes</a></li></ul></div>
+        <div class="foot-col"><h5>Empresa</h5><ul><li><a href="#soluciones">Soluciones</a></li><li><a href="#caso">Casos reales</a></li><li><a href="#faq">Preguntas</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+        <div class="foot-col"><h5>Contacto</h5><ul><li><a href="mailto:ventas@brain.com.ar">ventas@brain.com.ar</a></li><li><a href="#contacto">Buenos Aires, Argentina</a></li><li><a href="#contacto">Lun–Vie · 9 a 18 hs</a></li></ul></div>
       </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Brain. Todos los derechos reservados.</span>
-        <div class="footer-bottom-links">
-          <a href="#">Términos de uso</a>
-          <a href="#">Política de privacidad</a>
-        </div>
-      </div>
-
+      <div class="foot-bottom"><span>© 2026 Brain. Todos los derechos reservados.</span><div class="links"><a href="#">Términos</a><a href="#">Privacidad</a></div></div>
     </div>
   </footer>
 
-  <!-- ═══════════════════ SCROLL TOP ═══════════════════ -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
+  <a href="#hero" class="scroll-top" id="scrollTop" aria-label="Volver arriba"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 
-  <!-- ═══════════════════ PRELOADER ═══════════════════ -->
-  <div id="preloader"></div>
-
-  <!-- ═══════════════════ CHAT WIDGET ═══════════════════ -->
-  <button id="chat-widget-button" class="chat-widget-button" aria-label="Abrir chat">
-    <i class="bi bi-chat-dots-fill"></i>
+  <!-- ═══════════════ CHAT WIDGET ═══════════════ -->
+  <button id="chat-widget-button" class="chat-widget-button" aria-label="Abrir chat con Brain">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="8.5" cy="11.5" r="1.1" fill="currentColor"/><circle cx="12" cy="11.5" r="1.1" fill="currentColor"/><circle cx="15.5" cy="11.5" r="1.1" fill="currentColor"/></svg>
   </button>
-
   <div id="chat-widget-container" class="chat-widget-container">
     <div id="chat-widget-header" class="chat-widget-header">
-      <span><i class="bi bi-chat-dots me-2"></i>Chat Brain</span>
-      <button type="button" id="chat-widget-close" aria-label="Cerrar chat">
-        <i class="bi bi-x-lg"></i>
-      </button>
+      <span><span class="dot"><img src="assets/img/brain-logo.png" alt="Brain" width="28" height="28"></span>Asistente Brain</span>
+      <button type="button" id="chat-widget-close" aria-label="Cerrar chat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     </div>
     <div id="chat-widget-body" class="chat-widget-body">
-      <p class="chat-widget-welcome">¡Hola! Soy el asistente de Brain. ¿En qué puedo ayudarte?</p>
+      <p class="chat-widget-welcome">¡Hola! 👋 Soy el asistente de Brain. Contame qué hacés y te muestro cómo podemos automatizar tu negocio.</p>
     </div>
     <div class="chat-widget-footer">
-      <input
-        type="text"
-        id="chat-widget-input"
-        class="chat-widget-input"
-        placeholder="Escribí tu consulta..."
-        autocomplete="off"
-      >
-      <button id="chat-widget-send" class="chat-widget-send" aria-label="Enviar">
-        <i class="bi bi-send-fill"></i>
-      </button>
+      <input type="text" id="chat-widget-input" class="chat-widget-input" placeholder="Escribí tu consulta..." autocomplete="off">
+      <button id="chat-widget-send" class="chat-widget-send" aria-label="Enviar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </div>
 
-  <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+  <!-- ═══════════════ SCRIPTS ═══════════════ -->
+  <script>
+  (function () {
+    "use strict";
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  <script src="assets/js/main.js"></script>
+    // nav + scroll-top
+    var nav = document.getElementById("nav"), scrollTop = document.getElementById("scrollTop");
+    function onScroll() { var y = window.scrollY; nav.classList.toggle("scrolled", y > 40); scrollTop.classList.toggle("show", y > 700); }
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+    // mobile nav
+    var toggle = document.getElementById("navToggle"), links = document.getElementById("navLinks");
+    toggle.addEventListener("click", function () { links.classList.toggle("open"); });
+    links.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { links.classList.remove("open"); }); });
+
+    // reveal
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
+    document.querySelectorAll(".reveal:not(.in)").forEach(function (el) { io.observe(el); });
+
+    // duplicate marquee for seamless loop
+    var mq = document.getElementById("marquee");
+    if (mq) mq.innerHTML += mq.innerHTML;
+
+    // hero floaters parallax
+    var floaters = [].slice.call(document.querySelectorAll(".floater"));
+    if (!reduce && floaters.length && window.matchMedia("(pointer:fine)").matches) {
+      window.addEventListener("mousemove", function (e) {
+        var cx = (e.clientX / window.innerWidth - 0.5), cy = (e.clientY / window.innerHeight - 0.5);
+        floaters.forEach(function (f) {
+          var d = parseFloat(f.getAttribute("data-depth")) || 4;
+          var base = f.style.getPropertyValue("--r") || "";
+          f.style.transform = "translate(" + (cx * d * 5) + "px," + (cy * d * 5) + "px) rotate(" + (f.classList.contains("floater-1") ? -9 : f.classList.contains("floater-2") ? 8 : 6) + "deg)";
+        });
+      });
+    }
+
+    // stepper -> visual swap (+ auto-advance)
+    var steps = [].slice.call(document.querySelectorAll(".step"));
+    var visuals = [].slice.call(document.querySelectorAll(".visual"));
+    var current = 0, autoTimer = null;
+    function setStep(i) {
+      current = i;
+      steps.forEach(function (s, k) { s.classList.toggle("active", k === i); });
+      visuals.forEach(function (v) { v.classList.toggle("show", parseInt(v.getAttribute("data-vis"), 10) === i); });
+    }
+    steps.forEach(function (s, i) { s.addEventListener("click", function () { setStep(i); restartAuto(); }); });
+    function restartAuto() { if (reduce) return; clearInterval(autoTimer); autoTimer = setInterval(function () { setStep((current + 1) % steps.length); }, 4200); }
+    var modular = document.getElementById("plataforma");
+    if (modular) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) restartAuto(); else clearInterval(autoTimer); });
+      }, { threshold: 0.3 }).observe(modular);
+    }
+
+    // dashboard mock tilt
+    var mock = document.getElementById("mock"), mockWrap = document.getElementById("mockWrap");
+    if (mock && !reduce && window.matchMedia("(pointer:fine)").matches) {
+      mockWrap.addEventListener("mousemove", function (e) {
+        var r = mockWrap.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+        mock.style.transform = "rotateX(" + (8 - py * 8) + "deg) rotateY(" + (-6 + px * 10) + "deg)";
+      });
+      mockWrap.addEventListener("mouseleave", function () { mock.style.transform = "rotateX(8deg) rotateY(-6deg)"; });
+    }
+
+    // FAQ
+    document.querySelectorAll(".faq-item").forEach(function (item) {
+      var q = item.querySelector(".faq-q"), a = item.querySelector(".faq-a");
+      function set() { a.style.maxHeight = item.classList.contains("open") ? a.scrollHeight + "px" : "0px"; }
+      if (item.classList.contains("open")) set();
+      q.addEventListener("click", function () {
+        var open = item.classList.contains("open");
+        document.querySelectorAll(".faq-item.open").forEach(function (o) { o.classList.remove("open"); o.querySelector(".faq-a").style.maxHeight = "0px"; });
+        if (!open) { item.classList.add("open"); set(); }
+      });
+    });
+
+    // pricing toggle
+    var billToggle = document.getElementById("billToggle"), lblMonth = document.getElementById("lblMonth"), lblYear = document.getElementById("lblYear"), year = false;
+    billToggle.addEventListener("click", function () {
+      year = !year;
+      billToggle.classList.toggle("year", year);
+      lblMonth.classList.toggle("on", !year); lblYear.classList.toggle("on", year);
+      document.querySelectorAll(".plan").forEach(function (plan) {
+        var num = plan.querySelector(".num"), ann = plan.querySelector(".plan-annual");
+        if (!num) return;
+        num.style.opacity = "0";
+        setTimeout(function () { num.textContent = year ? num.dataset.y : num.dataset.m; ann.textContent = year ? ann.dataset.annual : " "; num.style.opacity = "1"; }, 180);
+      });
+    });
+
+    // ─── dotted globe (canvas) ───
+    var globe = document.getElementById("globe");
+    if (globe && !reduce) {
+      var g = globe.getContext("2d"), GW = globe.width, GH = globe.height, R = GW * 0.40, cx = GW / 2, cy = GH / 2;
+      var pts = [], N = 620;
+      for (var i = 0; i < N; i++) {
+        var y = 1 - (i / (N - 1)) * 2, rad = Math.sqrt(1 - y * y), th = i * 2.399963;
+        pts.push({ x: Math.cos(th) * rad, y: y, z: Math.sin(th) * rad });
+      }
+      // pins (approx lat/long for AR cities) -> unit sphere
+      function ll(lat, lon) { var la = lat * Math.PI / 180, lo = lon * Math.PI / 180; return { x: Math.cos(la) * Math.cos(lo), y: Math.sin(la), z: Math.cos(la) * Math.sin(lo) }; }
+      var pins = [ll(-34.6, -58.4), ll(-34.4, -58.6), ll(-31.4, -64.2), ll(-32.9, -60.7), ll(-24.8, -65.4)];
+      var ang = 0;
+      function frame() {
+        g.clearRect(0, 0, GW, GH); ang += 0.0032;
+        var sin = Math.sin(ang), cos = Math.cos(ang);
+        for (var i = 0; i < pts.length; i++) {
+          var p = pts[i], xr = p.x * cos - p.z * sin, zr = p.x * sin + p.z * cos;
+          var sx = cx + xr * R, sy = cy + p.y * R, depth = (zr + 1) / 2;
+          g.beginPath(); g.arc(sx, sy, 1.1 + depth * 0.9, 0, 6.283);
+          g.fillStyle = "rgba(90,160,255," + (0.12 + depth * 0.5) + ")"; g.fill();
+        }
+        pins.forEach(function (p) {
+          var xr = p.x * cos - p.z * sin, zr = p.x * sin + p.z * cos;
+          if (zr < 0) return;
+          var sx = cx + xr * R, sy = cy + p.y * R, depth = (zr + 1) / 2;
+          g.beginPath(); g.arc(sx, sy, 3.4, 0, 6.283); g.fillStyle = "#28C2FF"; g.fill();
+          g.beginPath(); g.arc(sx, sy, 7, 0, 6.283); g.strokeStyle = "rgba(40,194,255," + (0.5 * depth) + ")"; g.lineWidth = 1.4; g.stroke();
+        });
+        requestAnimationFrame(frame);
+      }
+      frame();
+    }
+  })();
+  </script>
+
   <script src="assets/js/contact-form.js"></script>
   <script src="assets/js/chat-widget.js"></script>
 
