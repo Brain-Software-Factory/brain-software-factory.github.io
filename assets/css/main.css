@@ -621,4 +621,19 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   }
+
+  /* ═══════════════ LEGAL PAGES (privacy / terms) ═══════════════ */
+  .legal { max-width: 760px; margin: 0 auto; }
+  .legal .head { max-width: 100%; }
+  .legal-body { margin-top: 42px; color: var(--text-soft); }
+  .legal-body h2 { font-size: 1.35rem; margin: 36px 0 14px; color: var(--text); }
+  .legal-body h3 { font-size: 1.05rem; margin: 24px 0 10px; color: var(--text); }
+  .legal-body p { margin-bottom: 14px; font-size: 0.98rem; line-height: 1.7; }
+  .legal-body ul { list-style: none; margin: 14px 0 18px; display: flex; flex-direction: column; gap: 10px; }
+  .legal-body li { position: relative; padding-left: 22px; font-size: 0.95rem; line-height: 1.6; }
+  .legal-body li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); }
+  .legal-body a { color: var(--blue-br); text-decoration: underline; text-underline-offset: 3px; transition: color 0.25s; }
+  .legal-body a:hover { color: var(--sky); }
+  .legal-body strong { color: var(--text); font-weight: 600; }
+  .legal-body em { color: var(--text); font-style: italic; }
   
