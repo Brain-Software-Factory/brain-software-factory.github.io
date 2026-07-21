@@ -1,0 +1,51 @@
+name: Deploy a brain.com.ar (Prod VPS)
+
+# Publica el sitio en el VPS de produccion (37.60.227.83) en cada push a main.
+# La deploy key esta restringida en la VPS con `rrsync -wo /root/brain-landing`,
+# asi que el rsync escribe SOLO en esa carpeta (bind mount del stack Swarm
+# `brain-landing` = nginx:alpine, ruteado por Traefik a brain.com.ar con cert
+# Let's Encrypt). nginx sirve la carpeta al instante, no hace falta reiniciar nada.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-brain-prod
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.BRAIN_PROD_DEPLOY_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo "37.60.227.83 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP8Mab9OnlmDLvKEYvPO4cK1VDbH/qSIMFPzq/WYCGhf" >> ~/.ssh/known_hosts
+
+      # rrsync mapea el destino ":/" a la carpeta restringida /root/brain-landing.
+      - name: Deploy (rsync a /root/brain-landing)
+        run: |
+          rsync -az --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.superpowers' \
+            -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes" \
+            ./ root@37.60.227.83:/
+
+      - name: Verificar sitio
+        run: |
+          for i in $(seq 1 10); do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://brain.com.ar)
+            echo "Intento $i: HTTP $STATUS"
+            if [ "$STATUS" = "200" ]; then exit 0; fi
+            sleep 6
+          done
+          echo "El sitio no respondio 200 tras los reintentos"
+          exit 1
