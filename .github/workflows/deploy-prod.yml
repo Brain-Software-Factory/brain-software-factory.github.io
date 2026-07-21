@@ -1,6 +1,6 @@
 name: Deploy a brain.com.ar (Prod VPS)
 
-# Publica el sitio en el VPS de produccion (37.60.227.83) en cada push a main.
+# Publica el sitio en la VPS de Brain (167.86.86.163) en cada push a main.
 # La deploy key esta restringida en la VPS con `rrsync -wo /root/brain-landing`,
 # asi que el rsync escribe SOLO en esa carpeta (bind mount del stack Swarm
 # `brain-landing` = nginx:alpine, ruteado por Traefik a brain.com.ar con cert
@@ -27,7 +27,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.BRAIN_PROD_DEPLOY_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          echo "37.60.227.83 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP8Mab9OnlmDLvKEYvPO4cK1VDbH/qSIMFPzq/WYCGhf" >> ~/.ssh/known_hosts
+          echo "167.86.86.163 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKD1bwzft/IGRxUk7jfpaftldrkeSnMZAjWY2MnM5vnX" >> ~/.ssh/known_hosts
 
       # rrsync mapea el destino ":/" a la carpeta restringida /root/brain-landing.
       - name: Deploy (rsync a /root/brain-landing)
@@ -37,7 +37,7 @@ jobs:
             --exclude='.github' \
             --exclude='.superpowers' \
             -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes" \
-            ./ root@37.60.227.83:/
+            ./ root@167.86.86.163:/
 
       - name: Verificar sitio
         run: |
